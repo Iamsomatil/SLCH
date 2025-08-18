@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ServiceCard from "../components/ServiceCard";
-import { Shield, Wrench, MapPin, Cog } from "lucide-react";
+import { Shield, Wrench, MapPin, Cog, Clock, Users } from "lucide-react";
 
 const services = [
   {
