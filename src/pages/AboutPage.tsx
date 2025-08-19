@@ -207,6 +207,40 @@ const AboutPage: React.FC = () => {
           </div>
         </motion.section>
 
+        {/* Meet the Team */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mb-16"
+        >
+          <h2 className="text-3xl font-bold text-navy mb-8 text-center">
+            Meet the Team
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Hosea Barnwell", title: "Chief Executive Officer" },
+              { name: "Troy Austria", title: "Chief Operating Officer" },
+              { name: "Samson Akinsanya", title: "Chief Technology Officer" },
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-xl shadow-lg p-6 text-center"
+              >
+                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gold/10 text-gold text-2xl font-bold">
+                  {member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")
+                    .slice(0, 2)}
+                </div>
+                <h3 className="text-xl font-bold text-navy">{member.name}</h3>
+                <p className="text-gray-600">{member.title}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
         {/* Why Choose Us */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
