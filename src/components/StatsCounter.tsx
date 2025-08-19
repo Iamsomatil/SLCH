@@ -1,158 +1,108 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import Counter from "./Counter";
 
-type Stat = {
-  label: string;
-  value: number;
-  prefix?: string;
-  suffix?: string;
-};
+type CircleStat = { label: string; value: number; suffix?: string };
+type BarStat = { label: string; percent: number };
 
-const defaultStats: Stat[] = [
-  {
-    label: "Services Completed",
-    value: 500,
-    suffix: "+",
-  },
-  {
-    label: "Miles Traveled",
-    value: 100000,
-    suffix: "+",
-  },
-  {
-    label: "Facilities Supported",
-    value: 250,
-    suffix: "+",
-  },
+const defaultCircles: CircleStat[] = [
+  { label: "Services Completed", value: 500, suffix: "+" },
+  { label: "Floors Traveled", value: 9999, suffix: "+" },
+  { label: "Miles Driven", value: 10000, suffix: "+" },
 ];
 
-function useCountUp(target: number, duration: number = 2000) {
-  const [count, setCount] = useState(0);
-  const startTime = useRef<number>();
-  const rafId = useRef<number>();
-  const isMounted = useRef(true);
-  const prefersReduced = useMemo(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    []
-  );
+const defaultBars: BarStat[] = [
+  { label: "Service Uptime", percent: 94 },
+  { label: "Customer Retention", percent: 98 },
+  { label: "On‑time Completion", percent: 99 },
+];
 
-  useEffect(() => {
-    isMounted.current = true;
-    if (prefersReduced) {
-      setCount(target);
-      return () => {
-        isMounted.current = false;
-      };
-    }
-
-    const startCounting = (timestamp: number) => {
-      if (!startTime.current) startTime.current = timestamp;
-      const elapsed = timestamp - startTime.current;
-      const progress = Math.min(elapsed / duration, 1);
-
-      // Ease out function
-      const easeOutQuad = (t: number) => t * (2 - t);
-      const current = Math.floor(easeOutQuad(progress) * target);
-
-      if (isMounted.current) {
-        setCount(current);
-      }
-
-      if (progress < 1) {
-        rafId.current = requestAnimationFrame(startCounting);
-      }
-    };
-
-    rafId.current = requestAnimationFrame(startCounting);
-
-    return () => {
-      isMounted.current = false;
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
-    };
-  }, [target, duration, prefersReduced]);
-
-  return count;
-}
-
-const StatItem: React.FC<Stat> = ({
-  label,
-  value,
-  prefix = "",
-  suffix = "",
-}) => {
-  const [isVisible, setIsVisible] = useState(false);
+const useInView = (threshold = 0.2) => {
   const ref = useRef<HTMLDivElement>(null);
-  const count = useCountUp(isVisible ? value : 0);
+  const [visible, setVisible] = useState(false);
   const prefersReduced = useMemo(
     () =>
       typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches,
     []
   );
 
   useEffect(() => {
-    // Reduced motion users see the final value immediately
     if (prefersReduced) {
-      setIsVisible(true);
+      setVisible(true);
       return;
     }
-
     const el = ref.current;
     if (!el) return;
-
-    // Immediate check in case the element is already in view (e.g., after HMR)
     const rect = el.getBoundingClientRect();
-    const viewportH =
-      window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < viewportH * 0.9 && rect.bottom > 0) {
-      setIsVisible(true);
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh * 0.9 && rect.bottom > 0) {
+      setVisible(true);
       return;
     }
-
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          setVisible(true);
+          io.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -20% 0px" }
+      { threshold, rootMargin: "0px 0px -15% 0px" }
     );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [prefersReduced, threshold]);
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [prefersReduced]);
+  return { ref, visible, prefersReduced } as const;
+};
 
+const CircleCard: React.FC<CircleStat> = ({ label, value, suffix }) => {
+  const { ref, visible } = useInView(0.2);
   return (
     <div
       ref={ref}
-      className="text-center"
-      aria-live="polite"
-      aria-atomic="true"
-      onMouseEnter={() => setIsVisible(true)}
+      className="relative mx-auto flex h-40 w-40 md:h-44 md:w-44 items-center justify-center rounded-full border-2 border-navy/20 bg-white"
     >
-      <div className="inline-flex items-baseline gap-2 rounded-full px-4 py-2 bg-white shadow-soft">
-        <span
-          className="text-4xl font-extrabold text-navy tabular-nums min-w-[6ch] text-center"
-          aria-label={`${prefix}${value}${suffix} ${label}`.trim()}
-        >
-          {prefix}
-          {count.toLocaleString()}
-          {suffix}
-        </span>
+      <div className="text-center">
+        <Counter
+          value={visible ? value : 0}
+          suffix={suffix}
+          className="text-4xl font-extrabold text-navy tabular-nums"
+          ariaLabel={`${label}: ${value}${suffix ?? ""}`}
+        />
+        <div className="mt-2 text-sm text-navy/80 max-w-[12ch] mx-auto leading-snug">
+          {label}
+        </div>
       </div>
-      <div className="mt-2 text-gray-600 text-sm">{label}</div>
+      <div className="pointer-events-none absolute bottom-2 left-1/2 h-1 w-2/3 -translate-x-1/2 rounded-full bg-gold" />
     </div>
   );
 };
 
-const StatsCounter: React.FC<{ items?: Stat[] }> = ({ items }) => {
-  const stats = items && items.length ? items : defaultStats;
+const BarItem: React.FC<BarStat> = ({ label, percent }) => {
+  const { ref, visible, prefersReduced } = useInView(0.2);
+  const width = prefersReduced ? percent : visible ? percent : 0;
+  return (
+    <div ref={ref} className="space-y-1">
+      <div className="flex items-center justify-between text-sm text-navy">
+        <span>{label}</span>
+        <span className="font-semibold">{percent}%</span>
+      </div>
+      <div className="h-1.5 w-full rounded-full bg-navy/15">
+        <div
+          className="h-1.5 rounded-full bg-gold transition-all duration-700"
+          style={{ width: `${width}%` }}
+        />
+      </div>
+    </div>
+  );
+};
+
+const StatsCounter: React.FC<{ circles?: CircleStat[]; bars?: BarStat[] }> = ({
+  circles,
+  bars,
+}) => {
+  const circleStats = circles && circles.length ? circles : defaultCircles;
+  const barStats = bars && bars.length ? bars : defaultBars;
 
   return (
     <section className="py-12 md:py-16 bg-white" aria-label="Our Impact">
@@ -160,10 +110,17 @@ const StatsCounter: React.FC<{ items?: Stat[] }> = ({ items }) => {
         <h2 className="text-2xl md:text-3xl font-bold text-center text-navy mb-10">
           Our Impact in Numbers
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} {...stat} />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 place-items-center">
+            {circleStats.map((c) => (
+              <CircleCard key={c.label} {...c} />
+            ))}
+          </div>
+          <div className="space-y-5">
+            {barStats.map((b) => (
+              <BarItem key={b.label} {...b} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
