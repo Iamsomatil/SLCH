@@ -92,11 +92,29 @@ const Footer: React.FC = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Phone className="h-4 w-4" />
-                <span>(555) 123-4567</span>
+                <a
+                  href="tel:+17542070982"
+                  className="hover:text-gold transition-colors"
+                >
+                  (+1) 754-207-0982
+                </a>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Mail className="h-4 w-4" />
-                <span>info@sunlifehousing.com</span>
+              <div className="flex items-start space-x-2 text-sm text-gray-300">
+                <Mail className="h-4 w-4 mt-0.5" />
+                <div className="flex flex-col">
+                  <a
+                    href="mailto:Hosea@sunlifehousingcorp.com"
+                    className="hover:text-gold transition-colors"
+                  >
+                    Hosea@sunlifehousingcorp.com
+                  </a>
+                  <a
+                    href="mailto:Troy@sunlifehousingcorp.com"
+                    className="hover:text-gold transition-colors"
+                  >
+                    Troy@sunlifehousingcorp.com
+                  </a>
+                </div>
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <MapPin className="h-4 w-4" />

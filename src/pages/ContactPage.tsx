@@ -108,11 +108,7 @@ const ContactPage: React.FC = () => {
                 <div>
                   <h3 className="font-semibold text-navy mb-1">Headquarters</h3>
                   <p className="text-gray-600 mb-2">Visit our main office</p>
-                  <p className="text-navy">
-                    123 Business District Ave
-                    <br />
-                    New York, NY 10001
-                  </p>
+                  <p className="text-navy">Tampa, FL</p>
                 </div>
               </div>
 
