@@ -67,10 +67,10 @@ const ContactPage: React.FC = () => {
                     Call us for immediate assistance
                   </p>
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+17542070982"
                     className="text-gold hover:text-gold/80 font-medium"
                   >
-                    (555) 123-4567
+                    (+1) 754-207-0982
                   </a>
                 </div>
               </div>
@@ -84,12 +84,20 @@ const ContactPage: React.FC = () => {
                   <p className="text-gray-600 mb-2">
                     Send us your questions or requests
                   </p>
-                  <a
-                    href="mailto:info@sunlifehousingcorp.com"
-                    className="text-gold hover:text-gold/80 font-medium"
-                  >
-                    info@sunlifehousingcorp.com
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="mailto:Hosea@sunlifehousingcorp.com"
+                      className="text-gold hover:text-gold/80 font-medium"
+                    >
+                      Hosea@sunlifehousingcorp.com
+                    </a>
+                    <a
+                      href="mailto:Troy@sunlifehousingcorp.com"
+                      className="text-gold hover:text-gold/80 font-medium"
+                    >
+                      Troy@sunlifehousingcorp.com
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -139,10 +147,10 @@ const ContactPage: React.FC = () => {
                     For urgent facility issues
                   </p>
                   <a
-                    href="tel:+15551234999"
+                    href="tel:+17542070982"
                     className="text-gold hover:text-gold/80 font-medium"
                   >
-                    (555) 123-4999
+                    (+1) 754-207-0982
                   </a>
                 </div>
               </div>
