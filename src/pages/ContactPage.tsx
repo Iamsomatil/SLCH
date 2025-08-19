@@ -128,9 +128,7 @@ const ContactPage: React.FC = () => {
                     We're available during these hours
                   </p>
                   <div className="text-navy">
-                    <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p>Saturday: 9:00 AM - 4:00 PM</p>
-                    <p>Sunday: Emergency calls only</p>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                   </div>
                 </div>
               </div>

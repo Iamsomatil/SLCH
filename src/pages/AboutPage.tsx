@@ -1,36 +1,40 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, Users, Building, Clock, Shield, Heart } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Award, Users, Building, Clock, Shield, Heart } from "lucide-react";
 
 const AboutPage: React.FC = () => {
   const stats = [
-    { number: '500+', label: 'Properties Managed', icon: Building },
-    { number: '10K+', label: 'Satisfied Clients', icon: Users },
-    { number: '15+', label: 'Years Experience', icon: Clock },
-    { number: '99%', label: 'Client Satisfaction', icon: Award }
+    { number: "500+", label: "Properties Managed", icon: Building },
+    { number: "10K+", label: "Satisfied Clients", icon: Users },
+    { number: "15+", label: "Years Experience", icon: Clock },
+    { number: "99%", label: "Client Satisfaction", icon: Award },
   ];
 
   const values = [
     {
-      title: 'Excellence',
-      description: 'We strive for excellence in every aspect of our service delivery, from initial consultation to ongoing support.',
-      icon: Award
+      title: "Excellence",
+      description:
+        "We strive for excellence in every aspect of our service delivery, from initial consultation to ongoing support.",
+      icon: Award,
     },
     {
-      title: 'Integrity',
-      description: 'We conduct business with the highest ethical standards, building trust through transparency and honest communication.',
-      icon: Shield
+      title: "Integrity",
+      description:
+        "We conduct business with the highest ethical standards, building trust through transparency and honest communication.",
+      icon: Shield,
     },
     {
-      title: 'Innovation',
-      description: 'We continuously innovate our processes and services to stay ahead of industry trends and client needs.',
-      icon: Building
+      title: "Innovation",
+      description:
+        "We continuously innovate our processes and services to stay ahead of industry trends and client needs.",
+      icon: Building,
     },
     {
-      title: 'Care',
-      description: 'We genuinely care about our clients\' success and work tirelessly to exceed their expectations.',
-      icon: Heart
-    }
+      title: "Care",
+      description:
+        "We genuinely care about our clients' success and work tirelessly to exceed their expectations.",
+      icon: Heart,
+    },
   ];
 
   return (
@@ -44,11 +48,12 @@ const AboutPage: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            About SunLife Housing Corp
+            About Sunlife Corporate Housing
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            For over 15 years, we've been the trusted partner for corporations and individuals 
-            seeking premium housing solutions and comprehensive facility management services.
+            Sunlife Corporate Housing was founded with a clear vision: to
+            streamline administrative and operational support for agencies,
+            organizations, and enterprises navigating complex projects.
           </p>
         </motion.div>
 
@@ -60,8 +65,8 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Modern corporate housing complex"
+              src="https://images.pexels.com/photos/416320/pexels-photo-416320.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Operations and facility services"
               className="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
           </motion.div>
@@ -74,21 +79,17 @@ const AboutPage: React.FC = () => {
           >
             <h2 className="text-3xl font-bold text-navy">Our Story</h2>
             <p className="text-gray-600 leading-relaxed">
-              Founded in 2009, SunLife Housing Corp emerged from a simple observation: 
-              business travelers and relocating employees deserved better than generic hotel stays 
-              and impersonal service. Our founder, Sarah Johnson, recognized the need for a 
-              company that could provide home-like comfort with professional-grade service.
+              Rooted in a commitment to service and excellence, we specialize in
+              providing reliable, high-performing teams and solutions that help
+              our clients meet deadlines, manage resources, and exceed
+              expectations. From contract administration to project oversight,
+              we step in with a clear mission — to bring clarity, consistency,
+              and confidence to every contract we touch.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              What started as a small operation managing a handful of furnished apartments 
-              has grown into a comprehensive service provider managing hundreds of properties 
-              across multiple states. Our success is built on the foundation of understanding 
-              that every client has unique needs and deserves personalized attention.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Today, we continue to innovate and expand our services while maintaining the 
-              personal touch that has made us a trusted partner for Fortune 500 companies, 
-              healthcare systems, educational institutions, and individual professionals.
+              What began as a small, dedicated team has grown into a multi-state
+              operation, trusted by agencies and partners for our
+              professionalism, responsiveness, and results-driven approach.
             </p>
           </motion.div>
         </div>
@@ -105,8 +106,9 @@ const AboutPage: React.FC = () => {
               Our Impact by the Numbers
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              These numbers represent more than statistics – they represent relationships, 
-              trust, and the success of our clients across the years.
+              These numbers represent more than statistics – they represent
+              relationships, trust, and the success of our clients across the
+              years.
             </p>
           </div>
 
@@ -122,7 +124,9 @@ const AboutPage: React.FC = () => {
                 <div className="flex items-center justify-center w-16 h-16 bg-gold/20 rounded-full mx-auto mb-4">
                   <stat.icon className="h-8 w-8 text-gold" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-4xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
                 <div className="text-gray-300">{stat.label}</div>
               </motion.div>
             ))}
@@ -139,14 +143,14 @@ const AboutPage: React.FC = () => {
           >
             <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              To provide exceptional corporate housing and facility management services that 
-              enable our clients to focus on their core business objectives while we handle 
-              their property and accommodation needs with unmatched professionalism and care.
+              To streamline administrative and operational support with
+              dependable teams and processes — bringing clarity, consistency,
+              and confidence to every contract we touch.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We believe that everyone deserves a comfortable, safe, and well-maintained 
-              environment, whether it's a temporary corporate housing assignment or a 
-              permanent facility management partnership.
+              We deliver compliant, responsive, and results-driven solutions
+              that help agencies and enterprises meet deadlines, manage
+              resources, and exceed expectations.
             </p>
           </motion.div>
 
@@ -158,14 +162,14 @@ const AboutPage: React.FC = () => {
           >
             <h2 className="text-3xl font-bold text-navy mb-6">Our Vision</h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              To be the leading provider of corporate housing and facility management services, 
-              recognized for our innovation, reliability, and commitment to exceeding client 
-              expectations in every interaction.
+              To be a trusted operational partner known for professionalism,
+              responsiveness, and measurable outcomes across multi-state
+              engagements.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              We envision a future where businesses can seamlessly expand into new markets, 
-              employees can relocate with confidence, and property owners can trust their 
-              investments to professional management that truly cares about results.
+              We aim to set the standard for reliable contract administration
+              and on-the-ground execution for government and commercial clients
+              alike.
             </p>
           </motion.div>
         </div>
@@ -192,8 +196,12 @@ const AboutPage: React.FC = () => {
                 <div className="flex items-center justify-center w-16 h-16 bg-gold/10 rounded-full mx-auto mb-4">
                   <value.icon className="h-8 w-8 text-gold" />
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-3">{value.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-bold text-navy mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -211,46 +219,63 @@ const AboutPage: React.FC = () => {
               Why Choose SunLife Housing Corp?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              We've built our reputation on delivering results that matter to our clients. 
-              Here's what sets us apart in the corporate housing and facility management industry.
+              We've built our reputation on delivering results that matter to
+              our clients. Here's what sets us apart in the corporate housing
+              and facility management industry.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">Personalized Service</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                Personalized Service
+              </h3>
               <p className="text-gray-600">
-                Every client receives customized solutions tailored to their specific needs and preferences.
+                Every client receives customized solutions tailored to their
+                specific needs and preferences.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">Proven Track Record</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                Proven Track Record
+              </h3>
               <p className="text-gray-600">
-                Over 15 years of consistent service delivery with industry-leading satisfaction rates.
+                Over 15 years of consistent service delivery with
+                industry-leading satisfaction rates.
               </p>
             </div>
             <div className="text-center">
               <h3 className="text-xl font-bold text-navy mb-3">24/7 Support</h3>
               <p className="text-gray-600">
-                Round-the-clock availability for emergencies and immediate assistance when needed.
+                Round-the-clock availability for emergencies and immediate
+                assistance when needed.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">Quality Assurance</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                Quality Assurance
+              </h3>
               <p className="text-gray-600">
-                Rigorous quality control processes ensure consistent excellence across all properties.
+                Rigorous quality control processes ensure consistent excellence
+                across all properties.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">Technology Integration</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                Technology Integration
+              </h3>
               <p className="text-gray-600">
-                Modern technology solutions for seamless booking, communication, and service delivery.
+                Modern technology solutions for seamless booking, communication,
+                and service delivery.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">Flexible Solutions</h3>
+              <h3 className="text-xl font-bold text-navy mb-3">
+                Flexible Solutions
+              </h3>
               <p className="text-gray-600">
-                Adaptable services that scale with your business needs and changing requirements.
+                Adaptable services that scale with your business needs and
+                changing requirements.
               </p>
             </div>
           </div>
