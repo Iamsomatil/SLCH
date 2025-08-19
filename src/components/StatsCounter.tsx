@@ -73,7 +73,20 @@ const CircleCard: React.FC<CircleStat> = ({ label, value, suffix }) => {
           {label}
         </div>
       </div>
-      <div className="pointer-events-none absolute bottom-2 left-1/2 h-1 w-2/3 -translate-x-1/2 rounded-full bg-gold" />
+      {/* Curved underline to match circle */}
+      <svg
+        className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 w-2/3 h-3 text-gold"
+        viewBox="0 0 100 20"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M5 15 A45 45 0 0 0 95 15"
+          stroke="currentColor"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+      </svg>
     </div>
   );
 };
