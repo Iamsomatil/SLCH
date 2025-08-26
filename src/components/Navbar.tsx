@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Past Performance", path: "/past-performance" },
+    { name: "Partnerships", path: "/past-performance" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
               src="/Sunlife-Logo.jpg"
               alt="Sunlife Corporate Housing logo"
               className="h-10 w-auto object-contain bg-transparent"
-              style={{ mixBlendMode: 'multiply' }}
+              style={{ mixBlendMode: "multiply" }}
               loading="eager"
               decoding="async"
             />

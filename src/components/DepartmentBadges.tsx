@@ -9,7 +9,7 @@ const defaultBadges: Badge[] = [
   { src: "/dod.avif", alt: "U.S. Department of Defense" },
   { src: "/justice.avif", alt: "U.S. Department of Justice" },
   { src: "/navy.avif", alt: "U.S. Navy" },
-  { src: "/sam.avif", alt: "SAM Registration" },
+  { src: "/army.avif", alt: "U.S. Army (Additional)" },
 ];
 
 const DepartmentBadges: React.FC<{ items?: Badge[] }> = ({ items }) => {

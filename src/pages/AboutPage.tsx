@@ -51,9 +51,11 @@ const AboutPage: React.FC = () => {
             About Sunlife Corporate Housing
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Sunlife Corporate Housing was founded with a clear vision: to
-            streamline administrative and operational support for agencies,
-            organizations, and enterprises navigating complex projects.
+            Sunlife Corporate Housing LLC was founded with one mission: to bring
+            clarity, consistency, and excellence to government contracting. We
+            specialize in providing facility maintenance and environmental
+            services to federal, state, and local agencies nationwide — ensuring
+            compliance, safety, and results every time.
           </p>
         </motion.div>
 
@@ -79,17 +81,18 @@ const AboutPage: React.FC = () => {
           >
             <h2 className="text-3xl font-bold text-navy">Our Story</h2>
             <p className="text-gray-600 leading-relaxed">
-              Rooted in a commitment to service and excellence, we specialize in
-              providing reliable, high-performing teams and solutions that help
-              our clients meet deadlines, manage resources, and exceed
-              expectations. From contract administration to project oversight,
-              we step in with a clear mission — to bring clarity, consistency,
-              and confidence to every contract we touch.
+              Our team has successfully delivered projects in asbestos, mold,
+              and lead remediation, preventative maintenance, pavement repair,
+              and elevator services, supported by a trusted network of
+              subcontractors and partners. With experience across multiple
+              states and agencies, SCH combines responsiveness with results,
+              giving our government clients confidence that their projects will
+              be completed on time and within budget.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              What began as a small, dedicated team has grown into a multi-state
-              operation, trusted by agencies and partners for our
-              professionalism, responsiveness, and results-driven approach.
+              From our first contract to our multi-million-dollar pursuits
+              today, SCH has remained committed to one standard: delivering
+              mission-ready solutions that exceed expectations.
             </p>
           </motion.div>
         </div>

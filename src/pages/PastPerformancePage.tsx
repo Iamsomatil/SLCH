@@ -12,12 +12,12 @@ const PastPerformancePage: React.FC = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-            Past Performance
+            Partnerships
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Real projects only; sensitive details redacted. Provide dates,
-            agency/prime, location, scope, period of performance, and public
-            contact if allowed.
+            Partnerships and collaborations will be listed here. Provide dates,
+            agencies/partners, locations, scope, and a public contact if
+            allowed. Content TBD.
           </p>
         </motion.div>
 

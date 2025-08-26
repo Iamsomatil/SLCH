@@ -37,54 +37,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gold">Quick Links</h3>
-            <div className="space-y-2">
-              <Link
-                to="/services/government-housing"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Government Housing
-              </Link>
-              <Link
-                to="/about"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contract-vehicles"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Contract Vehicles
-              </Link>
-              <Link
-                to="/past-performance"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Past Performance
-              </Link>
-              <Link
-                to="/resources/capability-statement"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Capability Statement
-              </Link>
-              <Link
-                to="/privacy"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Privacy & Compliance
-              </Link>
-              <Link
-                to="/accessibility"
-                className="block text-gray-300 hover:text-gold transition-colors text-sm"
-              >
-                Accessibility
-              </Link>
-            </div>
-          </div>
+          {/* Quick Links removed per request */}
 
           {/* Contact Info */}
           <div className="space-y-4">

@@ -117,15 +117,7 @@ const ServicesPage: React.FC = () => {
               mission-critical logistics.
             </p>
           </div>
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-2xl font-bold text-navy mb-2">
-              Laboratory & Scientific Support
-            </h2>
-            <p className="text-gray-600">
-              Consistent dry ice supply and operational support for labs,
-              research facilities, and medical organizations.
-            </p>
-          </div>
+          {/* Laboratory category removed per request */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <h2 className="text-2xl font-bold text-navy mb-2">
               Renovation & Construction

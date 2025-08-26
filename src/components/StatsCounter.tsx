@@ -5,9 +5,9 @@ type CircleStat = { label: string; value: number; suffix?: string };
 type BarStat = { label: string; percent: number };
 
 const defaultCircles: CircleStat[] = [
-  { label: "Services Completed", value: 500, suffix: "+" },
-  { label: "Floors Traveled", value: 9999, suffix: "+" },
-  { label: "Miles Driven", value: 10000, suffix: "+" },
+  { label: "Projects Completed", value: 500, suffix: "+" },
+  { label: "Departments Worked With", value: 50, suffix: "+" },
+  { label: "Partnerships", value: 25, suffix: "+" },
 ];
 
 const defaultBars: BarStat[] = [

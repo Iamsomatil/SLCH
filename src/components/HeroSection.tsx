@@ -55,9 +55,11 @@ const HeroSection: React.FC = () => {
           >
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center">
               <img
-                src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Modern Corporate Housing"
+                src="https://images.pexels.com/photos/416320/pexels-photo-416320.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Technicians providing facility maintenance services"
                 className="w-full h-full object-cover rounded-2xl shadow-2xl"
+                loading="eager"
+                decoding="async"
               />
             </div>
             {/* Floating elements */}
