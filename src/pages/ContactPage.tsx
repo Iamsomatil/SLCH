@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ContactForm from "../components/ContactForm";
-import ContactFormGov from "../components/ContactFormGov";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const ContactPage: React.FC = () => {
@@ -16,12 +15,10 @@ const ContactPage: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            Request a Government Quote
+            Contact Us
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            For agencies, DoD units, and government contractors. Provide mission
-            details and per diem constraints; we’ll respond quickly with
-            compliant options.
+            Have questions or need assistance? Send us a message and our team will get back to you as soon as possible.
           </p>
         </motion.div>
 
@@ -33,9 +30,9 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-2xl font-bold text-navy mb-6">
-              Request Service Quote
+              Send Us a Message
             </h2>
-            <ContactFormGov />
+            <ContactForm />
           </motion.div>
 
           {/* Contact Information */}

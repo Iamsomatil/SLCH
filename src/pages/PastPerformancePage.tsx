@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import DepartmentSeals from "../components/DepartmentSeals";
 
 const PastPerformancePage: React.FC = () => {
   return (
@@ -12,27 +13,52 @@ const PastPerformancePage: React.FC = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-            Partnerships
+            Our Valued Partners
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Partnerships and collaborations will be listed here. Provide dates,
-            agencies/partners, locations, scope, and a public contact if
-            allowed. Content TBD.
+            We're proud to collaborate with industry-leading partners to deliver exceptional service and results for our clients.
           </p>
         </motion.div>
 
-        <div className="space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-16"
+        >
+          <DepartmentSeals />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="space-y-6"
+        >
+          <h2 className="text-2xl font-bold text-navy text-center mb-8">
+            Our Partnerships & Collaborations
+          </h2>
           <div className="bg-white rounded-xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-navy">
-              Sample Entry (Placeholder)
-            </h2>
-            <p className="text-gray-600">Agency/Prime: TBD</p>
-            <p className="text-gray-600">Location: TBD</p>
-            <p className="text-gray-600">Scope: TBD</p>
-            <p className="text-gray-600">POP: TBD</p>
-            <p className="text-gray-600">Public Contact: TBD</p>
+            <h3 className="text-xl font-bold text-navy">
+              Sample Partnership (Example)
+            </h3>
+            <p className="text-gray-600 mt-2">
+              <span className="font-medium">Agency/Prime:</span> Partner Company Name
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Location:</span> Various Locations
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Scope:</span> Comprehensive facility maintenance and support services
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Period of Performance:</span> Ongoing
+            </p>
+            <p className="text-gray-600">
+              <span className="font-medium">Contact:</span> info@sunlifecorp.com
+            </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

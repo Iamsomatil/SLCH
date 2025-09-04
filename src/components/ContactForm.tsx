@@ -6,8 +6,8 @@ import { Send } from 'lucide-react';
 interface FormData {
   name: string;
   email: string;
-  company: string;
-  message: string;
+  phone: string;
+  notes: string;
 }
 
 const ContactForm: React.FC = () => {
@@ -33,10 +33,11 @@ const ContactForm: React.FC = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="bg-white rounded-xl shadow-lg p-8 space-y-6"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="space-y-6">
+        {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
-            Full Name *
+            Full Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -44,15 +45,17 @@ const ContactForm: React.FC = () => {
             {...register('name', { required: 'Name is required' })}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
             placeholder="Your full name"
+            aria-invalid={errors.name ? 'true' : 'false'}
           />
           {errors.name && (
             <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
           )}
         </div>
 
+        {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
-            Email Address *
+            Email Address <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -60,46 +63,56 @@ const ContactForm: React.FC = () => {
             {...register('email', {
               required: 'Email is required',
               pattern: {
-                value: /^\S+@\S+$/i,
-                message: 'Invalid email address'
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Please enter a valid email address'
               }
             })}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
-            placeholder="your.email@company.com"
+            placeholder="your.email@example.com"
+            aria-invalid={errors.email ? 'true' : 'false'}
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
           )}
         </div>
-      </div>
 
-      <div>
-        <label htmlFor="company" className="block text-sm font-medium text-navy mb-2">
-          Company Name
-        </label>
-        <input
-          type="text"
-          id="company"
-          {...register('company')}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
-          placeholder="Your company name"
-        />
-      </div>
+        {/* Phone Field */}
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-navy mb-2">
+            Phone Number <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            {...register('phone', {
+              required: 'Phone number is required',
+              pattern: {
+                value: /^[\d\s\-()]+$/,
+                message: 'Please enter a valid phone number'
+              }
+            })}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            placeholder="(123) 456-7890"
+            aria-invalid={errors.phone ? 'true' : 'false'}
+          />
+          {errors.phone && (
+            <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+          )}
+        </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
-          Message *
-        </label>
-        <textarea
-          id="message"
-          rows={5}
-          {...register('message', { required: 'Message is required' })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors resize-none"
-          placeholder="Tell us about your housing or facility management needs..."
-        />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>
-        )}
+        {/* Notes Field */}
+        <div>
+          <label htmlFor="notes" className="block text-sm font-medium text-navy mb-2">
+            Notes
+          </label>
+          <textarea
+            id="notes"
+            rows={4}
+            {...register('notes')}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            placeholder="How can we help you?"
+          />
+        </div>
       </div>
 
       <motion.button

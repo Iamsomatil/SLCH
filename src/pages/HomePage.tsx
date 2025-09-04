@@ -6,7 +6,7 @@ import TrustBand from "../components/TrustBand";
 import SectionDividerChevron from "../components/SectionDividerChevron";
 import ServiceCard from "../components/ServiceCard";
 import StatsCounter from "../components/StatsCounter";
-import DepartmentSeals from "../components/DepartmentSeals";
+import DepartmentBadges from "../components/DepartmentBadges";
 import { Shield, Wrench, MapPin, Cog, Clock } from "lucide-react";
 
 const services = [
@@ -83,8 +83,27 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Department Seals Section */}
-      <DepartmentSeals />
+      {/* Government Departments Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-navy mb-4">
+              Trusted By Government Agencies
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We proudly serve various government departments with our
+              comprehensive facility maintenance solutions.
+            </p>
+          </motion.div>
+          <DepartmentBadges />
+        </div>
+      </section>
 
       {/* Stats Counter */}
       <section className="bg-white">

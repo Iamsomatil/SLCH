@@ -1,7 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Menu, X, Home } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+interface NavItem {
+  name: string;
+  path: string;
+}
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+      damping: 24
+    }
+  },
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +41,11 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "Partnerships", path: "/past-performance" },
@@ -26,101 +55,131 @@ const Navbar: React.FC = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-white/95 backdrop-blur-sm"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center space-x-2"
-            aria-label="Sunlife Corporate Housing home"
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex-shrink-0"
           >
-            <img
-              src="/Sunlife-Logo.jpg"
-              alt="Sunlife Corporate Housing logo"
-              className="h-10 w-auto object-contain bg-transparent"
-              style={{ mixBlendMode: "multiply" }}
-              loading="eager"
-              decoding="async"
-            />
-            <span className="sr-only">Sunlife Corporate Housing</span>
-          </Link>
+            <Link
+              to="/"
+              className="flex items-center h-full py-3"
+              aria-label="Sunlife Corporate Housing home"
+            >
+              <img
+                src="/Sunlife-Logo.jpg"
+                alt="Sunlife Corporate Housing logo"
+                className="h-14 w-auto object-contain transition-all duration-300"
+                style={{ mixBlendMode: 'multiply' }}
+                loading="eager"
+                decoding="async"
+              />
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-gold ${
-                  location.pathname === item.path ? "text-gold" : "text-navy"
-                }`}
-              >
-                {item.name}
-              </Link>
+          <motion.div 
+            className="hidden md:flex items-center space-x-1 h-full"
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+          >
+            {navItems.map((navItem) => (
+              <motion.div key={navItem.path} variants={itemVariants}>
+                <Link
+                  to={navItem.path}
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 group ${
+                    location.pathname === navItem.path
+                      ? 'text-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  {navItem.name}
+                  <span
+                    className={`absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                      location.pathname === navItem.path ? 'w-full' : 'group-hover:w-full'
+                    }`}
+                  />
+                </Link>
+              </motion.div>
             ))}
-            <Link
-              to="/contact"
-              className="ml-4 inline-flex items-center px-4 py-2 bg-gold text-white rounded-lg text-sm font-semibold hover:bg-brand-orange-700 transition-colors"
-              aria-label="Request a Service Quote"
-            >
-              Request Service Quote
-            </Link>
-          </div>
+            
+            <motion.div variants={itemVariants} className="ml-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                Get a Quote
+              </Link>
+            </motion.div>
+          </motion.div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center
+          ">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-navy hover:text-gold transition-colors duration-200"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              aria-expanded="false"
             >
+              <span className="sr-only">Open main menu</span>
               {isOpen ? (
-                <X className="h-6 w-6" />
+                <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile menu */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden"
+            transition={{ duration: 0.3 }}
+            className="md:hidden overflow-hidden"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              {navItems.map((item) => (
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
+              {navItems.map((navItem) => (
                 <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-gold ${
-                    location.pathname === item.path ? "text-gold" : "text-navy"
+                  key={navItem.path}
+                  to={navItem.path}
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    location.pathname === navItem.path
+                      ? 'bg-blue-50 text-blue-700'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                   }`}
+                  onClick={() => setIsOpen(false)}
                 >
-                  {item.name}
+                  {navItem.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="mt-2 block px-3 py-2 bg-gold text-white rounded-lg text-base font-semibold text-center"
-                aria-label="Request Government Housing Quote"
-              >
-                Request Quote
-              </Link>
+              <div className="pt-4 pb-2 border-t border-gray-200">
+                <Link
+                  to="/contact"
+                  className="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Get a Quote
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </motion.nav>
   );
 };

@@ -253,7 +253,7 @@ const AboutPage: React.FC = () => {
         >
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-navy mb-4">
-              Why Choose SunLife Housing Corp?
+              Why Choose Sunlife Corporate Housing?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               We've built our reputation on delivering results that matter to

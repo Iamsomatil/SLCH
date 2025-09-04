@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  Home,
   Phone,
   Mail,
   MapPin,
@@ -14,30 +13,15 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company Info - Removed logo */}
           <div className="space-y-4">
-            <Link
-              to="/"
-              className="flex items-center space-x-2"
-              aria-label="Sunlife Corporate Housing home"
-            >
-              <img
-                src="/Sunlife-Logo.jpg"
-                alt="Sunlife Corporate Housing logo"
-                className="h-10 w-auto"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="sr-only">Sunlife Corporate Housing</span>
-            </Link>
+            <h3 className="text-lg font-semibold text-gold">About Us</h3>
             <p className="text-gray-300 text-sm">
               Providing facility maintenance, remediation, pavement, elevator,
               and specialty services across multiple states.
             </p>
           </div>
-
-          {/* Quick Links removed per request */}
 
           {/* Contact Info */}
           <div className="space-y-4">
@@ -83,18 +67,21 @@ const Footer: React.FC = () => {
               <a
                 href="#"
                 className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="#"
                 className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -104,7 +91,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2025 SunLife Housing Corp. All rights reserved. Government-focused
+            &copy; 2025 Sunlife Corporate Housing. All rights reserved. Government-focused
             corporate housing services. No claims made regarding specific
             contract vehicles until verified.
           </p>
