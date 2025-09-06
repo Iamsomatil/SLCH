@@ -121,9 +121,10 @@ const HeroSection: React.FC = () => {
             <div className="relative">
               <div className="absolute -inset-4 bg-blue-200 rounded-3xl opacity-30 blur-2xl -z-10" />
               <div className="relative aspect-video sm:aspect-square rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  alt="Professional facility maintenance team"
+                  src="/hero-img.jpeg"
+                  alt="Professional facility maintenance team performing building inspection and maintenance"
                   className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"

@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
               <motion.div key={navItem.path} variants={itemVariants}>
                 <Link
                   to={navItem.path}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 group ${
+                  className={`relative px-5 py-2.5 text-base font-medium transition-all duration-300 group ${
                     location.pathname === navItem.path
                       ? 'text-blue-600'
                       : 'text-gray-700 hover:text-blue-600'
@@ -105,22 +105,13 @@ const Navbar: React.FC = () => {
                 >
                   {navItem.name}
                   <span
-                    className={`absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 w-0 h-1 bg-blue-600 transition-all duration-300 ${
                       location.pathname === navItem.path ? 'w-full' : 'group-hover:w-full'
                     }`}
                   />
                 </Link>
               </motion.div>
             ))}
-            
-            <motion.div variants={itemVariants} className="ml-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-              >
-                Get a Quote
-              </Link>
-            </motion.div>
           </motion.div>
 
           {/* Mobile menu button */}
@@ -167,15 +158,6 @@ const Navbar: React.FC = () => {
                   {navItem.name}
                 </Link>
               ))}
-              <div className="pt-4 pb-2 border-t border-gray-200">
-                <Link
-                  to="/contact"
-                  className="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Get a Quote
-                </Link>
-              </div>
             </div>
           </motion.div>
         )}
