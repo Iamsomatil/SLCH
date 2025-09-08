@@ -35,11 +35,12 @@ const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100 pt-32 pb-24">
+    <section className="relative overflow-hidden bg-white pt-40 pb-24 md:pt-48">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -right-1/3 w-full h-full bg-gradient-radial from-blue-200 to-transparent rounded-full opacity-30" />
-        <div className="absolute -bottom-1/2 -left-1/3 w-full h-full bg-gradient-radial from-blue-300 to-transparent rounded-full opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50" />
+        <div className="absolute -top-1/2 -right-1/3 w-full h-full bg-gradient-radial from-blue-50 to-transparent rounded-full opacity-70" />
+        <div className="absolute -bottom-1/2 -left-1/3 w-full h-full bg-gradient-radial from-blue-50 to-transparent rounded-full opacity-70" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

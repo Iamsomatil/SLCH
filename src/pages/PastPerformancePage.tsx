@@ -28,37 +28,6 @@ const PastPerformancePage: React.FC = () => {
         >
           <DepartmentSeals />
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="space-y-6"
-        >
-          <h2 className="text-2xl font-bold text-navy text-center mb-8">
-            Our Partnerships & Collaborations
-          </h2>
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-navy">
-              Sample Partnership (Example)
-            </h3>
-            <p className="text-gray-600 mt-2">
-              <span className="font-medium">Agency/Prime:</span> Partner Company Name
-            </p>
-            <p className="text-gray-600">
-              <span className="font-medium">Location:</span> Various Locations
-            </p>
-            <p className="text-gray-600">
-              <span className="font-medium">Scope:</span> Comprehensive facility maintenance and support services
-            </p>
-            <p className="text-gray-600">
-              <span className="font-medium">Period of Performance:</span> Ongoing
-            </p>
-            <p className="text-gray-600">
-              <span className="font-medium">Contact:</span> info@sunlifecorp.com
-            </p>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

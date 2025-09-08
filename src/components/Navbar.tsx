@@ -70,18 +70,11 @@ const Navbar: React.FC = () => {
             whileTap={{ scale: 0.98 }}
             className="flex-shrink-0"
           >
-            <Link
-              to="/"
-              className="flex items-center h-full py-3"
-              aria-label="Sunlife Corporate Housing home"
-            >
+            <Link to="/" className="flex items-center">
               <img
                 src="/Sunlife-Logo.jpg"
-                alt="Sunlife Corporate Housing logo"
-                className="h-14 w-auto object-contain transition-all duration-300"
-                style={{ mixBlendMode: 'multiply' }}
-                loading="eager"
-                decoding="async"
+                alt="Sunlife Housing Corp Logo"
+                className="h-16 w-auto"
               />
             </Link>
           </motion.div>
