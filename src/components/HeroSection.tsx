@@ -35,12 +35,11 @@ const HeroSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-white pt-40 pb-24 md:pt-48">
+    <section className="relative overflow-hidden bg-white pt-32 pb-24">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50" />
-        <div className="absolute -top-1/2 -right-1/3 w-full h-full bg-gradient-radial from-blue-50 to-transparent rounded-full opacity-70" />
-        <div className="absolute -bottom-1/2 -left-1/3 w-full h-full bg-gradient-radial from-blue-50 to-transparent rounded-full opacity-70" />
+        <div className="absolute -top-1/2 -right-1/3 w-full h-full bg-gradient-radial from-gold/10 to-transparent rounded-full opacity-30" />
+        <div className="absolute -bottom-1/2 -left-1/3 w-full h-full bg-gradient-radial from-gold/10 to-transparent rounded-full opacity-20" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +54,7 @@ const HeroSection: React.FC = () => {
             <motion.div variants={itemVariants} className="space-y-6">
               <motion.div 
                 variants={itemVariants}
-                className="inline-flex items-center px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-medium"
+                className="inline-flex items-center px-4 py-1.5 rounded-full bg-navy/5 text-navy text-sm font-medium border border-navy/10"
               >
                 Trusted Nationwide
               </motion.div>
@@ -64,12 +63,12 @@ const HeroSection: React.FC = () => {
                 variants={itemVariants}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900"
               >
-                Comprehensive <span className="text-blue-600">Facility Maintenance</span> Services
+                Comprehensive <span className="text-gold">Facility Maintenance</span> Services
               </motion.h1>
               
               <motion.p 
                 variants={itemVariants}
-                className="text-lg text-gray-600 max-w-2xl leading-relaxed"
+                className="text-lg text-gray-700 max-w-2xl leading-relaxed"
               >
                 Expert solutions for asbestos, mold, and lead remediation. Comprehensive preventative maintenance and specialty facility services for government and enterprise clients.
               </motion.p>
@@ -81,7 +80,7 @@ const HeroSection: React.FC = () => {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors group"
+                className="inline-flex items-center justify-center px-6 py-3 bg-gold text-navy rounded-full font-medium hover:bg-gold/90 transition-colors group"
                 aria-label="Request a Service Quote"
               >
                 <span>Request a Service Quote</span>
@@ -89,7 +88,7 @@ const HeroSection: React.FC = () => {
               </Link>
               <Link
                 to="/resources/capability-statement"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-700 border border-gray-200 rounded-full font-medium hover:bg-gray-50 transition-colors group"
+                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white border border-navy/20 rounded-full font-medium hover:bg-navy/90 transition-colors group"
               >
                 <span>Download Capability Statement</span>
                 <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -105,8 +104,8 @@ const HeroSection: React.FC = () => {
             >
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <feature.icon className="h-5 w-5 text-blue-600" />
-                  <span className="text-sm font-medium text-gray-700">{feature.text}</span>
+                  <feature.icon className="h-5 w-5 text-gold" />
+                  <span className="text-sm font-medium text-gray-800">{feature.text}</span>
                 </div>
               ))}
             </motion.div>
@@ -120,9 +119,9 @@ const HeroSection: React.FC = () => {
             className="relative z-10"
           >
             <div className="relative">
-              <div className="absolute -inset-4 bg-blue-200 rounded-3xl opacity-30 blur-2xl -z-10" />
-              <div className="relative aspect-video sm:aspect-square rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+              <div className="absolute -inset-4 bg-gold/20 rounded-3xl opacity-30 blur-2xl -z-10" />
+              <div className="relative aspect-video sm:aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-gold/30">
+                <div className="absolute inset-0 bg-gradient-to-b from-navy/40 to-navy/70" />
                 <img
                   src="/hero-img.jpeg"
                   alt="Professional facility maintenance team performing building inspection and maintenance"
@@ -137,13 +136,13 @@ const HeroSection: React.FC = () => {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.8, type: 'spring', stiffness: 100 }}
-                className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-xl shadow-lg"
+                className="absolute -bottom-6 -right-6 bg-gold text-navy p-4 rounded-xl shadow-lg"
               >
                 <div className="flex items-center space-x-3">
-                  <Users className="h-8 w-8 text-white/90" />
+                  <Users className="h-8 w-8 text-navy/90" />
                   <div>
                     <div className="text-2xl font-bold">24/7</div>
-                    <div className="text-sm font-medium text-white/80">Support</div>
+                    <div className="text-sm font-medium text-navy/80">Support</div>
                   </div>
                 </div>
               </motion.div>

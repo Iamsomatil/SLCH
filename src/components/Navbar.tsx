@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
               <img
                 src="/Sunlife-Logo.jpg"
                 alt="Sunlife Housing Corp Logo"
-                className="h-16 w-auto"
+                className="h-20 w-auto"
               />
             </Link>
           </motion.div>
