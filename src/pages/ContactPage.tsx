@@ -14,10 +14,10 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0056b3] mb-6">
             Contact Us
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-[#0056b3] max-w-3xl mx-auto">
             Have questions or need assistance? Send us a message and our team will get back to you as soon as possible.
           </p>
         </motion.div>
@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-2xl font-bold text-navy mb-6">
+            <h2 className="text-2xl font-bold text-[#0056b3] mb-6">
               Send Us a Message
             </h2>
             <ContactForm />
@@ -43,10 +43,10 @@ const ContactPage: React.FC = () => {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-2xl font-bold text-navy mb-6">
+              <h2 className="text-2xl font-bold text-[#0056b3] mb-6">
                 Get in Touch
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-[#0056b3] mb-8">
                 We're available to discuss your needs and provide personalized
                 solutions. Choose the contact method that works best for you.
               </p>
@@ -59,8 +59,8 @@ const ContactPage: React.FC = () => {
                   <Phone className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-1">Phone</h3>
-                  <p className="text-gray-600 mb-2">
+                  <h3 className="font-semibold text-[#0056b3] mb-1">Phone</h3>
+                  <p className="text-[#0056b3] mb-2">
                     Call us for immediate assistance
                   </p>
                   <a
@@ -77,8 +77,8 @@ const ContactPage: React.FC = () => {
                   <Mail className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-1">Email</h3>
-                  <p className="text-gray-600 mb-2">
+                  <h3 className="font-semibold text-[#0056b3] mb-1">Email</h3>
+                  <p className="text-[#0056b3] mb-2">
                     Send us your questions or requests
                   </p>
                   <div className="flex flex-col gap-1">
@@ -103,9 +103,9 @@ const ContactPage: React.FC = () => {
                   <MapPin className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-1">Headquarters</h3>
-                  <p className="text-gray-600 mb-2">Visit our main office</p>
-                  <p className="text-navy">Tampa, FL</p>
+                  <h3 className="font-semibold text-[#0056b3] mb-1">Headquarters</h3>
+                  <p className="text-[#0056b3] mb-2">Visit our main office</p>
+                  <p className="text-[#0056b3]">Tampa, FL</p>
                 </div>
               </div>
 
@@ -114,13 +114,13 @@ const ContactPage: React.FC = () => {
                   <Clock className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-1">
+                  <h3 className="font-semibold text-[#0056b3] mb-1">
                     Business Hours
                   </h3>
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-[#0056b3] mb-2">
                     We're available during these hours
                   </p>
-                  <div className="text-navy">
+                  <div className="text-[#0056b3]">
                     <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
                   </div>
                 </div>
@@ -131,10 +131,10 @@ const ContactPage: React.FC = () => {
                   <MessageCircle className="h-6 w-6 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy mb-1">
+                  <h3 className="font-semibold text-[#0056b3] mb-1">
                     24/7 Emergency
                   </h3>
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-[#0056b3] mb-2">
                     For urgent facility issues
                   </p>
                   <a
@@ -156,7 +156,7 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16"
         >
-          <h2 className="text-3xl font-bold text-navy mb-8 text-center">
+          <h2 className="text-3xl font-bold text-[#0056b3] mb-8 text-center">
             Find Us on the Map
           </h2>
           <div className="bg-gray-200 rounded-xl overflow-hidden shadow-lg">
@@ -180,10 +180,10 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="bg-gold/10 rounded-2xl p-8 mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-navy mb-4">
+          <h3 className="text-2xl font-bold text-[#0056b3] mb-4">
             Quick Response Guarantee
           </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-[#0056b3] max-w-2xl mx-auto">
             We understand that time is valuable. Our team typically responds to
             all inquiries within 2 hours during business hours and within 24
             hours on weekends. For emergencies, we're available 24/7.

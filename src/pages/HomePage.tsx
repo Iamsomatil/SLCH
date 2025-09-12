@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
     <div>
       <HeroSection />
       <TrustBand
-        items={["UEI: ZFNYY3KNT8E4", "CAGE: 9CM70", "Nationwide Coverage"]}
+        items={["UEI: ZFNYY3KNT8E4", "CAGE: 9CM70"]}
       />
       <SectionDividerChevron />
 

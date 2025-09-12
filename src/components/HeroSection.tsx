@@ -86,15 +86,6 @@ const HeroSection: React.FC = () => {
                 <span>Request a Service Quote</span>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link
-                to="/resources/capability-statement"
-                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white border border-navy/20 rounded-full font-medium hover:bg-navy/90 transition-colors group"
-              >
-                <span>Download Capability Statement</span>
-                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-              </Link>
             </motion.div>
 
             {/* Features */}
