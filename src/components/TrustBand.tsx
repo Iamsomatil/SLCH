@@ -12,7 +12,12 @@ const DEFAULT_ITEMS: string[] = [
   'NAICS: TBD',
 ];
 
-const TrustBand: React.FC<TrustBandProps> = ({ items = DEFAULT_ITEMS }) => {
+const TrustBand: React.FC<TrustBandProps> = ({ items = [] }) => {
+  // Don't render anything if there are no items
+  if (!items || items.length === 0) {
+    return null;
+  }
+
   return (
     <section aria-label="Compliance and trust information" className="bg-[color:var(--trustband-bg,theme(colors.brand.gray-50))]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

@@ -90,13 +90,13 @@ const Navbar: React.FC = () => {
                   to={navItem.path}
                   className={`relative px-5 py-2.5 text-base font-medium transition-all duration-300 group ${
                     location.pathname === navItem.path
-                      ? 'text-blue-600'
-                      : 'text-gray-700 hover:text-[#0056b3]'
+                      ? 'text-[#00008B]'
+                      : 'text-gray-700 hover:text-[#00008B]'
                   }`}
                 >
                   {navItem.name}
                   <span
-                    className={`absolute bottom-0 left-0 w-0 h-1 bg-blue-600 transition-all duration-300 ${
+                    className={`absolute bottom-0 left-0 w-0 h-1 bg-[#00008B] transition-all duration-300 ${
                       location.pathname === navItem.path ? 'w-full' : 'group-hover:w-full'
                     }`}
                   />
