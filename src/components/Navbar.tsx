@@ -35,49 +35,54 @@ const itemVariants: Variants = {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
-    const handleScroll = () => {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateNavbar = () => {
       const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 100;
+      const scrollThreshold = 100; // Minimum scroll amount before hiding
+      const isScrollingDown = currentScrollY > lastScrollY;
       
-      // Show/hide navbar based on scroll direction
-      if (isScrollingDown && isVisible) {
+      // Only trigger hide/show if we've scrolled more than the threshold
+      if (Math.abs(currentScrollY - lastScrollY) < 5) {
+        ticking = false;
+        return;
+      }
+
+      if (isScrollingDown && currentScrollY > scrollThreshold) {
         setIsVisible(false);
-      } else if (!isScrollingDown && !isVisible) {
+      } else {
         setIsVisible(true);
       }
-      
+
+      // Always show navbar at the top of the page
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+      }
+
       // Update scrolled state for styling
       setIsScrolled(currentScrollY > 20);
-      setLastScrollY(currentScrollY);
-      
-      // Clear any existing timeout
-      if (timeoutId) clearTimeout(timeoutId);
-      
-      // Auto-show navbar when reaching top of page
-      if (currentScrollY <= 0) {
-        setIsVisible(true);
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavbar);
+        ticking = true;
       }
     };
-    
-    // Throttle scroll events for better performance
-    const throttledScroll = () => {
-      timeoutId = setTimeout(handleScroll, 100);
-    };
-    
-    window.addEventListener('scroll', throttledScroll, { passive: true });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
     
     return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('scroll', onScroll);
     };
-  }, [lastScrollY, isVisible]);
+  }, []);
 
   const navItems: NavItem[] = [
     { name: "Home", path: "/" },
