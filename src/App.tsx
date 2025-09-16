@@ -1,5 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType } from "react-router-dom";
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -18,10 +20,49 @@ import AccessibilityPage from "./pages/AccessibilityPage";
 import GovernmentContractingPage from "./pages/GovernmentContractingPage";
 import CorporateHousingPage from "./pages/CorporateHousingPage";
 
+// Configure NProgress
+NProgress.configure({ 
+  showSpinner: false,
+  trickleSpeed: 300,
+  minimum: 0.3,
+  easing: 'ease',
+  speed: 800,
+});
+
+// Custom hook to handle route changes
+const useNProgress = () => {
+  const location = useLocation();
+  const navType = useNavigationType();
+
+  useEffect(() => {
+    // Start progress bar when location changes
+    NProgress.start();
+    
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      NProgress.done();
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+      NProgress.done();
+    };
+  }, [location.key, navType]);
+
+  return null;
+};
+
+// Progress bar component
+const TopProgressBar = () => {
+  useNProgress();
+  return null;
+};
+
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white text-black">
+        <TopProgressBar />
         <Navbar />
         <main>
           <Routes>

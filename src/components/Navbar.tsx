@@ -35,15 +35,49 @@ const itemVariants: Variants = {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 100;
+      
+      // Show/hide navbar based on scroll direction
+      if (isScrollingDown && isVisible) {
+        setIsVisible(false);
+      } else if (!isScrollingDown && !isVisible) {
+        setIsVisible(true);
+      }
+      
+      // Update scrolled state for styling
+      setIsScrolled(currentScrollY > 20);
+      setLastScrollY(currentScrollY);
+      
+      // Clear any existing timeout
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      // Auto-show navbar when reaching top of page
+      if (currentScrollY <= 0) {
+        setIsVisible(true);
+      }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    
+    // Throttle scroll events for better performance
+    const throttledScroll = () => {
+      timeoutId = setTimeout(handleScroll, 100);
+    };
+    
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, [lastScrollY, isVisible]);
 
   const navItems: NavItem[] = [
     { name: "Home", path: "/" },
@@ -58,7 +92,19 @@ const Navbar: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      } ${
+        isScrolled 
+          ? 'bg-white shadow-md backdrop-blur-sm bg-opacity-90' 
+          : 'bg-white md:bg-transparent'
+      }`}
+      style={{
+        willChange: 'transform',
+        transitionProperty: 'transform, background-color, box-shadow, backdrop-filter',
+        transitionDuration: '300ms',
+        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">

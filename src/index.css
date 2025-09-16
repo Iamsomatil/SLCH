@@ -4,11 +4,15 @@
 
 @layer base {
   :root {
-    --color-primary: #3b82f6;
+    --color-primary: #00008B; /* Brand blue */
     --color-secondary: #8b5cf6;
     --color-accent: #ec4899;
     --color-navy: #0D2B4C;
     --color-gold: #F7941D;
+    
+    /* Loading bar styles */
+    --loading-bar-height: 4px;
+    --loading-bar-color: var(--color-primary);
   }
   
   @keyframes gradient-shift {
@@ -52,6 +56,34 @@
   /* Smooth scrolling for anchor links */
   html {
     scroll-behavior: smooth;
+  }
+  
+  /* Loading bar */
+  #nprogress {
+    pointer-events: none;
+  }
+  
+  #nprogress .bar {
+    background: var(--loading-bar-color);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--loading-bar-height);
+    box-shadow: 0 0 10px var(--loading-bar-color), 0 0 5px var(--loading-bar-color);
+  }
+  
+  /* Fancy blur effect */
+  #nprogress .peg {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 100px;
+    height: 100%;
+    box-shadow: 0 0 10px var(--loading-bar-color), 0 0 5px var(--loading-bar-color);
+    opacity: 1.0;
+    transform: rotate(3deg) translate(0px, -4px);
   }
   
   /* Focus styles */
