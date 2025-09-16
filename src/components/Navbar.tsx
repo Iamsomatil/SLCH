@@ -44,28 +44,21 @@ const Navbar: React.FC = () => {
 
     const updateNavbar = () => {
       const currentScrollY = window.scrollY;
-      const scrollThreshold = 100; // Minimum scroll amount before hiding
-      const isScrollingDown = currentScrollY > lastScrollY;
       
-      // Only trigger hide/show if we've scrolled more than the threshold
-      if (Math.abs(currentScrollY - lastScrollY) < 5) {
-        ticking = false;
-        return;
-      }
-
-      if (isScrollingDown && currentScrollY > scrollThreshold) {
+      // Show/hide based on scroll direction and position
+      if (currentScrollY <= 10) {
+        // Always show when at the very top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
         setIsVisible(false);
       } else {
+        // Scrolling up
         setIsVisible(true);
       }
-
-      // Always show navbar at the top of the page
-      if (currentScrollY < 10) {
-        setIsVisible(true);
-      }
-
+      
       // Update scrolled state for styling
-      setIsScrolled(currentScrollY > 20);
+      setIsScrolled(currentScrollY > 10);
       lastScrollY = currentScrollY;
       ticking = false;
     };
@@ -78,6 +71,9 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    
+    // Initial check
+    updateNavbar();
     
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -95,20 +91,18 @@ const Navbar: React.FC = () => {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${
+      animate={isVisible ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+      className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled 
           ? 'bg-white shadow-md backdrop-blur-sm bg-opacity-90' 
           : 'bg-white md:bg-transparent'
       }`}
       style={{
-        willChange: 'transform',
-        transitionProperty: 'transform, background-color, box-shadow, backdrop-filter',
-        transitionDuration: '300ms',
-        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+        willChange: 'transform, opacity',
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        opacity: isVisible ? 1 : 0,
+        transition: 'transform 0.3s ease-out, opacity 0.2s ease-out, background-color 0.3s ease',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
