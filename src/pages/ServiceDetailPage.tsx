@@ -147,6 +147,103 @@ const serviceDetails = {
       'Reliable service guarantee'
     ],
     image: 'https://images.pexels.com/photos/3964736/pexels-photo-3964736.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  // Added mappings to support ServicesPage/HomePage slugs
+  'remediation': {
+    title: 'Asbestos, Mold, and Lead Remediation',
+    description: 'Certified remediation to create safer environments and ensure regulatory compliance.',
+    longDescription: 'We deliver certified asbestos abatement, mold remediation, and lead-safe practices to restore healthy indoor environments. Our teams follow strict protocols, leveraging containment, negative air, HEPA filtration, and clearance testing to ensure full compliance and safety.',
+    features: [
+      'Asbestos abatement (containment, removal, disposal)',
+      'Mold assessment, remediation, and clearance testing',
+      'Lead-safe work practices and EPA compliance',
+      'Industrial hygiene coordination',
+      'HEPA vacuuming and negative air systems',
+      'Detailed reporting and documentation'
+    ],
+    benefits: [
+      'Restores healthy, habitable spaces',
+      'Meets federal, state, and local regulations',
+      'Minimizes downtime with efficient mobilization',
+      'Clear, auditable documentation'
+    ],
+    image: '/Services/asbestos.jpg'
+  },
+  'preventative-maintenance': {
+    title: 'Preventative Maintenance Services',
+    description: 'Planned programs to minimize downtime and extend asset life.',
+    longDescription: 'Our preventative maintenance programs are tailored to your mission needs. We schedule inspections, service critical systems, and proactively address issues to reduce failures, extend equipment life, and control total cost of ownership.',
+    features: [
+      'Asset inventory and PM scheduling',
+      'Routine inspections and service logs',
+      'Predictive upkeep and condition monitoring',
+      'Work order and CMMS integration',
+      '24/7 response and escalation protocols'
+    ],
+    benefits: [
+      'Reduced unexpected downtime',
+      'Extended asset lifespan',
+      'Improved compliance and audit readiness',
+      'Lower total cost of ownership'
+    ],
+    image: '/Services/preventive.jpg'
+  },
+  'pavement-services': {
+    title: 'Pavement Maintenance and Services',
+    description: 'Repair and maintain roads, lots, and walkways for safety and longevity.',
+    longDescription: 'We maintain and restore pavements across installations and campuses. From crack sealing and sealcoating to striping and ADA upgrades, our crews deliver durable, compliant results with minimal operational disruption.',
+    features: [
+      'Crack sealing and patching',
+      'Sealcoating and resurfacing',
+      'Striping, markings, and ADA compliance',
+      'Parking lot repairs and reconfiguration',
+      'Sidewalk and walkway remediation'
+    ],
+    benefits: [
+      'Improved safety and accessibility',
+      'Extended pavement life',
+      'Compliance with ADA and local codes',
+      'Enhanced curb appeal'
+    ],
+    image: '/Services/pavement.jpg'
+  },
+  'elevator-services': {
+    title: 'Elevator Maintenance and Services',
+    description: 'Reliable elevator upkeep and modernization for safe, efficient transport.',
+    longDescription: 'Our licensed technicians provide routine maintenance, corrective repairs, and modernization services for elevators and vertical transport systems. We prioritize safety, uptime, and regulatory compliance.',
+    features: [
+      'Routine inspections and lubrication',
+      'Corrective repairs and parts replacement',
+      'Modernization and controller upgrades',
+      'Safety testing and compliance documentation',
+      'Emergency response and on-call support'
+    ],
+    benefits: [
+      'Greater system uptime and reliability',
+      'Improved rider safety and comfort',
+      'Regulatory compliance assurance',
+      'Extended equipment lifespan'
+    ],
+    image: '/Services/elevator.jpg'
+  },
+  'facility-support': {
+    title: 'Facility Support and Specialty Services',
+    description: 'Special projects and support operations tailored to mission needs.',
+    longDescription: 'We provide specialty facility support that fills the gaps: surge labor, specialty cleaning, minor renovations, event and mission support, and vendor coordination. Our scalable teams mobilize quickly to meet operational demands.',
+    features: [
+      'Specialty cleaning and sanitation',
+      'Minor renovations and finish work',
+      'Event and mission logistics support',
+      'Vendor and subcontractor coordination',
+      'After-hours and weekend availability'
+    ],
+    benefits: [
+      'Flexible, scalable support',
+      'Faster response to operational needs',
+      'Single point of contact for coordination',
+      'Improved continuity of operations'
+    ],
+    image: '/Services/facility.jpg'
   }
 };
 
