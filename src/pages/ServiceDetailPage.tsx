@@ -167,7 +167,7 @@ const serviceDetails = {
       'Minimizes downtime with efficient mobilization',
       'Clear, auditable documentation'
     ],
-    image: '/Services/asbestos.jpg'
+    image: '/Services/asbestos.webp'
   },
   'preventative-maintenance': {
     title: 'Preventative Maintenance Services',
@@ -186,7 +186,7 @@ const serviceDetails = {
       'Improved compliance and audit readiness',
       'Lower total cost of ownership'
     ],
-    image: '/Services/preventive.jpg'
+    image: '/Services/preventive.webp'
   },
   'pavement-services': {
     title: 'Pavement Maintenance and Services',
@@ -205,7 +205,7 @@ const serviceDetails = {
       'Compliance with ADA and local codes',
       'Enhanced curb appeal'
     ],
-    image: '/Services/pavement.jpg'
+    image: '/Services/pavement.webp'
   },
   'elevator-services': {
     title: 'Elevator Maintenance and Services',
@@ -224,7 +224,7 @@ const serviceDetails = {
       'Regulatory compliance assurance',
       'Extended equipment lifespan'
     ],
-    image: '/Services/elevator.jpg'
+    image: '/Services/elevator.webp'
   },
   'facility-support': {
     title: 'Facility Support and Specialty Services',
@@ -243,7 +243,7 @@ const serviceDetails = {
       'Single point of contact for coordination',
       'Improved continuity of operations'
     ],
-    image: '/Services/facility.jpg'
+    image: '/Services/facility.webp'
   }
 };
 
