@@ -307,11 +307,19 @@ const ServiceDetailPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1"
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-96 object-cover rounded-xl shadow-lg"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={`${service.image}`.replace(/\.(jpg|jpeg|png)$/i, '.webp')}
+              />
+              <img
+                src={service.image}
+                alt={service.title}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-96 object-cover rounded-xl shadow-lg"
+              />
+            </picture>
           </motion.div>
 
           {/* Description */}
