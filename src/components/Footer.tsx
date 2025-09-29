@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Phone,
   Mail,
@@ -30,26 +29,26 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Phone className="h-4 w-4" />
                 <a
-                  href="tel:+17542070982"
+                  href="tel:+17542001264"
                   className="hover:text-gold transition-colors"
                 >
-                  (+1) 754-207-0982
+                  (+1) 754-200-1264
                 </a>
               </div>
               <div className="flex items-start space-x-2 text-sm text-gray-300">
                 <Mail className="h-4 w-4 mt-0.5" />
                 <div className="flex flex-col">
                   <a
-                    href="mailto:Hosea@sunlifehousingcorp.com"
+                    href="mailto:info@sunlifehousingcorp.com"
                     className="hover:text-gold transition-colors"
                   >
-                    Hosea@sunlifehousingcorp.com
+                    info@sunlifehousingcorp.com
                   </a>
                   <a
-                    href="mailto:Troy@sunlifehousingcorp.com"
+                    href="mailto:contact@sunlifehousingcorp.com"
                     className="hover:text-gold transition-colors"
                   >
-                    Troy@sunlifehousingcorp.com
+                    contact@sunlifehousingcorp.com
                   </a>
                 </div>
               </div>

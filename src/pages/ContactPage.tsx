@@ -64,10 +64,10 @@ const ContactPage: React.FC = () => {
                     Call us for immediate assistance
                   </p>
                   <a
-                    href="tel:+17542070982"
+                    href="tel:+17542001264"
                     className="text-navy hover:text-navy/80 font-medium"
                   >
-                    (+1) 754-207-0982
+                    (+1) 754-200-1264
                   </a>
                 </div>
               </div>
@@ -83,16 +83,16 @@ const ContactPage: React.FC = () => {
                   </p>
                   <div className="flex flex-col gap-1">
                     <a
-                      href="mailto:Hosea@sunlifehousingcorp.com"
+                      href="mailto:info@sunlifehousingcorp.com"
                       className="text-navy hover:text-navy/80 font-medium"
                     >
-                      Hosea@sunlifehousingcorp.com
+                      info@sunlifehousingcorp.com
                     </a>
                     <a
-                      href="mailto:Troy@sunlifehousingcorp.com"
+                      href="mailto:contact@sunlifehousingcorp.com"
                       className="text-navy hover:text-navy/80 font-medium"
                     >
-                      Troy@sunlifehousingcorp.com
+                      contact@sunlifehousingcorp.com
                     </a>
                   </div>
                 </div>
@@ -138,10 +138,10 @@ const ContactPage: React.FC = () => {
                     For urgent facility issues
                   </p>
                   <a
-                    href="tel:+17542070982"
+                    href="tel:+17542001264"
                     className="text-navy hover:text-navy/80 font-medium"
                   >
-                    (+1) 754-207-0982
+                    (+1) 754-200-1264
                   </a>
                 </div>
               </div>

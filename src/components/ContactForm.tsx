@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
@@ -8,6 +8,7 @@ interface FormData {
   email: string;
   phone: string;
   notes: string;
+  _hp?: string; // honeypot
 }
 
 const ContactForm: React.FC = () => {
@@ -18,11 +19,36 @@ const ContactForm: React.FC = () => {
     reset
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form submitted:', data);
-    // Here you would typically send the data to your backend
-    alert('Thank you for your message! We will get back to you soon.');
-    reset();
+  const [submitting, setSubmitting] = useState(false);
+  const [resultMessage, setResultMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const onSubmit = async (data: FormData) => {
+    setSubmitting(true);
+    setResultMessage(null);
+    setErrorMessage(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || json.ok === false) {
+        throw new Error(json.error || 'Failed to send message');
+      }
+      setResultMessage('Thank you! Your message has been sent. We will get back to you soon.');
+      reset();
+    } catch (err: unknown) {
+      let message = 'Sorry, something went wrong. Please try again later.';
+      if (typeof err === 'object' && err !== null && 'message' in err) {
+        const e = err as { message?: string };
+        if (e.message) message = e.message;
+      }
+      setErrorMessage(message);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -34,6 +60,8 @@ const ContactForm: React.FC = () => {
       className="bg-white rounded-xl shadow-lg p-8 space-y-6"
     >
       <div className="space-y-6">
+        {/* Honeypot (hidden) */}
+        <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" {...register('_hp')} />
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
@@ -115,13 +143,22 @@ const ContactForm: React.FC = () => {
         </div>
       </div>
 
+      {/* Feedback messages */}
+      {resultMessage && (
+        <p className="text-green-600 text-center">{resultMessage}</p>
+      )}
+      {errorMessage && (
+        <p className="text-red-600 text-center">{errorMessage}</p>
+      )}
+
       <motion.button
         type="submit"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full bg-gold text-white font-semibold py-3 px-6 rounded-lg hover:bg-gold/90 transition-colors flex items-center justify-center space-x-2"
+        whileHover={{ scale: submitting ? 1 : 1.02 }}
+        whileTap={{ scale: submitting ? 1 : 0.98 }}
+        disabled={submitting}
+        className={`w-full bg-gold text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2 ${submitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-gold/90'}`}
       >
-        <span>Send Message</span>
+        <span>{submitting ? 'Sending…' : 'Send Message'}</span>
         <Send className="h-5 w-5" />
       </motion.button>
     </motion.form>

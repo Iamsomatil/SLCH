@@ -69,8 +69,8 @@ const HomePage: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <ul className="list-disc pl-6 space-y-2 text-navy">
+          <div className="max-w-4xl mx-auto flex justify-center">
+            <ul className="inline-block list-disc pl-6 space-y-2 text-navy text-left">
               <li>Asbestos, mold, and lead remediation</li>
               <li>Preventative maintenance services</li>
               <li>Pavement maintenance and services</li>
