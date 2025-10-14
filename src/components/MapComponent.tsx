@@ -1,18 +1,9 @@
-import React, { useMemo, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup, Circle, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Custom marker icon
-const createMarkerIcon = (color = '#00008B') => {
-  return L.divIcon({
-    className: 'custom-marker',
-    html: `<div style="background-color: ${color}; width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; transform: translate(-6px, -6px);"></div>`,
-    iconSize: [12, 12],
-    iconAnchor: [6, 6],
-    popupAnchor: [0, -6]
-  });
-};
+// (Note) Marker icon creation handled dynamically in getMarkerIcon below
 
 // State centers and abbreviations
 const stateCenters = [
@@ -79,7 +70,7 @@ interface Location {
 }
 
 // Convert state centers to locations
-const stateLocations: Location[] = stateCenters.map((state, index) => ({
+const stateLocations: Location[] = stateCenters.map((state) => ({
   id: `state-${state.abbr}`,
   name: state.name,
   lat: state.lat,
@@ -133,20 +124,55 @@ const cityLocations: Location[] = [
   }
 ];
 
-const allLocations = [...stateLocations, ...cityLocations];
+// Note: cityLocations are rendered conditionally; no combined array needed
+
+// Helper component to initialize map and fit bounds on load
+const FitBoundsOnLoad: React.FC<{ onInit: (map: L.Map) => void }> = ({ onInit }) => {
+  const map = useMap();
+  React.useEffect(() => {
+    onInit(map);
+    // Ensure the map has correct size before fitting bounds
+    map.whenReady(() => {
+      setTimeout(() => {
+        map.invalidateSize();
+        try {
+          const bounds = L.latLngBounds(
+            stateLocations.map((s) => [s.lat, s.lng] as [number, number])
+          );
+          if (bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [40, 40] });
+          } else {
+            // Fallback to continental US center
+            map.setView([39.8283, -98.5795], 4);
+          }
+        } catch {
+          // Fallback to continental US center on any error
+          map.setView([39.8283, -98.5795], 4);
+        }
+      }, 0);
+    });
+  }, [map, onInit]);
+  return null;
+};
+
+// Helper component to watch zoom changes and report back
+const ZoomWatcher: React.FC<{ onZoom: (zoom: number) => void }> = ({ onZoom }) => {
+  const map = useMapEvents({
+    zoomend() {
+      onZoom(map.getZoom());
+    },
+  });
+  return null;
+};
 
 const MapComponent = () => {
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [zoomLevel, setZoomLevel] = useState(4);
-  
-  // Create a ref to store the map instance
-  const mapRef = React.useRef<L.Map>(null);
+  const [map, setMap] = useState<L.Map | null>(null);
   
   // Handle zoom level changes
-  const updateZoom = () => {
-    if (mapRef.current) {
-      setZoomLevel(mapRef.current.getZoom());
-    }
+  const updateZoom = (z: number) => {
+    setZoomLevel(z);
   };
 
   // Custom marker icon based on type
@@ -166,32 +192,37 @@ const MapComponent = () => {
   // Handle state selection
   const handleStateSelect = (stateAbbr: string) => {
     const state = stateLocations.find(s => s.abbr === stateAbbr);
-    if (state && mapRef.current) {
-      mapRef.current.flyTo([state.lat, state.lng], 6, {
+    if (state && map) {
+      map.flyTo([state.lat, state.lng], 6, {
         duration: 1.5
       });
       setSelectedState(stateAbbr);
     }
   };
 
+  // Precompute initial bounds covering all states
+  const initialBounds = L.latLngBounds(
+    stateLocations.map((s) => [s.lat, s.lng] as [number, number])
+  );
+
   return (
     <div className="relative h-[600px] w-full rounded-xl overflow-hidden shadow-xl">
       <MapContainer
-        center={[39.8283, -98.5795]}
-        zoom={4}
+        bounds={initialBounds}
         style={{ height: "100%", width: "100%" }}
         zoomControl={false}
-        ref={mapRef}
         zoomSnap={0.5}
-        whenCreated={(map) => {
-          mapRef.current = map;
-          updateZoom();
-        }}
-        onZoomEnd={updateZoom}
       >
+        <ZoomWatcher onZoom={updateZoom} />
+        <FitBoundsOnLoad onInit={(createdMap) => {
+          setMap(createdMap);
+          setZoomLevel(createdMap.getZoom());
+        }} />
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          subdomains={["a", "b", "c", "d"]}
+          detectRetina
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://carto.com/attributions">CARTO</a>'
         />
         
         {/* State markers */}
