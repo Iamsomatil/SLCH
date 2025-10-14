@@ -39,10 +39,10 @@ const Footer: React.FC = () => {
                 <Mail className="h-4 w-4 mt-0.5" />
                 <div className="flex flex-col">
                   <a
-                    href="mailto:info@sunlifehousingcorp.com"
+                    href="mailto:admin@sunlifehousingcorp.com"
                     className="hover:text-gold transition-colors"
                   >
-                    info@sunlifehousingcorp.com
+                    admin@sunlifehousingcorp.com
                   </a>
                   <a
                     href="mailto:contact@sunlifehousingcorp.com"
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <MapPin className="h-4 w-4" />
-                <span>Multiple Locations</span>
+                <span>Nationwide</span>
               </div>
             </div>
           </div>

@@ -83,10 +83,10 @@ const ContactPage: React.FC = () => {
                   </p>
                   <div className="flex flex-col gap-1">
                     <a
-                      href="mailto:info@sunlifehousingcorp.com"
+                      href="mailto:admin@sunlifehousingcorp.com"
                       className="text-navy hover:text-navy/80 font-medium"
                     >
-                      info@sunlifehousingcorp.com
+                      admin@sunlifehousingcorp.com
                     </a>
                     <a
                       href="mailto:contact@sunlifehousingcorp.com"

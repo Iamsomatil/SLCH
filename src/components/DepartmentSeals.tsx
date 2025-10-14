@@ -25,10 +25,30 @@ const generatePartnerData = (): PartnerLogo[] => {
     "Rhem.jpg",
     "Rhino.jpg",
     "Sdp.jpg",
-    "Shelly.jpg"
+    "Shelly.jpg",
   ];
 
-  return partnerFiles.map(file => {
+  // Additional partner logos added from public/partner starting with "Screenshot"
+  const screenshotFiles = [
+    "Screenshot 2025-10-14 105.png.jpg",
+    "Screenshot 2025-10-14 105918.png",
+    "Screenshot 2025-10-14 110242.png",
+    "Screenshot 2025-10-14 110333.png",
+    "Screenshot 2025-10-14 110424.png",
+    "Screenshot 2025-10-14 110946.png",
+    "Screenshot 2025-10-14 111059.png",
+    "Screenshot 2025-10-14 111133.png",
+    "Screenshot 2025-10-14 111252.png",
+    "Screenshot 2025-10-14 111344.png",
+    "Screenshot 2025-10-14 111425.png",
+    "Screenshot 2025-10-14 111442.png",
+    "Screenshot 2025-10-14 111546.png",
+    "Screenshot 2025-10-14 111629.png",
+  ];
+
+  const allFiles = [...partnerFiles, ...screenshotFiles];
+
+  return allFiles.map(file => {
     // Generate a more descriptive alt text from the filename
     const name = file.split('.')[0];
     const alt = name === 'Ea' || name === 'Iea' ? name.toUpperCase() : name;
@@ -94,7 +114,7 @@ const DepartmentSeals: React.FC = () => {
           animate={isInView ? "show" : "hidden"}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8"
         >
-          {partners.map((partner, index) => (
+          {partners.map((partner) => (
             <motion.div
               key={partner.src}
               variants={isReducedMotion ? {} : item}
