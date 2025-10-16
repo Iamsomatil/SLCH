@@ -225,7 +225,7 @@ const AboutPage: React.FC = () => {
               { name: "Hosea Barnwell", title: "Chief Executive Officer" },
               { name: "Troy Austria", title: "Chief Operating Officer" },
               { name: "Samson Akinsanya", title: "Chief Technology Officer" },
-              { name: "Patricia Johnson", title: "Operations Coordinator" },
+              { name: "PJ Carungay", title: "Operations Coordinator" },
               { name: "Maria Turqueza", title: "Administrator" },
             ].map((member) => (
               <div
