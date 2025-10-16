@@ -50,6 +50,12 @@ const Footer: React.FC = () => {
                   >
                     contact@sunlifehousingcorp.com
                   </a>
+                  <a
+                    href="mailto:purchasing@sunlifehousingcorp.com"
+                    className="hover:text-gold transition-colors"
+                  >
+                    purchasing@sunlifehousingcorp.com
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-2 text-sm text-gray-300">

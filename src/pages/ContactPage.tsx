@@ -95,6 +95,12 @@ const ContactPage: React.FC = () => {
                     >
                       contact@sunlifehousingcorp.com
                     </a>
+                    <a
+                      href="mailto:purchasing@sunlifehousingcorp.com"
+                      className="text-navy hover:text-navy/80 font-medium"
+                    >
+                      purchasing@sunlifehousingcorp.com
+                    </a>
                   </div>
                 </div>
               </div>
