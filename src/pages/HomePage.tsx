@@ -43,10 +43,88 @@ const services = [
   },
 ];
 
+const PromoVideoSection: React.FC = () => {
+  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    let attached = false;
+    const attachSources = () => {
+      if (attached) return;
+      const sWebm = document.createElement("source");
+      sWebm.src = "/videos/mission-720.webm";
+      sWebm.type = "video/webm";
+      const sMp4 = document.createElement("source");
+      sMp4.src = "/videos/mission-720.mp4";
+      sMp4.type = "video/mp4";
+      v.appendChild(sWebm);
+      v.appendChild(sMp4);
+      attached = true;
+      try {
+        v.load();
+      } catch (e) {}
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      attachSources();
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            attachSources();
+            io.disconnect();
+            break;
+          }
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+
+    io.observe(v);
+    return () => {
+      io.disconnect();
+    };
+  }, []);
+
+  return (
+    <section id="promo-video" aria-label="Company overview video" className="w-full bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="mb-4">
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">See SunLife Corporate Housing in Action</h2>
+          <p className="mt-2 text-gray-600">A quick 20-second overview of what we do and how we serve our clients.</p>
+        </div>
+        <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+          <video
+            id="slch-promo-video"
+            ref={videoRef}
+            className="block w-full h-auto"
+            playsInline
+            muted
+            loop
+            autoPlay
+            controls
+            preload="metadata"
+            poster="/videos/mission-poster.PNG"
+          >
+            Sorry, your browser doesn't support embedded videos. You can
+            <a href="/videos/mission-720.mp4">download the video here</a>.
+          </video>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const HomePage: React.FC = () => {
   return (
     <div>
       <HeroSection />
+      <PromoVideoSection />
       <TrustBand items={[]} />
       <SectionDividerChevron />
 
