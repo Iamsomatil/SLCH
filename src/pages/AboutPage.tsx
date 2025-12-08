@@ -227,7 +227,7 @@ const AboutPage: React.FC = () => {
               { name: "Samson Akinsanya", title: "Chief Technology Officer" },
               { name: "PJ Carungay", title: "Operations Coordinator" },
               { name: "Maria Turqueza", title: "Administrator" },
-              { name: "Christy Mayol", title: "Virtual Assistant" },
+              { name: "Christy Mayol", title: "Support Services" },
             ].map((member) => (
               <div
                 key={member.name}
