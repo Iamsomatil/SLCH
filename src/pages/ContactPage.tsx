@@ -68,7 +68,7 @@ const ContactPage: React.FC = () => {
                     href="tel:+17542001264"
                     className="text-navy hover:text-navy/80 font-medium"
                   >
-                    (+1) 754-200-1264
+                    +1 (754)-200-1264
                   </a>
                 </div>
               </div>
@@ -100,6 +100,12 @@ const ContactPage: React.FC = () => {
                       className="text-navy hover:text-navy/80 font-medium"
                     >
                       purchasing@sunlifehousingcorp.com
+                    </a>
+                    <a
+                      href="mailto:support@sunlifehousingcorp.com"
+                      className="text-navy hover:text-navy/80 font-medium"
+                    >
+                      Support@sunlifehousingcorp.com
                     </a>
                   </div>
                 </div>
