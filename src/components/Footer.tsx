@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                   href="tel:+17542001264"
                   className="hover:text-gold transition-colors"
                 >
-                  (+1) 754-200-1264
+                  +1 (754)-200-1264
                 </a>
               </div>
               <div className="flex items-start space-x-2 text-sm text-gray-300">
@@ -55,6 +55,12 @@ const Footer: React.FC = () => {
                     className="hover:text-gold transition-colors"
                   >
                     purchasing@sunlifehousingcorp.com
+                  </a>
+                  <a
+                    href="mailto:support@sunlifehousingcorp.com"
+                    className="hover:text-gold transition-colors"
+                  >
+                    support@sunlifehousingcorp.com
                   </a>
                 </div>
               </div>

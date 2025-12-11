@@ -50,45 +50,25 @@ const PromoVideoSection: React.FC = () => {
     const v = videoRef.current;
     if (!v) return;
 
-    let attached = false;
-    const attachSources = () => {
-      if (attached) return;
-      const sWebm = document.createElement("source");
-      sWebm.src = "/videos/mission-720.webm";
-      sWebm.type = "video/webm";
-      const sMp4 = document.createElement("source");
-      sMp4.src = "/videos/mission-720.mp4";
-      sMp4.type = "video/mp4";
-      v.appendChild(sWebm);
-      v.appendChild(sMp4);
-      attached = true;
-      try {
-        v.load();
-      } catch (e) {}
-    };
+    // Attach sources immediately for autoplay
+    const sWebm = document.createElement("source");
+    sWebm.src = "/videos/mission-720.webm";
+    sWebm.type = "video/webm";
+    const sMp4 = document.createElement("source");
+    sMp4.src = "/videos/mission-720.mp4";
+    sMp4.type = "video/mp4";
+    v.appendChild(sWebm);
+    v.appendChild(sMp4);
 
-    if (!("IntersectionObserver" in window)) {
-      attachSources();
-      return;
+    try {
+      v.load();
+      // Attempt to play immediately
+      v.play().catch(err => {
+        console.log("Autoplay prevented:", err);
+      });
+    } catch (e) {
+      console.log("Video load error:", e);
     }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            attachSources();
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { rootMargin: "200px 0px" }
-    );
-
-    io.observe(v);
-    return () => {
-      io.disconnect();
-    };
   }, []);
 
   return (
@@ -109,7 +89,6 @@ const PromoVideoSection: React.FC = () => {
             autoPlay
             controls
             preload="metadata"
-            poster="/videos/mission-poster.PNG"
           >
             Sorry, your browser doesn't support embedded videos. You can
             <a href="/videos/mission-720.mp4">download the video here</a>.
