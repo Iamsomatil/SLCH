@@ -11,6 +11,7 @@ const generatePartnerData = (): PartnerLogo[] => {
   const partnerFiles = [
     "AAI.jpg",
     "Asbestos.jpg",
+    "asphalt.jpeg",
     "Atlas.jpg",
     "Cleanco.jpg",
     "Ea.jpg",
@@ -26,6 +27,7 @@ const generatePartnerData = (): PartnerLogo[] => {
     "Rhino.jpg",
     "Sdp.jpg",
     "Shelly.jpg",
+    "special-forces.jpeg",
   ];
 
   // Additional partner logos added from public/partner starting with "Screenshot"

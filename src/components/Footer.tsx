@@ -29,10 +29,10 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-2 text-sm text-gray-300">
                 <Phone className="h-4 w-4" />
                 <a
-                  href="tel:+17542001264"
+                  href="tel:+1 (754) 432-2302"
                   className="hover:text-gold transition-colors"
                 >
-                  +1 (754)-200-1264
+                  +1  (754) 432-2302
                 </a>
               </div>
               <div className="flex items-start space-x-2 text-sm text-gray-300">
@@ -61,6 +61,12 @@ const Footer: React.FC = () => {
                     className="hover:text-gold transition-colors"
                   >
                     support@sunlifehousingcorp.com
+                  </a>
+                  <a
+                    href="mailto:operations@sunlifehousingcorp.com"
+                    className="hover:text-gold transition-colors"
+                  >
+                    operations@sunlifehousingcorp.com
                   </a>
                 </div>
               </div>
