@@ -44,6 +44,18 @@ const teamMembers = [
     bio: 'Managing financial operations and ensuring fiscal responsibility across all business units.',
     fullBio: 'Robert Kim manages all financial aspects of SunLife Housing Corp, from budgeting and forecasting to financial reporting and compliance. His analytical approach and attention to detail have helped optimize operational costs and improve profitability. Robert is a CPA with over 11 years of experience in corporate finance and accounting, specializing in the real estate and property management sectors.',
     image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400'
+  },
+  {
+    name: 'Marteena Kyla',
+    role: 'Business Development Representative'
+  },
+  {
+    name: 'Noelle Sevidal',
+    role: 'Business Development Representative'
+  },
+  {
+    name: 'Leslie Tajale',
+    role: 'Procurement Specialist'
   }
 ];
 

@@ -27,8 +27,21 @@ const generatePartnerData = (): PartnerLogo[] => {
     "Rhino.jpg",
     "Sdp.jpg",
     "Shelly.jpg",
+    "western-site-service.jpeg",
+    "roofing-construction-llc.jpeg",
+    "white-construction-co.jpeg",
+    "doctor-asphalt.jpeg",
+    "southeast-awnings.jpeg",
     "special-forces.jpeg",
   ];
+
+  const partnerNameOverrides: Record<string, string> = {
+    "western-site-service.jpeg": "Western Site Service",
+    "roofing-construction-llc.jpeg": "Roofing Construction LLC",
+    "white-construction-co.jpeg": "White Construction Co",
+    "doctor-asphalt.jpeg": "Doctor Asphalt",
+    "southeast-awnings.jpeg": "Southeast Awnings",
+  };
 
   // Additional partner logos added from public/partner starting with "Screenshot"
   const screenshotFiles = [
@@ -53,7 +66,7 @@ const generatePartnerData = (): PartnerLogo[] => {
   return allFiles.map(file => {
     // Generate a more descriptive alt text from the filename
     const name = file.split('.')[0];
-    const alt = name === 'Ea' || name === 'Iea' ? name.toUpperCase() : name;
+    const alt = partnerNameOverrides[file] || (name === 'Ea' || name === 'Iea' ? name.toUpperCase() : name);
     
     return {
       src: `/partner/${file}`,

@@ -228,6 +228,9 @@ const AboutPage: React.FC = () => {
               { name: "Florita Lara", title: "Operations Coordinator" },
               { name: "Maria Turqueza", title: "Administrator" },
               { name: "Christy Mayol", title: "Support Services" },
+              { name: "Marteena Kyla", title: "Business Development Representative" },
+              { name: "Noelle Sevidal", title: "Business Development Representative" },
+              { name: "Leslie Tajale", title: "Procurement Specialist" },
             ].map((member) => (
               <div
                 key={member.name}

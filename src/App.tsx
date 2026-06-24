@@ -10,6 +10,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import LocationsPage from "./pages/LocationsPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
+import TeamPage from "./pages/TeamPage";
 import GovernmentHousingPage from "./pages/GovernmentHousingPage";
 import ContractVehiclesPage from "./pages/ContractVehiclesPage";
 import PastPerformancePage from "./pages/PastPerformancePage";
@@ -89,6 +90,7 @@ function App() {
             <Route path="/locations" element={<LocationsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/team" element={<TeamPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route
               path="/resources/capability-statement"

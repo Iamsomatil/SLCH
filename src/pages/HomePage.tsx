@@ -62,9 +62,14 @@ const PromoVideoSection: React.FC = () => {
 
     try {
       v.load();
-      // Attempt to play immediately
+      // Attempt to play with sound
       v.play().catch(err => {
-        console.log("Autoplay prevented:", err);
+        console.log("Autoplay with sound prevented, trying muted:", err);
+        // Fallback: try muted autoplay if sound is blocked
+        v.muted = true;
+        v.play().catch(mutedErr => {
+          console.log("Even muted autoplay prevented:", mutedErr);
+        });
       });
     } catch (e) {
       console.log("Video load error:", e);
@@ -84,7 +89,6 @@ const PromoVideoSection: React.FC = () => {
             ref={videoRef}
             className="block w-full h-auto"
             playsInline
-            muted
             loop
             autoPlay
             controls
