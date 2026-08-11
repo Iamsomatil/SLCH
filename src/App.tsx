@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType } from "react-router-dom";
 import NProgress from 'nprogress';
+import { MotionConfig } from "framer-motion";
 import 'nprogress/nprogress.css';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -63,44 +64,46 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white text-black">
-        <TopProgressBar />
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route
-              path="/government-contracting"
-              element={<GovernmentContractingPage />}
-            />
-            <Route
-              path="/corporate-housing"
-              element={<CorporateHousingPage />}
-            />
-            <Route
-              path="/services/government-housing"
-              element={<GovernmentHousingPage />}
-            />
-            <Route path="/services/:slug" element={<ServiceDetailPage />} />
-            <Route
-              path="/contract-vehicles"
-              element={<ContractVehiclesPage />}
-            />
-            <Route path="/past-performance" element={<PastPerformancePage />} />
-            <Route path="/locations" element={<LocationsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route
-              path="/resources/capability-statement"
-              element={<CapabilityStatementPage />}
-            />
-            <Route path="/privacy" element={<PrivacyCompliancePage />} />
-            <Route path="/accessibility" element={<AccessibilityPage />} />
-          </Routes>
-        </main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <TopProgressBar />
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route
+                path="/government-contracting"
+                element={<GovernmentContractingPage />}
+              />
+              <Route
+                path="/corporate-housing"
+                element={<CorporateHousingPage />}
+              />
+              <Route
+                path="/services/government-housing"
+                element={<GovernmentHousingPage />}
+              />
+              <Route path="/services/:slug" element={<ServiceDetailPage />} />
+              <Route
+                path="/contract-vehicles"
+                element={<ContractVehiclesPage />}
+              />
+              <Route path="/past-performance" element={<PastPerformancePage />} />
+              <Route path="/locations" element={<LocationsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/team" element={<TeamPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route
+                path="/resources/capability-statement"
+                element={<CapabilityStatementPage />}
+              />
+              <Route path="/privacy" element={<PrivacyCompliancePage />} />
+              <Route path="/accessibility" element={<AccessibilityPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </MotionConfig>
       </div>
     </Router>
   );

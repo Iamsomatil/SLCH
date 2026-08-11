@@ -1,0 +1,244 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - link "SunLife Facility Solutions home" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "SunLife Facility Solutions" [ref=e9]
+      - generic [ref=e10]:
+        - link "Home" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e15] [cursor=pointer]:
+          - /url: /services
+        - link "PAST PERFORMANCE" [ref=e17] [cursor=pointer]:
+          - /url: /past-performance
+        - link "About" [ref=e19] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: SunLife Facility Solutions
+            - heading "Comprehensive Facility Maintenance Services" [level=1] [ref=e33]
+            - paragraph [ref=e34]: Expert solutions for asbestos, mold, and lead remediation. Comprehensive preventative maintenance and specialty facility services for government and enterprise clients.
+          - link "Request a Service Quote" [ref=e36] [cursor=pointer]:
+            - /url: /contact
+          - generic [ref=e40]:
+            - generic [ref=e41]: Certified Experts
+            - generic [ref=e45]: Guaranteed Quality
+            - generic [ref=e50]: 24/7 Support
+        - generic [ref=e56]:
+          - img "Professional facility maintenance team performing building inspection and maintenance" [ref=e60]
+          - generic [ref=e68]:
+            - generic [ref=e69]: 24/7
+            - generic [ref=e70]: Support
+      - region "Company overview video" [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - heading "See SunLife Facility Solutions in Action" [level=2] [ref=e74]
+            - paragraph [ref=e75]: A quick 20-second overview of what we do and how we serve our clients.
+          - generic [ref=e76]: Sorry, your browser doesn't support embedded videos. You can.
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - heading "Facility Maintenance Services You Can Trust" [level=2] [ref=e84]
+          - paragraph [ref=e85]: SunLife Facility Solutions provides a full range of facility services designed to meet the highest standards of compliance and operational excellence.
+        - list [ref=e87]:
+          - listitem [ref=e88]: Asbestos, mold, and lead remediation
+          - listitem [ref=e89]: Preventative maintenance services
+          - listitem [ref=e90]: Pavement maintenance and services
+          - listitem [ref=e91]: Elevator maintenance and services
+          - listitem [ref=e92]: Facility support and specialty services
+          - listitem [ref=e93]: Roofing
+          - listitem [ref=e94]: Protective Services
+      - generic [ref=e96]:
+        - generic [ref=e97]:
+          - heading "Trusted By Government Agencies" [level=2] [ref=e98]
+          - paragraph [ref=e99]: We proudly serve various government departments with our comprehensive facility maintenance solutions.
+        - generic "Government departments worked with" [ref=e100]:
+          - generic [ref=e101]:
+            - img "U.S. Army" [ref=e103]
+            - img "U.S. Coast Guard" [ref=e105]
+            - img "U.S. Department of Defense" [ref=e107]
+            - img "U.S. Department of Justice" [ref=e109]
+            - img "U.S. Navy" [ref=e111]
+            - img "U.S. Army (Additional)" [ref=e113]
+      - region "Our Impact" [ref=e116]:
+        - generic [ref=e117]:
+          - heading "Our Impact in Numbers" [level=2] [ref=e118]
+          - generic [ref=e119]:
+            - generic [ref=e120]:
+              - generic [ref=e122]:
+                - 'generic "Projects Completed: 500+" [ref=e123]': 0+
+                - generic [ref=e124]: Projects Completed
+              - generic [ref=e126]:
+                - 'generic "Departments Worked With: 50+" [ref=e127]': 0+
+                - generic [ref=e128]: Departments Worked With
+              - generic [ref=e130]:
+                - 'generic "Partnerships: 25+" [ref=e131]': 0+
+                - generic [ref=e132]: Partnerships
+            - generic [ref=e133]:
+              - generic [ref=e135]:
+                - generic [ref=e136]: Service Uptime
+                - generic [ref=e137]: 94%
+              - generic [ref=e140]:
+                - generic [ref=e141]: Customer Retention
+                - generic [ref=e142]: 98%
+              - generic [ref=e145]:
+                - generic [ref=e146]: On‑time Completion
+                - generic [ref=e147]: 99%
+      - generic [ref=e150]:
+        - generic [ref=e151]:
+          - heading "Our Government Contracting Services" [level=2] [ref=e152]
+          - paragraph [ref=e153]: SunLife Facility Solutions provides a full range of government contracting services designed to meet the highest standards of compliance and operational excellence.
+        - generic [ref=e154]:
+          - generic [ref=e157]:
+            - heading "Asbestos, Mold, and Lead Remediation" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Certified remediation to create safer environments. Advanced techniques to detect, eliminate, and prevent hazardous materials.
+            - list [ref=e164]:
+              - listitem [ref=e165]: Asbestos abatement
+              - listitem [ref=e167]: Mold remediation
+              - listitem [ref=e169]: Lead-safe practices
+            - link "Learn more about Asbestos, Mold, and Lead Remediation" [ref=e171] [cursor=pointer]:
+              - /url: /services/remediation
+              - text: Learn More
+          - generic [ref=e176]:
+            - heading "Preventative Maintenance Services" [level=3] [ref=e181]
+            - paragraph [ref=e182]: Planned maintenance programs to minimize downtime and extend asset life.
+            - list [ref=e183]:
+              - listitem [ref=e184]: Scheduled inspections
+              - listitem [ref=e186]: Predictive upkeep
+              - listitem [ref=e188]: Work order management
+            - link "Learn more about Preventative Maintenance Services" [ref=e190] [cursor=pointer]:
+              - /url: /services/preventative-maintenance
+              - text: Learn More
+          - generic [ref=e195]:
+            - heading "Pavement Maintenance and Services" [level=3] [ref=e201]
+            - paragraph [ref=e202]: Repair and maintain roads, lots, and walkways for safety and longevity.
+            - list [ref=e203]:
+              - listitem [ref=e204]: Crack sealing
+              - listitem [ref=e206]: Sealcoating
+              - listitem [ref=e208]: Striping & marking
+            - link "Learn more about Pavement Maintenance and Services" [ref=e210] [cursor=pointer]:
+              - /url: /services/pavement-services
+              - text: Learn More
+          - generic [ref=e215]:
+            - heading "Elevator Maintenance and Services" [level=3] [ref=e229]
+            - paragraph [ref=e230]: Reliable elevator upkeep and modernization for safe, efficient transport.
+            - list [ref=e231]:
+              - listitem [ref=e232]: Routine maintenance
+              - listitem [ref=e234]: Repairs
+              - listitem [ref=e236]: Modernization
+            - link "Learn more about Elevator Maintenance and Services" [ref=e238] [cursor=pointer]:
+              - /url: /services/elevator-services
+              - text: Learn More
+          - generic [ref=e243]:
+            - heading "Facility Support and Specialty Services" [level=3] [ref=e248]
+            - paragraph [ref=e249]: Special projects and support operations tailored to mission needs.
+            - list [ref=e250]:
+              - listitem [ref=e251]: Specialty cleaning
+              - listitem [ref=e253]: Minor renovations
+              - listitem [ref=e255]: Event/mission support
+            - link "Learn more about Facility Support and Specialty Services" [ref=e257] [cursor=pointer]:
+              - /url: /services/facility-support
+              - text: Learn More
+          - generic [ref=e262]:
+            - heading "Roofing" [level=3] [ref=e269]
+            - paragraph [ref=e270]: Roofing support for facility repair, replacement, and maintenance projects.
+            - list [ref=e271]:
+              - listitem [ref=e272]: Roof condition review
+              - listitem [ref=e274]: Repair and replacement
+              - listitem [ref=e276]: Maintenance coordination
+            - link "Learn more about Roofing" [ref=e278] [cursor=pointer]:
+              - /url: /services/roofing
+              - text: Learn More
+          - generic [ref=e283]:
+            - heading "Protective Services" [level=3] [ref=e289]
+            - paragraph [ref=e290]: Unarmed protective services structured around site-specific access, observation, and reporting needs.
+            - list [ref=e291]:
+              - listitem [ref=e292]: Unarmed site presence
+              - listitem [ref=e294]: Access support
+              - listitem [ref=e296]: Observation and reporting
+            - link "Learn more about Protective Services" [ref=e298] [cursor=pointer]:
+              - /url: /services/protective-services
+              - text: Learn More
+      - region [ref=e303]:
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - paragraph [ref=e306]: Federal Contractor Credentials
+            - heading "Government Contracting Information" [level=2] [ref=e307]
+          - generic [ref=e308]:
+            - generic [ref=e309]:
+              - term [ref=e310]: Legal Company Name
+              - definition [ref=e311]: SunLife Corporate Housing LLC
+            - generic [ref=e312]:
+              - term [ref=e313]: DBA
+              - definition [ref=e314]: SunLife Facility Solutions
+            - generic [ref=e315]:
+              - term [ref=e316]: UEI
+              - definition [ref=e317]: ZFNYY3KNT8E4
+            - generic [ref=e318]:
+              - term [ref=e319]: CAGE Code
+              - definition [ref=e320]: 9CM70
+            - generic [ref=e321]:
+              - term [ref=e322]: SAM.gov Registration
+              - definition [ref=e323]: Active
+            - generic [ref=e324]:
+              - term [ref=e325]: Business Classification
+              - definition [ref=e326]: Small Business
+            - generic [ref=e327]:
+              - term [ref=e328]: Core NAICS Codes
+              - definition [ref=e329]: "561210"
+      - generic [ref=e332]:
+        - generic [ref=e333]:
+          - heading "Reliable Facility Support" [level=2] [ref=e334]
+          - paragraph [ref=e335]: We deliver compliant, secure, and reliable facility services—remediation, preventative maintenance, pavement and elevator services—tailored to mission needs and regulatory requirements.
+          - link "Request Service Quote" [ref=e336] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e337]:
+          - generic [ref=e338]:
+            - heading "Compliance-Ready" [level=3] [ref=e341]
+            - paragraph [ref=e342]: W-9, invoicing, and documentation aligned with agency requirements
+          - generic [ref=e343]:
+            - heading "Rapid Response" [level=3] [ref=e347]
+            - paragraph [ref=e348]: Service mobilization within 24–72 hours in most markets
+          - generic [ref=e349]:
+            - heading "Expert Technicians" [level=3] [ref=e361]
+            - paragraph [ref=e362]: Vetted specialists for remediation and maintenance
+          - generic [ref=e363]:
+            - heading "Nationwide Coverage" [level=3] [ref=e367]
+            - paragraph [ref=e368]: Proximity to bases, installations, and federal campuses
+  - contentinfo [ref=e369]:
+    - generic [ref=e370]:
+      - generic [ref=e371]:
+        - generic [ref=e372]:
+          - heading "About Us" [level=3] [ref=e373]
+          - paragraph [ref=e374]: Providing facility maintenance, remediation, pavement, elevator, and specialty services across multiple states.
+        - generic [ref=e375]:
+          - heading "Contact Info" [level=3] [ref=e376]
+          - generic [ref=e377]:
+            - link "+1 (754) 432-2302" [ref=e381] [cursor=pointer]:
+              - /url: tel:+1 (754) 432-2302
+            - generic [ref=e386]:
+              - link "admin@sunlifehousingcorp.com" [ref=e387] [cursor=pointer]:
+                - /url: mailto:admin@sunlifehousingcorp.com
+              - link "contact@sunlifehousingcorp.com" [ref=e388] [cursor=pointer]:
+                - /url: mailto:contact@sunlifehousingcorp.com
+              - link "purchasing@sunlifehousingcorp.com" [ref=e389] [cursor=pointer]:
+                - /url: mailto:purchasing@sunlifehousingcorp.com
+              - link "support@sunlifehousingcorp.com" [ref=e390] [cursor=pointer]:
+                - /url: mailto:support@sunlifehousingcorp.com
+              - link "operations@sunlifehousingcorp.com" [ref=e391] [cursor=pointer]:
+                - /url: mailto:operations@sunlifehousingcorp.com
+            - generic [ref=e392]: Nationwide
+        - generic [ref=e397]:
+          - heading "Follow Us" [level=3] [ref=e398]
+          - generic [ref=e399]:
+            - link "Facebook" [ref=e400] [cursor=pointer]:
+              - /url: "#"
+            - link "Twitter" [ref=e403] [cursor=pointer]:
+              - /url: "#"
+            - link "LinkedIn" [ref=e406] [cursor=pointer]:
+              - /url: "#"
+      - paragraph [ref=e412]: "© 2025 SunLife Facility Solutions. All rights reserved. Legal company name: SunLife Corporate Housing LLC."

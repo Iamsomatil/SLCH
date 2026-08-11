@@ -15,7 +15,7 @@ const GovernmentContractingPage: React.FC = () => {
             Government Contracting Services
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Sunlife Corporate Housing LLC specializes in delivering compliant,
+            SunLife Facility Solutions specializes in delivering compliant,
             efficient, and mission-ready housing solutions for agencies and
             contractors.
           </p>

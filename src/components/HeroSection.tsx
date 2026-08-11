@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
                 variants={itemVariants}
                 className="inline-flex items-center px-4 py-1.5 rounded-full bg-navy/5 text-navy text-sm font-medium border border-navy/10"
               >
-                Trusted Nationwide
+                SunLife Facility Solutions
               </motion.div>
               
               <motion.h1 

@@ -14,6 +14,7 @@ const generatePartnerData = (): PartnerLogo[] => {
     "asphalt.jpeg",
     "Atlas.jpg",
     "Cleanco.jpg",
+    "action-business-furniture.png",
     "Ea.jpg",
     "East.jpg",
     "Elite.jpg",
@@ -27,6 +28,9 @@ const generatePartnerData = (): PartnerLogo[] => {
     "Rhino.jpg",
     "Sdp.jpg",
     "Shelly.jpg",
+    "shetler-construction.png",
+    "spirco-manufacturing.png",
+    "lee-and-associates.png",
     "western-site-service.jpeg",
     "roofing-construction-llc.jpeg",
     "white-construction-co.jpeg",
@@ -41,6 +45,10 @@ const generatePartnerData = (): PartnerLogo[] => {
     "white-construction-co.jpeg": "White Construction Co",
     "doctor-asphalt.jpeg": "Doctor Asphalt",
     "southeast-awnings.jpeg": "Southeast Awnings",
+    "action-business-furniture.png": "Action Business Furniture Inc.",
+    "lee-and-associates.png": "Lee & Associates",
+    "shetler-construction.png": "Shetler Construction LLC",
+    "spirco-manufacturing.png": "Spirco Manufacturing",
   };
 
   // Additional partner logos added from public/partner starting with "Screenshot"

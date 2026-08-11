@@ -108,9 +108,8 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; 2025 Sunlife Corporate Housing. All rights reserved. Government-focused
-            corporate housing services. No claims made regarding specific
-            contract vehicles until verified.
+            &copy; 2025 SunLife Facility Solutions. All rights reserved. Legal
+            company name: SunLife Corporate Housing LLC.
           </p>
         </div>
       </div>

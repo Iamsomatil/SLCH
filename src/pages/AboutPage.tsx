@@ -48,10 +48,10 @@ const AboutPage: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            About Sunlife Corporate Housing
+            About SunLife Facility Solutions
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Sunlife Corporate Housing LLC was founded with one mission: to bring
+            SunLife Corporate Housing LLC was founded with one mission: to bring
             clarity, consistency, and excellence to government contracting. We
             specialize in providing facility maintenance and environmental
             services to federal, state, and local agencies nationwide — ensuring
@@ -259,7 +259,7 @@ const AboutPage: React.FC = () => {
         >
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-navy mb-4">
-              Why Choose Sunlife Corporate Housing?
+              Why Choose SunLife Facility Solutions?
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               We've built our reputation on delivering results that matter to

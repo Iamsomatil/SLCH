@@ -39,6 +39,10 @@ const Navbar: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
     let lastScrollY = window.scrollY;
     let ticking = false;
 
@@ -83,7 +87,7 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Partnerships", path: "/past-performance" },
+    { name: "PAST PERFORMANCE", path: "/past-performance" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -96,7 +100,7 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled 
           ? 'bg-white shadow-md backdrop-blur-sm bg-opacity-90' 
-          : 'bg-white md:bg-transparent'
+          : 'bg-white lg:bg-transparent'
       }`}
       style={{
         willChange: 'transform, opacity',
@@ -113,10 +117,10 @@ const Navbar: React.FC = () => {
             whileTap={{ scale: 0.98 }}
             className="flex-shrink-0"
           >
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" aria-label="SunLife Facility Solutions home">
               <img
                 src="/Sunlife-Logo.jpg"
-                alt="Sunlife Housing Corp Logo"
+                alt="SunLife Facility Solutions"
                 className="h-20 w-auto"
               />
             </Link>
@@ -124,7 +128,7 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <motion.div 
-            className="hidden md:flex items-center space-x-1 h-full"
+            className="hidden lg:flex items-center space-x-1 h-full"
             variants={containerVariants}
             initial="hidden"
             animate="show"
@@ -133,6 +137,7 @@ const Navbar: React.FC = () => {
               <motion.div key={navItem.path} variants={itemVariants}>
                 <Link
                   to={navItem.path}
+                  aria-current={location.pathname === navItem.path ? "page" : undefined}
                   className={`relative px-5 py-2.5 text-base font-medium transition-all duration-300 group ${
                     location.pathname === navItem.path
                       ? 'text-[#00008B]'
@@ -151,14 +156,17 @@ const Navbar: React.FC = () => {
           </motion.div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center
+          <div className="lg:hidden flex items-center
           ">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-              aria-expanded="false"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">
+                {isOpen ? "Close main menu" : "Open main menu"}
+              </span>
               {isOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
               ) : (
@@ -177,13 +185,15 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden"
+            id="mobile-navigation"
+            className="lg:hidden overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
               {navItems.map((navItem) => (
                 <Link
                   key={navItem.path}
                   to={navItem.path}
+                  aria-current={location.pathname === navItem.path ? "page" : undefined}
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
                     location.pathname === navItem.path
                       ? 'bg-blue-50 text-blue-700'

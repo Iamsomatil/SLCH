@@ -244,6 +244,44 @@ const serviceDetails = {
       'Improved continuity of operations'
     ],
     image: '/Services/facility.webp'
+  },
+  'roofing': {
+    title: 'Roofing',
+    description: 'Roofing support for facility repair, replacement, and maintenance projects.',
+    longDescription: 'SunLife Facility Solutions supports roofing projects from initial site review through coordinated repair, replacement, and maintenance work. Services are organized around the documented project scope, facility requirements, and site schedule.',
+    features: [
+      'Existing roof condition review',
+      'Repair and replacement planning',
+      'Roofing installation and repair',
+      'Preventative maintenance coordination',
+      'Project documentation and closeout'
+    ],
+    benefits: [
+      'Clear project scope and coordination',
+      'Planned work around facility requirements',
+      'Documented project progress',
+      'Support for ongoing roof condition needs'
+    ],
+    image: '/Services/roofing.jpg'
+  },
+  'protective-services': {
+    title: 'Protective Services',
+    description: 'Unarmed protective services structured around site-specific access, observation, and reporting needs.',
+    longDescription: 'SunLife Facility Solutions provides unarmed protective services aligned with site-specific post instructions and operating requirements. Work may include entry-point presence, routine observation, patrol support, and incident documentation as defined by the approved scope.',
+    features: [
+      'Unarmed site presence',
+      'Entry-point and access support',
+      'Routine observation and patrol support',
+      'Incident documentation',
+      'Site-specific post procedures'
+    ],
+    benefits: [
+      'Visible, professional site presence',
+      'Consistent observation and reporting',
+      'Support for established access procedures',
+      'Documentation aligned with site requirements'
+    ],
+    image: '/Services/protective-services.jpg'
   }
 };
 
@@ -307,19 +345,13 @@ const ServiceDetailPage: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="order-2 lg:order-1"
           >
-            <picture>
-              <source
-                type="image/webp"
-                srcSet={`${service.image}`.replace(/\.(jpg|jpeg|png)$/i, '.webp')}
-              />
-              <img
-                src={service.image}
-                alt={service.title}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-96 object-cover rounded-xl shadow-lg"
-              />
-            </picture>
+            <img
+              src={service.image}
+              alt={`${service.title} service`}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-96 object-cover rounded-xl shadow-lg"
+            />
           </motion.div>
 
           {/* Description */}
@@ -379,7 +411,7 @@ const ServiceDetailPage: React.FC = () => {
             Ready to Get Started?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today to learn more about our {service.title.toLowerCase()} services 
+            Contact us today to learn more about {service.title.toLowerCase()}{" "}
             and how we can help meet your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -391,7 +423,7 @@ const ServiceDetailPage: React.FC = () => {
               Get a Quote
             </Link>
             <a
-              href="tel:+15551234567"
+              href="tel:+17544322302"
               className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-white transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />

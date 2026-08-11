@@ -41,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ ok: false, error: 'Invalid email address' });
     }
 
-    const subject = `New Contact Form Submission — Sunlife Corporate Housing`;
+    const subject = `New Contact Form Submission — SunLife Corporate Housing`;
     const text = [
       `Name: ${name}`,
       `Email: ${email}`,

@@ -7,41 +7,10 @@ import SectionDividerChevron from "../components/SectionDividerChevron";
 import ServiceCard from "../components/ServiceCard";
 import StatsCounter from "../components/StatsCounter";
 import DepartmentBadges from "../components/DepartmentBadges";
-import { Shield, Wrench, MapPin, Cog, Clock } from "lucide-react";
-
-const services = [
-  {
-    title: "Asbestos, Mold, and Lead Remediation",
-    description:
-      "Certified remediation to create safer environments and ensure regulatory compliance.",
-    icon: Shield,
-    slug: "remediation",
-    features: ["Asbestos abatement", "Mold remediation", "Lead-safe practices"],
-  },
-  {
-    title: "Preventative Maintenance Services",
-    description: "Planned programs to minimize downtime and extend asset life.",
-    icon: Wrench,
-    slug: "preventative-maintenance",
-    features: ["Scheduled inspections", "Predictive upkeep", "24/7 response"],
-  },
-  {
-    title: "Pavement Maintenance and Services",
-    description:
-      "Repair and maintain roads, lots, and walkways for safety and longevity.",
-    icon: MapPin,
-    slug: "pavement-services",
-    features: ["Crack sealing", "Sealcoating", "Striping & ADA"],
-  },
-  {
-    title: "Elevator Maintenance and Services",
-    description:
-      "Reliable elevator upkeep and modernization for safe, efficient transport.",
-    icon: Cog,
-    slug: "elevator-services",
-    features: ["Routine maintenance", "Repairs", "Modernization"],
-  },
-];
+import DepartmentSeals from "../components/DepartmentSeals";
+import GovernmentContractingInfo from "../components/GovernmentContractingInfo";
+import { serviceCapabilities } from "../data/services";
+import { Shield, MapPin, Cog, Clock } from "lucide-react";
 
 const PromoVideoSection: React.FC = () => {
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
@@ -80,7 +49,7 @@ const PromoVideoSection: React.FC = () => {
     <section id="promo-video" aria-label="Company overview video" className="w-full bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-4">
-          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">See SunLife Corporate Housing in Action</h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">See SunLife Facility Solutions in Action</h2>
           <p className="mt-2 text-gray-600">A quick 20-second overview of what we do and how we serve our clients.</p>
         </div>
         <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
@@ -124,7 +93,7 @@ const HomePage: React.FC = () => {
               Facility Maintenance Services You Can Trust
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Sunlife provides a full range of facility services designed to
+              SunLife Facility Solutions provides a full range of facility services designed to
               meet the highest standards of compliance and operational
               excellence.
             </p>
@@ -137,6 +106,8 @@ const HomePage: React.FC = () => {
               <li>Pavement maintenance and services</li>
               <li>Elevator maintenance and services</li>
               <li>Facility support and specialty services</li>
+              <li>Roofing</li>
+              <li>Protective Services</li>
             </ul>
           </div>
         </div>
@@ -164,6 +135,8 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      <DepartmentSeals />
+
       {/* Stats Counter */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -184,16 +157,16 @@ const HomePage: React.FC = () => {
               Our Government Contracting Services
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Sunlife Corporate Housing LLC provides a full range of government
+              SunLife Facility Solutions provides a full range of government
               contracting services designed to meet the highest standards of
               compliance and operational excellence.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {serviceCapabilities.map((service, index) => (
               <motion.div
-                key={service.slug}
+                key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -202,6 +175,12 @@ const HomePage: React.FC = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <GovernmentContractingInfo />
         </div>
       </section>
 

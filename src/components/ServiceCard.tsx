@@ -7,7 +7,7 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: LucideIcon;
-  slug: string;
+  slug?: string;
   features?: string[];
 }
 
@@ -18,9 +18,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+      className="h-full bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
     >
-      <div className="p-6">
+      <div className="flex h-full flex-col p-6">
         <div className="flex items-center space-x-4 mb-4">
           <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg group-hover:bg-gold/20 transition-colors">
             <Icon className="h-6 w-6 text-gold" />
@@ -30,7 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
         
         <p className="text-gray-600 mb-4 line-clamp-3">{description}</p>
         
-        {features && (
+        {features && features.length > 0 && (
           <ul className="space-y-2 mb-6">
             {features.slice(0, 3).map((feature, index) => (
               <li key={index} className="text-sm text-gray-500 flex items-center">
@@ -42,10 +42,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon: Ico
         )}
         
         <Link
-          to={`/services/${slug}`}
-          className="inline-flex items-center text-gold font-semibold hover:text-gold/80 transition-colors group"
+          to={slug ? `/services/${slug}` : "/contact"}
+          aria-label={slug ? `Learn more about ${title}` : `Contact SunLife about ${title}`}
+          className="mt-auto inline-flex items-center text-gold font-semibold hover:text-gold/80 transition-colors group"
         >
-          Learn More
+          {slug ? "Learn More" : "Contact Us"}
           <ArrowRight className="ml-1 h-4 w-4 group-hover:transform group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

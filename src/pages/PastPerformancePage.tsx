@@ -1,33 +1,37 @@
 import React from "react";
-import { motion } from "framer-motion";
-import DepartmentSeals from "../components/DepartmentSeals";
+import ContractAwardCard from "../components/ContractAwardCard";
+import Seo from "../components/Seo";
+import { selectedContractAwards } from "../data/contractAwards";
 
 const PastPerformancePage: React.FC = () => {
   return (
-    <div className="pt-20 pb-16">
+    <div className="bg-gray-50 pb-16 pt-20">
+      <Seo
+        title="Past Performance | SunLife Facility Solutions"
+        description="Review selected government contract awards completed by SunLife Facility Solutions, organized by agency, project, and location."
+        canonicalPath="/past-performance"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-            Our Valued Partners
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We're proud to collaborate with industry-leading partners to deliver exceptional service and results for our clients.
+        <header className="mx-auto mb-12 max-w-3xl pt-12 text-center md:pt-16">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gold">
+            Past Performance
           </p>
-        </motion.div>
+          <h1 className="mb-5 text-4xl font-bold text-navy md:text-5xl">
+            Selected Contract Awards
+          </h1>
+          <p className="text-lg leading-relaxed text-gray-600">
+            Explore selected government contract awards by agency, project, and
+            location.
+          </p>
+        </header>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-16"
-        >
-          <DepartmentSeals />
-        </motion.div>
+        <section aria-label="Selected contract awards">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {selectedContractAwards.map((award) => (
+              <ContractAwardCard key={award.id} award={award} />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
