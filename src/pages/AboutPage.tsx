@@ -101,7 +101,7 @@ const AboutPage: React.FC = () => {
           <div className="border-t border-gray-300">
             {values.map(([title, description], index) => (
               <article key={title} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-gray-300 py-5">
-                <span className="text-sm font-semibold text-gold-700">
+                <span className="accent-small text-sm font-semibold">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -124,7 +124,7 @@ const AboutPage: React.FC = () => {
             {teamMembers.map((member) => (
               <article key={member.name} className="border-b border-r border-gray-200 bg-white p-6">
                 <h3 className="font-bold text-navy">{member.name}</h3>
-                <p className="mt-1 text-sm text-gray-600">{member.title}</p>
+                <p className="accent-small mt-1 text-sm font-medium">{member.title}</p>
               </article>
             ))}
           </div>

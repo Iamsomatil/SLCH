@@ -32,7 +32,7 @@ const GovernmentContractingInfo: React.FC = () => {
         <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(([label, value]) => (
             <div key={label} className="border-b border-gray-200 px-0 py-5 sm:px-6 lg:last:border-b-0">
-              <dt className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+              <dt className="micro-label">
                 {label}
               </dt>
               <dd className="mt-1.5 break-words text-sm font-semibold text-navy">

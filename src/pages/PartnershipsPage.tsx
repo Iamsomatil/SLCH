@@ -52,7 +52,7 @@ const PartnershipsPage: React.FC = () => {
                 key={area}
                 className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-gray-200 py-5"
               >
-                <span className="text-sm font-semibold text-gold-700">
+                <span className="accent-small text-sm font-semibold">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="font-medium leading-6 text-navy">{area}</p>

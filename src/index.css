@@ -7,6 +7,7 @@
     --color-primary: #00008b;
     --color-navy: #0d2b4c;
     --color-gold: #f7941d;
+    --color-accent-text: #a95700;
     --color-ink: #172235;
     --color-muted: #5f6b7a;
     --color-line: #dfe4ea;
@@ -102,7 +103,17 @@
   }
 
   .eyebrow {
-    @apply mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-gold-700;
+    @apply mb-3 text-sm font-semibold uppercase tracking-[0.16em];
+    color: var(--color-accent-text);
+  }
+
+  .micro-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em];
+    color: var(--color-accent-text);
+  }
+
+  .accent-small {
+    color: var(--color-accent-text);
   }
 
   .page-title {

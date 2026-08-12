@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
         <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" {...register('_hp')} />
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
+          <label htmlFor="name" className="accent-small mb-2 block text-sm font-semibold">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -81,7 +81,7 @@ const ContactForm: React.FC = () => {
 
         {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
+          <label htmlFor="email" className="accent-small mb-2 block text-sm font-semibold">
             Email Address <span className="text-red-500">*</span>
           </label>
           <input
@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
 
         {/* Phone Field */}
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-navy mb-2">
+          <label htmlFor="phone" className="accent-small mb-2 block text-sm font-semibold">
             Phone Number <span className="text-red-500">*</span>
           </label>
           <input
@@ -136,7 +136,7 @@ const ContactForm: React.FC = () => {
 
         {/* Notes Field */}
         <div>
-          <label htmlFor="notes" className="block text-sm font-medium text-navy mb-2">
+          <label htmlFor="notes" className="accent-small mb-2 block text-sm font-semibold">
             Notes
           </label>
           <textarea
