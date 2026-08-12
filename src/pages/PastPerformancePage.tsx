@@ -5,34 +5,45 @@ import { selectedContractAwards } from "../data/contractAwards";
 
 const PastPerformancePage: React.FC = () => {
   return (
-    <div className="bg-gray-50 pb-16 pt-20">
+    <div className="page-shell">
       <Seo
         title="Past Performance | SunLife Facility Solutions"
         description="Review selected government contract awards completed by SunLife Facility Solutions, organized by agency, project, and location."
         canonicalPath="/past-performance"
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mx-auto mb-12 max-w-3xl pt-12 text-center md:pt-16">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-gold">
-            Past Performance
-          </p>
-          <h1 className="mb-5 text-4xl font-bold text-navy md:text-5xl">
-            Selected Contract Awards
-          </h1>
-          <p className="text-lg leading-relaxed text-gray-600">
-            Explore selected government contract awards by agency, project, and
-            location.
-          </p>
-        </header>
 
-        <section aria-label="Selected contract awards">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {selectedContractAwards.map((award) => (
-              <ContractAwardCard key={award.id} award={award} />
-            ))}
+      <header className="page-header">
+        <div className="site-container">
+          <div className="page-header-inner ml-0">
+            <p className="eyebrow">Past Performance</p>
+            <h1 className="page-title">Selected Contract Awards</h1>
+            <p className="page-intro">
+              A selected view of government contracting experience by agency,
+              project, and location.
+            </p>
           </div>
-        </section>
-      </div>
+        </div>
+      </header>
+
+      <section className="section-block" aria-label="Selected contract awards">
+        <div className="site-container">
+          <div className="grid gap-10 lg:grid-cols-[0.45fr_1fr] lg:gap-20">
+            <div>
+              <p className="eyebrow">Government experience</p>
+              <h2 className="text-2xl font-bold text-navy">Award overview</h2>
+              <p className="mt-4 max-w-sm text-sm leading-6 text-gray-600">
+                Public award entries are limited to approved agency, project,
+                and location information.
+              </p>
+            </div>
+            <div className="border-t border-gray-300">
+              {selectedContractAwards.map((award) => (
+                <ContractAwardCard key={award.id} award={award} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

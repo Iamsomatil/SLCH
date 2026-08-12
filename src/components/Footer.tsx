@@ -1,116 +1,85 @@
 import React from "react";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Facebook,
-  Twitter,
-  Linkedin,
-} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Mail, MapPin, Phone } from "lucide-react";
+
+const footerLinks = [
+  { label: "Services", to: "/services" },
+  { label: "Past Performance", to: "/past-performance" },
+  { label: "Partnerships", to: "/partnerships" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Company Info - Removed logo */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gold">About Us</h3>
-            <p className="text-gray-300 text-sm">
-              Providing facility maintenance, remediation, pavement, elevator,
-              and specialty services across multiple states.
+    <footer className="border-t-4 border-gold bg-navy text-white">
+      <div className="site-container py-12 md:py-14">
+        <div className="grid gap-10 md:grid-cols-[1.15fr_0.75fr_1fr] md:gap-12">
+          <div>
+            <h2 className="text-xl font-bold">SunLife Facility Solutions</h2>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-gray-300">
+              Facility maintenance, remediation, pavement, elevator, roofing,
+              protective, and specialty services.
+            </p>
+            <p className="mt-4 text-xs leading-5 text-gray-400">
+              Legal company name: SunLife Corporate Housing LLC
             </p>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gold">Contact Info</h3>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Phone className="h-4 w-4" />
-                <a
-                  href="tel:+1 (754) 432-2302"
-                  className="hover:text-gold transition-colors"
-                >
-                  +1  (754) 432-2302
-                </a>
-              </div>
-              <div className="flex items-start space-x-2 text-sm text-gray-300">
-                <Mail className="h-4 w-4 mt-0.5" />
-                <div className="flex flex-col">
-                  <a
-                    href="mailto:admin@sunlifehousingcorp.com"
-                    className="hover:text-gold transition-colors"
+          <nav aria-label="Footer navigation">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-gold">
+              Company
+            </h2>
+            <ul className="mt-4 space-y-2.5">
+              {footerLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-gray-300 transition-colors duration-200 hover:text-white"
                   >
-                    admin@sunlifehousingcorp.com
-                  </a>
-                  <a
-                    href="mailto:contact@sunlifehousingcorp.com"
-                    className="hover:text-gold transition-colors"
-                  >
-                    contact@sunlifehousingcorp.com
-                  </a>
-                  <a
-                    href="mailto:purchasing@sunlifehousingcorp.com"
-                    className="hover:text-gold transition-colors"
-                  >
-                    purchasing@sunlifehousingcorp.com
-                  </a>
-                  <a
-                    href="mailto:support@sunlifehousingcorp.com"
-                    className="hover:text-gold transition-colors"
-                  >
-                    support@sunlifehousingcorp.com
-                  </a>
-                  <a
-                    href="mailto:operations@sunlifehousingcorp.com"
-                    className="hover:text-gold transition-colors"
-                  >
-                    operations@sunlifehousingcorp.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <MapPin className="h-4 w-4" />
-                <span>Nationwide</span>
-              </div>
-            </div>
-          </div>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          {/* Social Media */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gold">Follow Us</h3>
-            <div className="flex space-x-4">
+          <div>
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-gold">
+              Contact
+            </h2>
+            <div className="mt-4 space-y-3 text-sm text-gray-300">
               <a
-                href="#"
-                className="text-gray-300 hover:text-gold transition-colors"
-                aria-label="Facebook"
+                href="tel:+17544322302"
+                className="flex items-center gap-3 transition-colors duration-200 hover:text-white"
               >
-                <Facebook className="h-5 w-5" />
+                <Phone className="h-4 w-4 flex-none" aria-hidden="true" />
+                (754) 432-2302
               </a>
               <a
-                href="#"
-                className="text-gray-300 hover:text-gold transition-colors"
-                aria-label="Twitter"
+                href="mailto:admin@sunlifehousingcorp.com"
+                className="flex items-start gap-3 break-all transition-colors duration-200 hover:text-white"
               >
-                <Twitter className="h-5 w-5" />
+                <Mail className="mt-0.5 h-4 w-4 flex-none" aria-hidden="true" />
+                admin@sunlifehousingcorp.com
               </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-gold transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+              <p className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 flex-none" aria-hidden="true" />
+                Tampa, Florida
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            &copy; 2025 SunLife Facility Solutions. All rights reserved. Legal
-            company name: SunLife Corporate Housing LLC.
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/15 pt-6 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} SunLife Corporate Housing LLC. All
+            rights reserved.
           </p>
+          <div className="flex gap-5">
+            <Link to="/privacy" className="hover:text-white">Privacy</Link>
+            <Link to="/accessibility" className="hover:text-white">Accessibility</Link>
+          </div>
         </div>
       </div>
     </footer>

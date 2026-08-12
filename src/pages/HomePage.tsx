@@ -1,254 +1,147 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import HeroSection from "../components/HeroSection";
-import TrustBand from "../components/TrustBand";
-import SectionDividerChevron from "../components/SectionDividerChevron";
-import ServiceCard from "../components/ServiceCard";
-import StatsCounter from "../components/StatsCounter";
-import DepartmentBadges from "../components/DepartmentBadges";
-import DepartmentSeals from "../components/DepartmentSeals";
 import GovernmentContractingInfo from "../components/GovernmentContractingInfo";
+import HeroSection from "../components/HeroSection";
+import ServiceCard from "../components/ServiceCard";
+import Seo from "../components/Seo";
 import { serviceCapabilities } from "../data/services";
-import { Shield, MapPin, Cog, Clock } from "lucide-react";
 
-const PromoVideoSection: React.FC = () => {
-  const videoRef = React.useRef<HTMLVideoElement | null>(null);
+const HomePage: React.FC = () => {
+  const introductionVideoRef = useRef<HTMLVideoElement>(null);
 
-  React.useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-
-    // Attach sources immediately for autoplay
-    const sWebm = document.createElement("source");
-    sWebm.src = "/videos/mission-720.webm";
-    sWebm.type = "video/webm";
-    const sMp4 = document.createElement("source");
-    sMp4.src = "/videos/mission-720.mp4";
-    sMp4.type = "video/mp4";
-    v.appendChild(sWebm);
-    v.appendChild(sMp4);
-
-    try {
-      v.load();
-      // Attempt to play with sound
-      v.play().catch(err => {
-        console.log("Autoplay with sound prevented, trying muted:", err);
-        // Fallback: try muted autoplay if sound is blocked
-        v.muted = true;
-        v.play().catch(mutedErr => {
-          console.log("Even muted autoplay prevented:", mutedErr);
-        });
-      });
-    } catch (e) {
-      console.log("Video load error:", e);
+  useEffect(() => {
+    const video = introductionVideoRef.current;
+    if (!video || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
     }
+
+    let hasStarted = false;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasStarted) return;
+
+        hasStarted = true;
+        video.muted = true;
+        void video.play().catch(() => {
+          // Native controls remain available if the browser blocks autoplay.
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.5 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="promo-video" aria-label="Company overview video" className="w-full bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-        <div className="mb-4">
-          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">See SunLife Facility Solutions in Action</h2>
-          <p className="mt-2 text-gray-600">A quick 20-second overview of what we do and how we serve our clients.</p>
-        </div>
-        <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-          <video
-            id="slch-promo-video"
-            ref={videoRef}
-            className="block w-full h-auto"
-            playsInline
-            loop
-            autoPlay
-            controls
-            preload="metadata"
-          >
-            Sorry, your browser doesn't support embedded videos. You can
-            <a href="/videos/mission-720.mp4">download the video here</a>.
-          </video>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const HomePage: React.FC = () => {
-  return (
     <div>
+      <Seo
+        title="SunLife Facility Solutions | Government Facility Services"
+        description="SunLife Facility Solutions provides facility maintenance, remediation, pavement, elevator, roofing, protective, and specialty services."
+        canonicalPath="/"
+      />
       <HeroSection />
-      <PromoVideoSection />
-      <TrustBand items={[]} />
-      <SectionDividerChevron />
 
-      {/* Intro Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Facility Maintenance Services You Can Trust
+      <section
+        className="border-b border-gray-200 bg-gray-50 py-12 md:py-16"
+        aria-labelledby="video-introduction-heading"
+      >
+        <div className="site-container grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-14">
+          <div>
+            <p className="eyebrow">Company introduction</p>
+            <h2 id="video-introduction-heading" className="section-title">
+              Operational support with a clear point of contact
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              SunLife Facility Solutions provides a full range of facility services designed to
-              meet the highest standards of compliance and operational
-              excellence.
+            <p className="section-copy">
+              SunLife coordinates facility and specialty services around
+              documented requirements, project communication, and accountable
+              delivery.
             </p>
-          </motion.div>
+            <div className="mt-7 flex flex-wrap gap-5">
+              <Link to="/about" className="text-link">
+                About SunLife <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+              <Link to="/contact" className="text-link">
+                Contact the team <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
 
-          <div className="max-w-4xl mx-auto flex justify-center">
-            <ul className="inline-block list-disc pl-6 space-y-2 text-navy text-left">
-              <li>Asbestos, mold, and lead remediation</li>
-              <li>Preventative maintenance services</li>
-              <li>Pavement maintenance and services</li>
-              <li>Elevator maintenance and services</li>
-              <li>Facility support and specialty services</li>
-              <li>Roofing</li>
-              <li>Protective Services</li>
-            </ul>
+          <div className="overflow-hidden border border-gray-300 bg-navy shadow-sm">
+            <video
+              ref={introductionVideoRef}
+              className="block aspect-video w-full bg-navy object-contain"
+              controls
+              muted
+              playsInline
+              preload="none"
+              poster="/videos/misson-poster.png"
+              aria-label="SunLife Facility Solutions company introduction video"
+            >
+              <source src="/videos/mission-720.webm" type="video/webm" />
+              <source src="/videos/mission-720.mp4" type="video/mp4" />
+              Your browser does not support embedded video.
+            </video>
           </div>
         </div>
       </section>
 
-      {/* Government Departments Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold text-navy mb-4">
-              Trusted By Government Agencies
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We proudly serve various government departments with our
-              comprehensive facility maintenance solutions.
+      <section className="section-block bg-gray-50" aria-labelledby="capabilities-heading">
+        <div className="site-container">
+          <div className="mb-10 grid gap-6 md:grid-cols-[1fr_0.8fr] md:items-end">
+            <div>
+              <p className="eyebrow">Core capabilities</p>
+              <h2 id="capabilities-heading" className="section-title">
+                Services aligned to facility and operational needs
+              </h2>
+            </div>
+            <p className="leading-7 text-gray-600 md:justify-self-end">
+              Explore SunLife&apos;s approved service capabilities and contact the
+              team to discuss project-specific requirements.
             </p>
-          </motion.div>
-          <DepartmentBadges />
-        </div>
-      </section>
+          </div>
 
-      <DepartmentSeals />
-
-      {/* Stats Counter */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StatsCounter />
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              Our Government Contracting Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              SunLife Facility Solutions provides a full range of government
-              contracting services designed to meet the highest standards of
-              compliance and operational excellence.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {serviceCapabilities.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <ServiceCard {...service} />
-              </motion.div>
+          <div className="grid grid-cols-1 border-l border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {serviceCapabilities.map((service) => (
+              <ServiceCard key={service.title} {...service} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-block bg-white">
+        <div className="site-container">
           <GovernmentContractingInfo />
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">
-                Reliable Facility Support
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                We deliver compliant, secure, and reliable facility
-                services—remediation, preventative maintenance, pavement and
-                elevator services—tailored to mission needs and regulatory
-                requirements.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-gold/90 transition-colors"
-              >
-                Request Service Quote
-              </Link>
-            </motion.div>
+      <section className="section-block bg-white">
+        <div className="site-container grid gap-px overflow-hidden border border-gray-200 bg-gray-200 md:grid-cols-2">
+          <article className="bg-white p-7 md:p-9">
+            <p className="eyebrow">Government experience</p>
+            <h2 className="text-2xl font-bold text-navy">Selected Contract Awards</h2>
+            <p className="mt-4 max-w-xl leading-7 text-gray-600">
+              Review selected government awards organized by agency, project,
+              and location.
+            </p>
+            <Link to="/past-performance" className="text-link mt-6">
+              View Past Performance <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
+          </article>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-2 gap-6"
-            >
-              <div className="bg-gold/10 rounded-lg p-6 text-center">
-                <Shield className="h-8 w-8 text-gold mx-auto mb-3" />
-                <h3 className="font-bold text-navy mb-2">Compliance-Ready</h3>
-                <p className="text-sm text-gray-600">
-                  W-9, invoicing, and documentation aligned with agency
-                  requirements
-                </p>
-              </div>
-              <div className="bg-gold/10 rounded-lg p-6 text-center">
-                <Clock className="h-8 w-8 text-gold mx-auto mb-3" />
-                <h3 className="font-bold text-navy mb-2">Rapid Response</h3>
-                <p className="text-sm text-gray-600">
-                  Service mobilization within 24–72 hours in most markets
-                </p>
-              </div>
-              <div className="bg-gold/10 rounded-lg p-6 text-center">
-                <Cog className="h-8 w-8 text-gold mx-auto mb-3" />
-                <h3 className="font-bold text-navy mb-2">Expert Technicians</h3>
-                <p className="text-sm text-gray-600">
-                  Vetted specialists for remediation and maintenance
-                </p>
-              </div>
-              <div className="bg-gold/10 rounded-lg p-6 text-center">
-                <MapPin className="h-8 w-8 text-gold mx-auto mb-3" />
-                <h3 className="font-bold text-navy mb-2">
-                  Nationwide Coverage
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Proximity to bases, installations, and federal campuses
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          <article className="bg-white p-7 md:p-9">
+            <p className="eyebrow">Business relationships</p>
+            <h2 className="text-2xl font-bold text-navy">Partnerships</h2>
+            <p className="mt-4 max-w-xl leading-7 text-gray-600">
+              Learn how SunLife approaches teaming, subcontracting, and service
+              collaboration opportunities.
+            </p>
+            <Link to="/partnerships" className="text-link mt-6">
+              Explore Partnerships <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
+          </article>
         </div>
       </section>
     </div>

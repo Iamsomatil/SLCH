@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigationType } from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Routes, Route, useLocation, useNavigationType } from "react-router-dom";
 import NProgress from 'nprogress';
 import { MotionConfig } from "framer-motion";
 import 'nprogress/nprogress.css';
@@ -8,19 +8,13 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
-import LocationsPage from "./pages/LocationsPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
-import TeamPage from "./pages/TeamPage";
-import GovernmentHousingPage from "./pages/GovernmentHousingPage";
-import ContractVehiclesPage from "./pages/ContractVehiclesPage";
 import PastPerformancePage from "./pages/PastPerformancePage";
-import FAQPage from "./pages/FAQPage";
-import CapabilityStatementPage from "./pages/CapabilityStatementPage";
 import PrivacyCompliancePage from "./pages/PrivacyCompliancePage";
 import AccessibilityPage from "./pages/AccessibilityPage";
 import GovernmentContractingPage from "./pages/GovernmentContractingPage";
-import CorporateHousingPage from "./pages/CorporateHousingPage";
+import PartnershipsPage from "./pages/PartnershipsPage";
 
 // Configure NProgress
 NProgress.configure({ 
@@ -63,11 +57,17 @@ const TopProgressBar = () => {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white text-black">
+      <div className="min-h-screen bg-white text-gray-800">
         <MotionConfig reducedMotion="user">
+          <a
+            href="#main-content"
+            className="fixed left-4 top-3 z-[100] -translate-y-20 rounded-md bg-navy px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0"
+          >
+            Skip to main content
+          </a>
           <TopProgressBar />
           <Navbar />
-          <main>
+          <main id="main-content" tabIndex={-1}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
@@ -77,26 +77,27 @@ function App() {
               />
               <Route
                 path="/corporate-housing"
-                element={<CorporateHousingPage />}
+                element={<Navigate to="/services" replace />}
               />
               <Route
                 path="/services/government-housing"
-                element={<GovernmentHousingPage />}
+                element={<Navigate to="/services" replace />}
               />
               <Route path="/services/:slug" element={<ServiceDetailPage />} />
               <Route
                 path="/contract-vehicles"
-                element={<ContractVehiclesPage />}
+                element={<Navigate to="/government-contracting" replace />}
               />
               <Route path="/past-performance" element={<PastPerformancePage />} />
-              <Route path="/locations" element={<LocationsPage />} />
+              <Route path="/partnerships" element={<PartnershipsPage />} />
+              <Route path="/locations" element={<Navigate to="/contact" replace />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/team" element={<TeamPage />} />
-              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/team" element={<Navigate to="/about" replace />} />
+              <Route path="/faq" element={<Navigate to="/contact" replace />} />
               <Route
                 path="/resources/capability-statement"
-                element={<CapabilityStatementPage />}
+                element={<Navigate to="/government-contracting" replace />}
               />
               <Route path="/privacy" element={<PrivacyCompliancePage />} />
               <Route path="/accessibility" element={<AccessibilityPage />} />

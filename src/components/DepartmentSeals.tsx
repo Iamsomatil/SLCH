@@ -83,7 +83,11 @@ const generatePartnerData = (): PartnerLogo[] => {
   });
 };
 
-const DepartmentSeals: React.FC = () => {
+type DepartmentSealsProps = {
+  showHeading?: boolean;
+};
+
+const DepartmentSeals: React.FC<DepartmentSealsProps> = ({ showHeading = true }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [isReducedMotion, setIsReducedMotion] = useState(false);
@@ -116,36 +120,31 @@ const DepartmentSeals: React.FC = () => {
   };
 
   return (
-    <section
-      className="py-12 md:py-16 bg-white"
-      aria-label="Partner companies"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-navy">
-            Partnerships
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Trusted by industry leaders to deliver exceptional service and support.
-          </p>
-        </div>
+    <section aria-label="Partner companies">
+      <div>
+        {showHeading && (
+          <div className="mb-10 max-w-2xl">
+            <p className="eyebrow">Current relationships</p>
+            <h2 className="section-title">Partner network</h2>
+          </div>
+        )}
 
         <motion.div
           ref={ref}
           variants={isReducedMotion ? {} : container}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 md:gap-8"
+          className="grid grid-cols-2 gap-px overflow-hidden border border-gray-200 bg-gray-200 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
         >
           {partners.map((partner) => (
             <motion.div
               key={partner.src}
               variants={isReducedMotion ? {} : item}
-              className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              whileHover={isReducedMotion ? {} : { y: -4, scale: 1.03 }}
+              className="flex min-h-28 items-center justify-center bg-white p-5 transition-colors duration-200 hover:bg-gray-50"
+              whileHover={isReducedMotion ? {} : { y: -2 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="relative w-full h-16">
+              <div className="relative h-14 w-full">
                 <img
                   src={partner.src}
                   alt={partner.alt}
@@ -154,8 +153,8 @@ const DepartmentSeals: React.FC = () => {
                   decoding="async"
                   style={{
                     filter: 'grayscale(100%)',
-                    opacity: 0.8,
-                    transition: 'all 0.3s ease',
+                    opacity: 0.75,
+                    transition: 'filter 0.2s ease, opacity 0.2s ease',
                   }}
                   onMouseOver={(e) => {
                     e.currentTarget.style.filter = 'grayscale(0%)';

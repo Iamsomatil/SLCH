@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Calendar, MapPin, Users } from 'lucide-react';
+import { ExternalLink, Calendar, MapPin } from 'lucide-react';
 
 const projects = [
   {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 
 interface FormData {
@@ -52,12 +51,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <motion.form
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-xl shadow-lg p-8 space-y-6"
+      className="space-y-6 border border-gray-300 bg-white p-6 md:p-8"
     >
       <div className="space-y-6">
         {/* Honeypot (hidden) */}
@@ -70,13 +66,16 @@ const ContactForm: React.FC = () => {
           <input
             type="text"
             id="name"
+            autoComplete="name"
             {...register('name', { required: 'Name is required' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
             placeholder="Your full name"
             aria-invalid={errors.name ? 'true' : 'false'}
+            aria-required="true"
+            aria-describedby={errors.name ? 'name-error' : undefined}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+            <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">{errors.name.message}</p>
           )}
         </div>
 
@@ -88,6 +87,7 @@ const ContactForm: React.FC = () => {
           <input
             type="email"
             id="email"
+            autoComplete="email"
             {...register('email', {
               required: 'Email is required',
               pattern: {
@@ -95,12 +95,14 @@ const ContactForm: React.FC = () => {
                 message: 'Please enter a valid email address'
               }
             })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
             placeholder="your.email@example.com"
             aria-invalid={errors.email ? 'true' : 'false'}
+            aria-required="true"
+            aria-describedby={errors.email ? 'email-error' : undefined}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">{errors.email.message}</p>
           )}
         </div>
 
@@ -111,7 +113,9 @@ const ContactForm: React.FC = () => {
           </label>
           <input
             type="tel"
+            inputMode="tel"
             id="phone"
+            autoComplete="tel"
             {...register('phone', {
               required: 'Phone number is required',
               pattern: {
@@ -119,12 +123,14 @@ const ContactForm: React.FC = () => {
                 message: 'Please enter a valid phone number'
               }
             })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
             placeholder="(123) 456-7890"
             aria-invalid={errors.phone ? 'true' : 'false'}
+            aria-required="true"
+            aria-describedby={errors.phone ? 'phone-error' : undefined}
           />
           {errors.phone && (
-            <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+            <p id="phone-error" className="mt-1 text-sm text-red-600" role="alert">{errors.phone.message}</p>
           )}
         </div>
 
@@ -137,7 +143,7 @@ const ContactForm: React.FC = () => {
             id="notes"
             rows={4}
             {...register('notes')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
             placeholder="How can we help you?"
           />
         </div>
@@ -145,23 +151,21 @@ const ContactForm: React.FC = () => {
 
       {/* Feedback messages */}
       {resultMessage && (
-        <p className="text-green-600 text-center">{resultMessage}</p>
+        <p className="text-green-700" role="status">{resultMessage}</p>
       )}
       {errorMessage && (
-        <p className="text-red-600 text-center">{errorMessage}</p>
+        <p className="text-red-600" role="alert">{errorMessage}</p>
       )}
 
-      <motion.button
+      <button
         type="submit"
-        whileHover={{ scale: submitting ? 1 : 1.02 }}
-        whileTap={{ scale: submitting ? 1 : 0.98 }}
         disabled={submitting}
-        className={`w-full bg-gold text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2 ${submitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-gold/90'}`}
+        className="btn-primary w-full gap-2 sm:w-auto"
       >
         <span>{submitting ? 'Sending…' : 'Send Message'}</span>
         <Send className="h-5 w-5" />
-      </motion.button>
-    </motion.form>
+      </button>
+    </form>
   );
 };
 

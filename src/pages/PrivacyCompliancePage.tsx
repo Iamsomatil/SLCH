@@ -1,24 +1,36 @@
 import React from "react";
+import Seo from "../components/Seo";
 
 const PrivacyCompliancePage: React.FC = () => {
   return (
-    <div className="pt-20 pb-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-          Privacy & Compliance
-        </h1>
-        <p className="text-gray-700 mb-4">
-          We maintain privacy-respectful operations and take precautions
-          appropriate for housing government personnel and contractors. We do
-          not claim certifications not held.
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-gray-700">
-          <li>Resident privacy and limited data collection</li>
-          <li>Backgrounded vendors where applicable</li>
-          <li>Insurance certificates available upon request</li>
-          <li>Documentation suitable for agency review</li>
-        </ul>
-      </div>
+    <div className="page-shell">
+      <Seo
+        title="Privacy | SunLife Facility Solutions"
+        description="SunLife Facility Solutions website privacy information."
+        canonicalPath="/privacy"
+      />
+      <header className="page-header">
+        <div className="content-container">
+          <p className="eyebrow">Website information</p>
+          <h1 className="page-title">Privacy</h1>
+        </div>
+      </header>
+      <section className="section-block">
+        <div className="content-container max-w-3xl">
+          <p className="leading-7 text-gray-700">
+            Information submitted through this website is used to review and
+            respond to inquiries sent to SunLife Facility Solutions.
+          </p>
+          <p className="mt-5 leading-7 text-gray-700">
+            Do not submit sensitive personal, financial, medical, export-controlled,
+            or classified information through the public contact form.
+          </p>
+          <p className="mt-5 leading-7 text-gray-700">
+            For questions about information submitted through this website,
+            contact <a className="text-link" href="mailto:admin@sunlifehousingcorp.com">admin@sunlifehousingcorp.com</a>.
+          </p>
+        </div>
+      </section>
     </div>
   );
 };

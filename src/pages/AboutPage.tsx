@@ -1,329 +1,147 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Award, Users, Building, Clock, Shield, Heart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
+
+const teamMembers = [
+  { name: "Hosea Barnwell", title: "Chief Executive Officer" },
+  { name: "Troy Austria", title: "Chief Operating Officer" },
+  { name: "Samson Akinsanya", title: "Chief Technology Officer" },
+  { name: "Florita Lara", title: "Operations Coordinator" },
+  { name: "Maria Turqueza", title: "Administrator" },
+  { name: "Christy Mayol", title: "Support Services" },
+  { name: "Marteena Kyla", title: "Business Development Representative" },
+  { name: "Noelle Sevidal", title: "Business Development Representative" },
+  { name: "Leslie Tajale", title: "Procurement Specialist" },
+];
+
+const values = [
+  ["Excellence", "A disciplined approach to service delivery and project support."],
+  ["Integrity", "Clear communication and accountable business practices."],
+  ["Innovation", "Continuous improvement in processes and service coordination."],
+  ["Care", "Attention to client requirements and the people affected by the work."],
+] as const;
 
 const AboutPage: React.FC = () => {
-  const stats = [
-    { number: "500+", label: "Properties Managed", icon: Building },
-    { number: "10K+", label: "Satisfied Clients", icon: Users },
-    { number: "15+", label: "Years Experience", icon: Clock },
-    { number: "99%", label: "Client Satisfaction", icon: Award },
-  ];
-
-  const values = [
-    {
-      title: "Excellence",
-      description:
-        "We strive for excellence in every aspect of our service delivery, from initial consultation to ongoing support.",
-      icon: Award,
-    },
-    {
-      title: "Integrity",
-      description:
-        "We conduct business with the highest ethical standards, building trust through transparency and honest communication.",
-      icon: Shield,
-    },
-    {
-      title: "Innovation",
-      description:
-        "We continuously innovate our processes and services to stay ahead of industry trends and client needs.",
-      icon: Building,
-    },
-    {
-      title: "Care",
-      description:
-        "We genuinely care about our clients' success and work tirelessly to exceed their expectations.",
-      icon: Heart,
-    },
-  ];
-
   return (
-    <div className="pt-20 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            About SunLife Facility Solutions
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            SunLife Corporate Housing LLC was founded with one mission: to bring
-            clarity, consistency, and excellence to government contracting. We
-            specialize in providing facility maintenance and environmental
-            services to federal, state, and local agencies nationwide — ensuring
-            compliance, safety, and results every time.
-          </p>
-        </motion.div>
-
-        {/* Hero Image and Story */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img
-              src="https://images.pexels.com/photos/416320/pexels-photo-416320.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Operations and facility services"
-              className="w-full h-96 object-cover rounded-2xl shadow-lg"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <h2 className="text-3xl font-bold text-navy">Our Story</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Our team has successfully delivered projects in asbestos, mold,
-              and lead remediation, preventative maintenance, pavement repair,
-              and elevator services, supported by a trusted network of
-              subcontractors and partners. With experience across multiple
-              states and agencies, SCH combines responsiveness with results,
-              giving our government clients confidence that their projects will
-              be completed on time and within budget.
+    <div className="page-shell">
+      <Seo
+        title="About | SunLife Facility Solutions"
+        description="Learn about SunLife Facility Solutions, the public-facing DBA of SunLife Corporate Housing LLC."
+        canonicalPath="/about"
+      />
+      <header className="page-header">
+        <div className="site-container">
+          <div className="page-header-inner ml-0">
+            <p className="eyebrow">Company</p>
+            <h1 className="page-title">About SunLife Facility Solutions</h1>
+            <p className="page-intro">
+              SunLife Facility Solutions is the public-facing DBA of SunLife
+              Corporate Housing LLC, providing facility and operational services
+              for government and enterprise requirements.
             </p>
-            <p className="text-gray-600 leading-relaxed">
-              From our first contract to our multi-million-dollar pursuits
-              today, SCH has remained committed to one standard: delivering
-              mission-ready solutions that exceed expectations.
-            </p>
-          </motion.div>
+          </div>
         </div>
+      </header>
 
-        {/* Stats Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-navy rounded-2xl p-8 md:p-12 mb-16"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Our Impact by the Numbers
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              These numbers represent more than statistics – they represent
-              relationships, trust, and the success of our clients across the
-              years.
+      <section className="section-block">
+        <div className="site-container grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <img
+            src="/Services/facility.webp"
+            alt="Facility professionals coordinating service work"
+            className="aspect-[4/3] w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <p className="eyebrow">How we work</p>
+            <h2 className="section-title">Clear coordination. Defined requirements.</h2>
+            <p className="section-copy">
+              SunLife supports facility maintenance, remediation, pavement,
+              elevator, roofing, protective, and specialty-service requirements.
+              Work is coordinated around the approved scope, project
+              communication, and operational needs.
+            </p>
+            <p className="mt-5 max-w-2xl leading-7 text-gray-600">
+              The company works with subcontractors and service partners where
+              project requirements call for coordinated capabilities.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="flex items-center justify-center w-16 h-16 bg-gold/20 rounded-full mx-auto mb-4">
-                  <stat.icon className="h-8 w-8 text-gold" />
-                </div>
-                <div className="text-4xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Mission & Vision */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-gold/10 rounded-2xl p-8"
-          >
-            <h2 className="text-3xl font-bold text-navy mb-6">Our Mission</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
+      <section className="border-y border-gray-200 bg-gray-50 py-14 md:py-20">
+        <div className="site-container grid gap-px overflow-hidden border border-gray-200 bg-gray-200 md:grid-cols-2">
+          <article className="bg-white p-7 md:p-9">
+            <p className="eyebrow">Mission</p>
+            <h2 className="text-2xl font-bold text-navy">Dependable operational support</h2>
+            <p className="mt-4 leading-7 text-gray-600">
               To streamline administrative and operational support with
-              dependable teams and processes — bringing clarity, consistency,
-              and confidence to every contract we touch.
+              dependable teams and processes, bringing clarity and consistency
+              to each engagement.
             </p>
-            <p className="text-gray-600 leading-relaxed">
-              We deliver compliant, responsive, and results-driven solutions
-              that help agencies and enterprises meet deadlines, manage
-              resources, and exceed expectations.
+          </article>
+          <article className="bg-white p-7 md:p-9">
+            <p className="eyebrow">Vision</p>
+            <h2 className="text-2xl font-bold text-navy">A trusted service partner</h2>
+            <p className="mt-4 leading-7 text-gray-600">
+              To be recognized for professionalism, clear coordination, and
+              reliable support across government and commercial requirements.
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="bg-gray-50 rounded-2xl p-8"
-          >
-            <h2 className="text-3xl font-bold text-navy mb-6">Our Vision</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">
-              To be a trusted operational partner known for professionalism,
-              responsiveness, and measurable outcomes across multi-state
-              engagements.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              We aim to set the standard for reliable contract administration
-              and on-the-ground execution for government and commercial clients
-              alike.
-            </p>
-          </motion.div>
+          </article>
         </div>
+      </section>
 
-        {/* Core Values */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-navy mb-12 text-center">
-            Our Core Values
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="text-center bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="flex items-center justify-center w-16 h-16 bg-gold/10 rounded-full mx-auto mb-4">
-                  <value.icon className="h-8 w-8 text-gold" />
+      <section className="section-block">
+        <div className="site-container grid gap-12 lg:grid-cols-[0.55fr_1fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">Principles</p>
+            <h2 className="section-title">How SunLife approaches the work</h2>
+          </div>
+          <div className="border-t border-gray-300">
+            {values.map(([title, description], index) => (
+              <article key={title} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-gray-300 py-5">
+                <span className="text-sm font-semibold text-gold-700">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="font-bold text-navy">{title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-gray-600">{description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-navy mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
+              </article>
             ))}
           </div>
-        </motion.section>
+        </div>
+      </section>
 
-        {/* Meet the Team */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-navy mb-8 text-center">
-            Meet the Team
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Hosea Barnwell", title: "Chief Executive Officer" },
-              { name: "Troy Austria", title: "Chief Operating Officer" },
-              { name: "Samson Akinsanya", title: "Chief Technology Officer" },
-              { name: "Florita Lara", title: "Operations Coordinator" },
-              { name: "Maria Turqueza", title: "Administrator" },
-              { name: "Christy Mayol", title: "Support Services" },
-              { name: "Marteena Kyla", title: "Business Development Representative" },
-              { name: "Noelle Sevidal", title: "Business Development Representative" },
-              { name: "Leslie Tajale", title: "Procurement Specialist" },
-            ].map((member) => (
-              <div
-                key={member.name}
-                className="bg-white rounded-xl shadow-lg p-6 text-center"
-              >
-                <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gold/10 text-gold text-2xl font-bold">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .slice(0, 2)}
-                </div>
-                <h3 className="text-xl font-bold text-navy">{member.name}</h3>
-                <p className="text-gray-600">{member.title}</p>
-              </div>
+      <section className="border-y border-gray-200 bg-gray-50 py-14 md:py-20">
+        <div className="site-container">
+          <div className="mb-10 max-w-2xl">
+            <p className="eyebrow">Leadership and operations</p>
+            <h2 className="section-title">SunLife team</h2>
+          </div>
+          <div className="grid border-l border-t border-gray-200 sm:grid-cols-2 lg:grid-cols-3">
+            {teamMembers.map((member) => (
+              <article key={member.name} className="border-b border-r border-gray-200 bg-white p-6">
+                <h3 className="font-bold text-navy">{member.name}</h3>
+                <p className="mt-1 text-sm text-gray-600">{member.title}</p>
+              </article>
             ))}
           </div>
-        </motion.section>
+        </div>
+      </section>
 
-        {/* Why Choose Us */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="bg-gradient-to-br from-gold/5 to-gold/10 rounded-2xl p-8 md:p-12"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-navy mb-4">
-              Why Choose SunLife Facility Solutions?
-            </h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              We've built our reputation on delivering results that matter to
-              our clients. Here's what sets us apart in the corporate housing
-              and facility management industry.
-            </p>
+      <section className="section-block">
+        <div className="site-container flex flex-col justify-between gap-7 bg-navy px-6 py-9 text-white md:flex-row md:items-center md:px-10">
+          <div>
+            <h2 className="text-2xl font-bold">Talk with SunLife</h2>
+            <p className="mt-2 text-gray-300">Discuss a service requirement or business opportunity.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">
-                Personalized Service
-              </h3>
-              <p className="text-gray-600">
-                Every client receives customized solutions tailored to their
-                specific needs and preferences.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">
-                Proven Track Record
-              </h3>
-              <p className="text-gray-600">
-                Over 15 years of consistent service delivery with
-                industry-leading satisfaction rates.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">24/7 Support</h3>
-              <p className="text-gray-600">
-                Round-the-clock availability for emergencies and immediate
-                assistance when needed.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">
-                Quality Assurance
-              </h3>
-              <p className="text-gray-600">
-                Rigorous quality control processes ensure consistent excellence
-                across all properties.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">
-                Technology Integration
-              </h3>
-              <p className="text-gray-600">
-                Modern technology solutions for seamless booking, communication,
-                and service delivery.
-              </p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-navy mb-3">
-                Flexible Solutions
-              </h3>
-              <p className="text-gray-600">
-                Adaptable services that scale with your business needs and
-                changing requirements.
-              </p>
-            </div>
-          </div>
-        </motion.section>
-      </div>
+          <Link to="/contact" className="btn-accent flex-none">
+            Contact the team <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

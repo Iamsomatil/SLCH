@@ -13,14 +13,14 @@ export const serviceCapabilities: ServiceCapability[] = [
   {
     title: "Asbestos, Mold, and Lead Remediation",
     description:
-      "Certified remediation to create safer environments. Advanced techniques to detect, eliminate, and prevent hazardous materials.",
+      "Remediation support organized around documented site conditions and project requirements.",
     icon: Shield,
     slug: "remediation",
     features: [
       "Asbestos abatement",
       "Mold remediation",
       "Lead-safe practices",
-      "Regulatory compliance",
+      "Project documentation",
     ],
   },
   {
@@ -33,7 +33,7 @@ export const serviceCapabilities: ServiceCapability[] = [
       "Scheduled inspections",
       "Predictive upkeep",
       "Work order management",
-      "24/7 response",
+      "Maintenance coordination",
     ],
   },
   {

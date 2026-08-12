@@ -1,27 +1,32 @@
 import React from "react";
+import Seo from "../components/Seo";
 
 const AccessibilityPage: React.FC = () => {
   return (
-    <main className="pt-20 pb-16" role="main">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-          Accessibility
-        </h1>
-        <p className="text-gray-700 mb-4">
-          We aim to meet WCAG 2.2 AA standards. If you encounter barriers,
-          please contact us and we will assist.
-        </p>
-        <ul className="list-disc pl-6 space-y-2 text-gray-700">
-          <li>
-            High contrast color palette; orange text shifts to darker shade if
-            needed
-          </li>
-          <li>Keyboard focus styles distinct from hover</li>
-          <li>Semantic landmarks and ARIA where appropriate</li>
-          <li>Form validation messages announced for screen readers</li>
-        </ul>
-      </div>
-    </main>
+    <div className="page-shell">
+      <Seo
+        title="Accessibility | SunLife Facility Solutions"
+        description="SunLife Facility Solutions website accessibility information and contact details."
+        canonicalPath="/accessibility"
+      />
+      <header className="page-header">
+        <div className="content-container">
+          <p className="eyebrow">Website information</p>
+          <h1 className="page-title">Accessibility</h1>
+        </div>
+      </header>
+      <section className="section-block">
+        <div className="content-container max-w-3xl">
+          <p className="leading-7 text-gray-700">
+            SunLife Facility Solutions is working to provide a website that is
+            usable across devices and assistive technologies.
+          </p>
+          <p className="mt-5 leading-7 text-gray-700">
+            If you encounter an accessibility barrier, email <a className="text-link" href="mailto:admin@sunlifehousingcorp.com">admin@sunlifehousingcorp.com</a> or call <a className="text-link" href="tel:+17544322302">(754) 432-2302</a> with the page and issue you encountered.
+          </p>
+        </div>
+      </section>
+    </div>
   );
 };
 

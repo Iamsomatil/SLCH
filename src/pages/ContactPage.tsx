@@ -1,203 +1,65 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { Mail, MapPin, Phone } from "lucide-react";
 import ContactForm from "../components/ContactForm";
-import MapComponent from "../components/MapComponent";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import Seo from "../components/Seo";
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="pt-20 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            Contact Us
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Have questions or need assistance? Send us a message and our team will get back to you as soon as possible.
-          </p>
-        </motion.div>
+    <div className="page-shell">
+      <Seo
+        title="Contact | SunLife Facility Solutions"
+        description="Contact SunLife Facility Solutions about service requirements, capabilities, partnerships, or teaming opportunities."
+        canonicalPath="/contact"
+      />
+      <header className="page-header">
+        <div className="site-container">
+          <div className="page-header-inner ml-0">
+            <p className="eyebrow">Contact</p>
+            <h1 className="page-title">Start a Conversation</h1>
+            <p className="page-intro">
+              Contact SunLife to discuss a service requirement, selected
+              capability, partnership, or teaming opportunity.
+            </p>
+          </div>
+        </div>
+      </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-2xl font-bold text-navy mb-6">
-              Send Us a Message
-            </h2>
-            <ContactForm />
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
-          >
-            <div>
-              <h2 className="text-2xl font-bold text-navy mb-6">
-                Get in Touch
-              </h2>
-              <p className="text-gray-600 mb-8">
-                We're available to discuss your needs and provide personalized
-                solutions. Choose the contact method that works best for you.
+      <section className="section-block">
+        <div className="site-container grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <aside>
+            <p className="eyebrow">Direct contact</p>
+            <h2 className="text-2xl font-bold text-navy">SunLife Facility Solutions</h2>
+            <div className="mt-7 border-t border-gray-300">
+              <a
+                href="tel:+17544322302"
+                className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
+              >
+                <Phone className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <span><strong className="block text-sm text-navy">Phone</strong>(754) 432-2302</span>
+              </a>
+              <a
+                href="mailto:admin@sunlifehousingcorp.com"
+                className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
+              >
+                <Mail className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <span className="min-w-0 break-all"><strong className="block text-sm text-navy">Email</strong>admin@sunlifehousingcorp.com</span>
+              </a>
+              <p className="flex gap-4 border-b border-gray-300 py-5 text-gray-700">
+                <MapPin className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <span><strong className="block text-sm text-navy">Headquarters</strong>Tampa, Florida</span>
               </p>
             </div>
+          </aside>
 
-            {/* Contact Methods */}
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg">
-                  <Phone className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy mb-1">Phone</h3>
-                  <p className="text-gray-600 mb-2">
-                    Call us for immediate assistance
-                  </p>
-                  <a
-                    href="tel:+1754322302"
-                    className="text-navy hover:text-navy/80 font-medium"
-                  >
-                    (754) 432-2302
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg">
-                  <Mail className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy mb-1">Email</h3>
-                  <p className="text-gray-600 mb-2">
-                    Send us your questions or requests
-                  </p>
-                  <div className="flex flex-col gap-1">
-                    <a
-                      href="mailto:admin@sunlifehousingcorp.com"
-                      className="text-navy hover:text-navy/80 font-medium"
-                    >
-                      admin@sunlifehousingcorp.com
-                    </a>
-                    <a
-                      href="mailto:contact@sunlifehousingcorp.com"
-                      className="text-navy hover:text-navy/80 font-medium"
-                    >
-                      contact@sunlifehousingcorp.com
-                    </a>
-                    <a
-                      href="mailto:purchasing@sunlifehousingcorp.com"
-                      className="text-navy hover:text-navy/80 font-medium"
-                    >
-                      purchasing@sunlifehousingcorp.com
-                    </a>
-                    <a
-                      href="mailto:support@sunlifehousingcorp.com"
-                      className="text-navy hover:text-navy/80 font-medium"
-                    >
-                      Support@sunlifehousingcorp.com
-                    </a>
-                    <a
-                      href="mailto:operations@sunlifehousingcorp.com"
-                      className="text-navy hover:text-navy/80 font-medium"
-                    >
-                      operations@sunlifehousingcorp.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg">
-                  <MapPin className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy mb-1">Headquarters</h3>
-                  <p className="text-gray-600 mb-2">Visit our main office</p>
-                  <p className="text-navy">Tampa, FL</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg">
-                  <Clock className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy mb-1">
-                    Business Hours
-                  </h3>
-                  <p className="text-gray-600 mb-2">
-                    We're available during these hours
-                  </p>
-                  <div className="text-navy">
-                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-gold/10 rounded-lg">
-                  <MessageCircle className="h-6 w-6 text-gold" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy mb-1">
-                    24/7 Emergency
-                  </h3>
-                  <p className="text-gray-600 mb-2">
-                    For urgent facility issues
-                  </p>
-                  <a
-                    href="tel:+1754322302"
-                    className="text-navy hover:text-navy/80 font-medium"
-                  >
-                    (754) 432-2302
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          <div>
+            <h2 className="text-2xl font-bold text-navy">Send a message</h2>
+            <p className="mt-3 mb-7 max-w-xl leading-7 text-gray-600">
+              Provide enough detail for the team to route your inquiry appropriately.
+            </p>
+            <ContactForm />
+          </div>
         </div>
-
-        {/* Map Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16"
-        >
-          <h2 className="text-3xl font-bold text-navy mb-8 text-center">
-            Find Us on the Map
-          </h2>
-          <MapComponent />
-        </motion.section>
-
-        {/* Response Time */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="bg-gold/10 rounded-2xl p-8 mt-16 text-center"
-        >
-          <h3 className="text-2xl font-bold text-navy mb-4">
-            Quick Response Guarantee
-          </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We understand that time is valuable. Our team typically responds to
-            all inquiries within 2 hours during business hours and within 24
-            hours on weekends. For emergencies, we're available 24/7.
-          </p>
-        </motion.section>
-      </div>
+      </section>
     </div>
   );
 };

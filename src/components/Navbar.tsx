@@ -1,214 +1,121 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
-interface NavItem {
+type NavItem = {
   name: string;
   path: string;
-}
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
 };
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: -10 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 300,
-      damping: 24
-    }
-  },
-};
+const navItems: NavItem[] = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Past Performance", path: "/past-performance" },
+  { name: "Partnerships", path: "/partnerships" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateNavbar = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show/hide based on scroll direction and position
-      if (currentScrollY <= 10) {
-        // Always show when at the very top
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setIsVisible(false);
-      } else {
-        // Scrolling up
-        setIsVisible(true);
-      }
-      
-      // Update scrolled state for styling
-      setIsScrolled(currentScrollY > 10);
-      lastScrollY = currentScrollY;
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateNavbar);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
-    // Initial check
-    updateNavbar();
-    
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
-  const navItems: NavItem[] = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "PAST PERFORMANCE", path: "/past-performance" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ];
+  const isActive = (path: string) =>
+    path === "/"
+      ? location.pathname === path
+      : location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={isVisible ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        isScrolled 
-          ? 'bg-white shadow-md backdrop-blur-sm bg-opacity-90' 
-          : 'bg-white lg:bg-transparent'
-      }`}
-      style={{
-        willChange: 'transform, opacity',
-        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-        opacity: isVisible ? 1 : 0,
-        transition: 'transform 0.3s ease-out, opacity 0.2s ease-out, background-color 0.3s ease',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex-shrink-0"
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
+      <nav className="site-container" aria-label="Primary navigation">
+        <div className="flex h-20 items-center justify-between">
+          <Link
+            to="/"
+            className="flex items-center rounded-sm"
+            aria-label="SunLife Facility Solutions home"
           >
-            <Link to="/" className="flex items-center" aria-label="SunLife Facility Solutions home">
-              <img
-                src="/Sunlife-Logo.jpg"
-                alt="SunLife Facility Solutions"
-                className="h-20 w-auto"
-              />
-            </Link>
-          </motion.div>
+            <img
+              src="/Sunlife-Logo.jpg"
+              alt="SunLife Facility Solutions"
+              className="h-16 w-auto"
+            />
+          </Link>
 
-          {/* Desktop Navigation */}
-          <motion.div 
-            className="hidden lg:flex items-center space-x-1 h-full"
-            variants={containerVariants}
-            initial="hidden"
-            animate="show"
-          >
-            {navItems.map((navItem) => (
-              <motion.div key={navItem.path} variants={itemVariants}>
+          <div className="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => {
+              const active = isActive(item.path);
+              return (
                 <Link
-                  to={navItem.path}
-                  aria-current={location.pathname === navItem.path ? "page" : undefined}
-                  className={`relative px-5 py-2.5 text-base font-medium transition-all duration-300 group ${
-                    location.pathname === navItem.path
-                      ? 'text-[#00008B]'
-                      : 'text-gray-700 hover:text-[#00008B]'
+                  key={item.path}
+                  to={item.path}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative px-3 py-3 text-sm font-medium transition-colors duration-200 xl:px-4 ${
+                    active ? "text-navy" : "text-gray-600 hover:text-navy"
                   }`}
                 >
-                  {navItem.name}
+                  {item.name}
                   <span
-                    className={`absolute bottom-0 left-0 w-0 h-1 bg-[#00008B] transition-all duration-300 ${
-                      location.pathname === navItem.path ? 'w-full' : 'group-hover:w-full'
+                    aria-hidden="true"
+                    className={`absolute inset-x-3 bottom-1 h-0.5 bg-gold transition-transform duration-200 xl:inset-x-4 ${
+                      active ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
                 </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center
-          ">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-              aria-expanded={isOpen}
-              aria-controls="mobile-navigation"
-            >
-              <span className="sr-only">
-                {isOpen ? "Close main menu" : "Open main menu"}
-              </span>
-              {isOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
+              );
+            })}
           </div>
-        </div>
-      </div>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-navy hover:bg-gray-100 lg:hidden"
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+          >
+            <span className="sr-only">{isOpen ? "Close main menu" : "Open main menu"}</span>
+            {isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
             id="mobile-navigation"
-            className="lg:hidden overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden border-t border-gray-200 bg-white lg:hidden"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
-              {navItems.map((navItem) => (
-                <Link
-                  key={navItem.path}
-                  to={navItem.path}
-                  aria-current={location.pathname === navItem.path ? "page" : undefined}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    location.pathname === navItem.path
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {navItem.name}
-                </Link>
-              ))}
+            <div className="site-container space-y-1 py-4">
+              {navItems.map((item) => {
+                const active = isActive(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex min-h-11 items-center border-l-2 px-4 text-base font-medium transition-colors duration-200 ${
+                      active
+                        ? "border-gold bg-gray-50 text-navy"
+                        : "border-transparent text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-navy"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </header>
   );
 };
 

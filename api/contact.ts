@@ -5,7 +5,7 @@ import sgMail from '@sendgrid/mail';
 
 // Environment variables (configure in Vercel project settings)
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || '';
-const TO_EMAIL = process.env.TO_EMAIL || 'hosea@sunlifehousingcorp.com';
+const TO_EMAIL = process.env.TO_EMAIL || 'admin@sunlifehousingcorp.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'no-reply@sunlifehousingcorp.com';
 
 if (SENDGRID_API_KEY) {

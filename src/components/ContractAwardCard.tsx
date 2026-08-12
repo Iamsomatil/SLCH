@@ -1,5 +1,4 @@
 import React from "react";
-import { Building2, MapPin } from "lucide-react";
 import type { ContractAward } from "../data/contractAwards";
 
 type ContractAwardCardProps = {
@@ -8,38 +7,18 @@ type ContractAwardCardProps = {
 
 const ContractAwardCard: React.FC<ContractAwardCardProps> = ({ award }) => {
   return (
-    <article className="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="mb-5 flex items-start gap-3">
-        <span className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-gold/10">
-          <Building2 className="h-5 w-5 text-gold" aria-hidden="true" />
-        </span>
-        <div className="min-w-0">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-gray-500">
-            Agency
-          </p>
-          <p className="break-words font-semibold leading-snug text-navy">
-            {award.agency}
-          </p>
-        </div>
-      </div>
-
-      <div className="flex-1">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
-          Project
+    <article className="border-b border-gray-300 py-7 md:py-8">
+      <div className="border-l-2 border-gold pl-5 md:pl-7">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">
+          {award.agency}
         </p>
-        <h2 className="break-words text-xl font-bold leading-snug text-navy">
+        <h2 className="mt-2 text-xl font-bold leading-snug text-navy md:text-2xl">
           {award.project}
         </h2>
-      </div>
-
-      <div className="mt-6 flex items-start gap-2 border-t border-gray-100 pt-4">
-        <MapPin className="mt-0.5 h-4 w-4 flex-none text-gold" aria-hidden="true" />
-        <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
-            Location
-          </p>
-          <p className="break-words text-sm text-gray-700">{award.location}</p>
-        </div>
+        <dl className="mt-4 flex gap-2 text-sm text-gray-600">
+          <dt className="font-semibold text-navy">Location:</dt>
+          <dd>{award.location}</dd>
+        </dl>
       </div>
     </article>
   );

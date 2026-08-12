@@ -193,7 +193,7 @@ const ContactFormGov: React.FC = () => {
         type="submit"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full bg-gold text-white font-semibold py-3 px-6 rounded-lg hover:bg-[color:var(--gold-hover,theme(colors.brand.orange-700))] transition-colors flex items-center justify-center space-x-2"
+        className="flex w-full items-center justify-center space-x-2 rounded-md bg-gold px-6 py-3 font-semibold text-navy transition-colors hover:bg-gold-400"
         aria-label="Submit government housing quote request"
       >
         <span>Request Government Housing Quote</span>
@@ -204,4 +204,3 @@ const ContactFormGov: React.FC = () => {
 };
 
 export default ContactFormGov;
-
