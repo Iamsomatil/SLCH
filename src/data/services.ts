@@ -1,5 +1,14 @@
 import type { LucideIcon } from "lucide-react";
-import { Cog, Hammer, MapPin, Shield, ShieldCheck, Wrench } from "lucide-react";
+import {
+  Building2,
+  CalendarDays,
+  Cog,
+  Hammer,
+  MapPin,
+  Shield,
+  ShieldCheck,
+  Wrench,
+} from "lucide-react";
 
 export type ServiceCapability = {
   title: string;
@@ -87,6 +96,28 @@ export const serviceCapabilities: ServiceCapability[] = [
       "Unarmed site presence",
       "Access support",
       "Observation and reporting",
+    ],
+  },
+  {
+    title: "Leasing Office Services",
+    description:
+      "Leasing-office support organized around property-specific administrative and coordination requirements.",
+    icon: Building2,
+    features: [
+      "Leasing coordination",
+      "Office administration",
+      "Property-specific support",
+    ],
+  },
+  {
+    title: "Short-Term Leasing",
+    description:
+      "Short-term leasing support organized around documented occupancy needs and agreed lease requirements.",
+    icon: CalendarDays,
+    features: [
+      "Short-term lease coordination",
+      "Occupancy requirement review",
+      "Leasing documentation support",
     ],
   },
 ];
