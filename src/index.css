@@ -7,7 +7,7 @@
     --color-primary: #00008b;
     --color-navy: #0d2b4c;
     --color-gold: #f7941d;
-    --color-accent-text: #a95700;
+    --color-accent-text: var(--color-gold);
     --color-ink: #172235;
     --color-muted: #5f6b7a;
     --color-line: #dfe4ea;
