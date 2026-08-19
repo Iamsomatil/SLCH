@@ -110,13 +110,13 @@ const TeamPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:careers@sunlifehousing.com"
-              className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-colors"
             >
               View Open Positions
             </a>
             <a
               href="mailto:hr@sunlifehousing.com"
-              className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 border-2 border-gold text-navy font-semibold rounded-lg hover:bg-gold transition-colors"
             >
               Send Your Resume
             </a>

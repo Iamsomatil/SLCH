@@ -34,18 +34,18 @@ const ContactPage: React.FC = () => {
                 href="tel:+17544322302"
                 className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
               >
-                <Phone className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <Phone className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                 <span><strong className="accent-small block text-sm">Phone</strong>(754) 432-2302</span>
               </a>
               <a
                 href="mailto:admin@sunlifehousingcorp.com"
                 className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
               >
-                <Mail className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <Mail className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                 <span className="min-w-0 break-all"><strong className="accent-small block text-sm">Email</strong>admin@sunlifehousingcorp.com</span>
               </a>
               <p className="flex gap-4 border-b border-gray-300 py-5 text-gray-700">
-                <MapPin className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <MapPin className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                 <span><strong className="accent-small block text-sm">Headquarters</strong>Tampa, Florida</span>
               </p>
             </div>

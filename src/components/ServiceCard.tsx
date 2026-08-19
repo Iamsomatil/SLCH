@@ -19,7 +19,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <article className="group flex h-full flex-col border-b border-r border-gray-200 bg-white p-6 transition-colors duration-200 hover:bg-gray-50 md:p-7">
-      <Icon className="h-6 w-6 text-gold-700" aria-hidden="true" />
+      <Icon className="h-6 w-6 text-gold" aria-hidden="true" />
       <h3 className="mt-5 text-xl font-bold leading-snug text-navy">{title}</h3>
       <p className="mt-3 text-sm leading-6 text-gray-600">{description}</p>
 
@@ -37,7 +37,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <Link
         to={slug ? `/services/${slug}` : "/contact"}
         aria-label={slug ? `Learn more about ${title}` : `Contact SunLife about ${title}`}
-        className="mt-auto inline-flex items-center pt-6 text-sm font-semibold text-navy transition-colors duration-200 hover:text-gold-700"
+        className="mt-auto inline-flex items-center pt-6 text-sm font-semibold text-navy underline decoration-transparent decoration-2 underline-offset-4 transition-colors duration-200 hover:decoration-gold"
       >
         {slug ? "Learn more" : "Contact SunLife"}
         <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />

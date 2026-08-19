@@ -1,3 +1,5 @@
+const SUNLIFE_ORANGE = '#F7941D';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -24,17 +26,13 @@ module.exports = {
         },
         // Secondary brand color (Gold)
         secondary: {
-          DEFAULT: '#F7941D', // Brand gold
+          DEFAULT: SUNLIFE_ORANGE, // Brand orange
           50: '#fff9e6',
           100: '#fff2cc',
           200: '#ffe5b3',
           300: '#ffd98c',
           400: '#ffcc66',
-          500: '#F7941D',
-          600: '#e68a00',
-          700: '#cc7a00',
-          800: '#b36b00',
-          900: '#995c00',
+          500: SUNLIFE_ORANGE,
         },
         // Neutral colors
         gray: {
@@ -72,17 +70,13 @@ module.exports = {
         },
         // Legacy color references for backward compatibility
         gold: {
-          DEFAULT: '#F7941D',
+          DEFAULT: SUNLIFE_ORANGE,
           50: '#fff9e6',
           100: '#fff2cc',
           200: '#ffe5b3',
           300: '#ffd98c',
           400: '#ffcc66',
-          500: '#F7941D',
-          600: '#e68a00',
-          700: '#cc7a00',
-          800: '#b36b00',
-          900: '#995c00',
+          500: SUNLIFE_ORANGE,
         },
         navy: {
           DEFAULT: '#0D2B4C',

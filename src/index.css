@@ -7,7 +7,6 @@
     --color-primary: #00008b;
     --color-navy: #0d2b4c;
     --color-gold: #f7941d;
-    --color-accent-text: var(--color-gold);
     --color-ink: #172235;
     --color-muted: #5f6b7a;
     --color-line: #dfe4ea;
@@ -44,7 +43,7 @@
   input,
   textarea,
   select {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2;
   }
 
   ::selection {
@@ -104,16 +103,28 @@
 
   .eyebrow {
     @apply mb-3 text-sm font-semibold uppercase tracking-[0.16em];
-    color: var(--color-accent-text);
+    color: var(--color-navy);
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
   }
 
   .micro-label {
     @apply text-xs font-semibold uppercase tracking-[0.14em];
-    color: var(--color-accent-text);
+    color: var(--color-navy);
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 
   .accent-small {
-    color: var(--color-accent-text);
+    color: var(--color-navy);
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
   }
 
   .page-title {
@@ -145,7 +156,7 @@
   }
 
   .btn-accent {
-    @apply btn bg-gold text-navy hover:bg-gold-400;
+    @apply btn bg-gold text-navy hover:bg-gold/90;
   }
 
   .btn-secondary {
@@ -157,6 +168,6 @@
   }
 
   .text-link {
-    @apply inline-flex items-center font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 transition-colors duration-200 hover:text-gold-700;
+    @apply inline-flex items-center font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 transition-colors duration-200 hover:text-navy/80;
   }
 }

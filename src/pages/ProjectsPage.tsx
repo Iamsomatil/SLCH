@@ -148,7 +148,7 @@ const ProjectsPage: React.FC = () => {
                       <h3 className="text-2xl md:text-3xl font-bold text-navy mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gold font-semibold mb-4">{project.client}</p>
+                      <p className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 mb-4">{project.client}</p>
                     </div>
 
                     <div className="flex flex-wrap gap-4 text-sm text-gray-600">
@@ -173,7 +173,7 @@ const ProjectsPage: React.FC = () => {
                         {project.services.map((service, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-gold/10 text-gold rounded-full text-sm font-medium"
+                            className="px-3 py-1 bg-gold/10 text-navy rounded-full text-sm font-medium"
                           >
                             {service}
                           </span>
@@ -219,7 +219,7 @@ const ProjectsPage: React.FC = () => {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-colors"
             >
               Start Your Project
               <ExternalLink className="ml-2 h-5 w-5" />
@@ -228,7 +228,7 @@ const ProjectsPage: React.FC = () => {
               href="/services"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-navy transition-colors"
             >
               Explore Our Services
             </motion.a>

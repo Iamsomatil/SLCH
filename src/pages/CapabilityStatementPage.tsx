@@ -14,7 +14,7 @@ const CapabilityStatementPage: React.FC = () => {
         <a
           href="#"
           onClick={(e) => e.preventDefault()}
-          className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-gold/90 transition-colors"
+          className="inline-flex items-center px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-colors"
           aria-label="Download Capability Statement PDF"
         >
           Download PDF (Placeholder)

@@ -48,7 +48,7 @@ const ContactFormGov: React.FC = () => {
             id="agency"
             type="text"
             {...register('agency', { required: 'Agency/Organization is required' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.agency}
           />
           {errors.agency && <p className="mt-1 text-sm text-red-600">{errors.agency.message}</p>}
@@ -63,7 +63,7 @@ const ContactFormGov: React.FC = () => {
             type="text"
             placeholder="e.g., 2025-10-01 to 2026-01-15"
             {...register('requiredDates', { required: 'Required dates are needed' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.requiredDates}
           />
           {errors.requiredDates && <p className="mt-1 text-sm text-red-600">{errors.requiredDates.message}</p>}
@@ -78,7 +78,7 @@ const ContactFormGov: React.FC = () => {
             type="text"
             placeholder="e.g., San Antonio, Lackland AFB"
             {...register('cityOrInstallation', { required: 'City or installation is required' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.cityOrInstallation}
           />
           {errors.cityOrInstallation && <p className="mt-1 text-sm text-red-600">{errors.cityOrInstallation.message}</p>}
@@ -91,7 +91,7 @@ const ContactFormGov: React.FC = () => {
           <select
             id="bedrooms"
             {...register('bedrooms', { required: 'Please select bedrooms' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.bedrooms}
           >
             <option value="">Select...</option>
@@ -112,7 +112,7 @@ const ContactFormGov: React.FC = () => {
             type="text"
             placeholder="e.g., GSA per diem or monthly budget"
             {...register('budgetOrPerDiem', { required: 'Please enter budget or per diem' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.budgetOrPerDiem}
           />
           {errors.budgetOrPerDiem && <p className="mt-1 text-sm text-red-600">{errors.budgetOrPerDiem.message}</p>}
@@ -126,7 +126,7 @@ const ContactFormGov: React.FC = () => {
             id="contractNumber"
             type="text"
             {...register('contractNumber')}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
           />
         </div>
 
@@ -138,7 +138,7 @@ const ContactFormGov: React.FC = () => {
             id="pocName"
             type="text"
             {...register('pocName', { required: 'Point of contact name is required' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.pocName}
           />
           {errors.pocName && <p className="mt-1 text-sm text-red-600">{errors.pocName.message}</p>}
@@ -155,7 +155,7 @@ const ContactFormGov: React.FC = () => {
               required: 'Email is required',
               pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' },
             })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.email}
           />
           {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
@@ -169,7 +169,7 @@ const ContactFormGov: React.FC = () => {
             id="phone"
             type="tel"
             {...register('phone', { required: 'Phone is required' })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors"
             aria-invalid={!!errors.phone}
           />
           {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
@@ -184,7 +184,7 @@ const ContactFormGov: React.FC = () => {
           id="notes"
           rows={4}
           {...register('notes')}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent transition-colors resize-none"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent transition-colors resize-none"
           placeholder="Mission context, special security or access considerations, parking, pet policy, etc."
         />
       </div>
@@ -193,7 +193,7 @@ const ContactFormGov: React.FC = () => {
         type="submit"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="flex w-full items-center justify-center space-x-2 rounded-md bg-gold px-6 py-3 font-semibold text-navy transition-colors hover:bg-gold-400"
+        className="flex w-full items-center justify-center space-x-2 rounded-md bg-gold px-6 py-3 font-semibold text-navy transition-colors hover:bg-gold/90"
         aria-label="Submit government housing quote request"
       >
         <span>Request Government Housing Quote</span>

@@ -68,7 +68,7 @@ const ContactForm: React.FC = () => {
             id="name"
             autoComplete="name"
             {...register('name', { required: 'Name is required' })}
-            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-navy"
             placeholder="Your full name"
             aria-invalid={errors.name ? 'true' : 'false'}
             aria-required="true"
@@ -95,7 +95,7 @@ const ContactForm: React.FC = () => {
                 message: 'Please enter a valid email address'
               }
             })}
-            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-navy"
             placeholder="your.email@example.com"
             aria-invalid={errors.email ? 'true' : 'false'}
             aria-required="true"
@@ -123,7 +123,7 @@ const ContactForm: React.FC = () => {
                 message: 'Please enter a valid phone number'
               }
             })}
-            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
+            className="min-h-12 w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-navy"
             placeholder="(123) 456-7890"
             aria-invalid={errors.phone ? 'true' : 'false'}
             aria-required="true"
@@ -143,7 +143,7 @@ const ContactForm: React.FC = () => {
             id="notes"
             rows={4}
             {...register('notes')}
-            className="w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-gold"
+            className="w-full rounded-md border border-gray-300 px-4 py-3 transition-colors focus:border-navy focus:ring-navy"
             placeholder="How can we help you?"
           />
         </div>

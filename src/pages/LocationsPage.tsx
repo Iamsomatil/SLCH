@@ -119,7 +119,7 @@ const LocationsPage: React.FC = () => {
                       <Phone className="h-5 w-5 text-gold" />
                       <a
                         href={`tel:${location.phone}`}
-                        className="text-navy hover:text-gold transition-colors"
+                        className="text-navy underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:decoration-gold"
                       >
                         {location.phone}
                       </a>
@@ -128,7 +128,7 @@ const LocationsPage: React.FC = () => {
                       <Mail className="h-5 w-5 text-gold" />
                       <a
                         href={`mailto:${location.email}`}
-                        className="text-navy hover:text-gold transition-colors"
+                        className="text-navy underline decoration-transparent decoration-2 underline-offset-4 transition-colors hover:decoration-gold"
                       >
                         {location.email}
                       </a>
@@ -145,7 +145,7 @@ const LocationsPage: React.FC = () => {
                       {location.services.map((service, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-gold/10 text-gold rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-gold/10 text-navy rounded-full text-sm font-medium"
                         >
                           {service}
                         </span>
@@ -207,7 +207,7 @@ const LocationsPage: React.FC = () => {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 bg-gold text-white font-semibold rounded-lg hover:bg-gold/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gold text-navy font-semibold rounded-lg hover:bg-gold/90 transition-colors"
             >
               Contact Us
             </motion.a>
@@ -215,7 +215,7 @@ const LocationsPage: React.FC = () => {
               href="tel:+15551234567"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-white transition-colors"
+              className="inline-flex items-center px-6 py-3 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-navy transition-colors"
             >
               <Phone className="mr-2 h-5 w-5" />
               Call Now

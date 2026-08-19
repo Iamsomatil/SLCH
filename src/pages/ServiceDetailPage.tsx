@@ -204,7 +204,7 @@ const ServiceDetailPage: React.FC = () => {
               <ul className="mt-5 space-y-3">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                    <Check className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                     <span className="leading-6 text-gray-700">{benefit}</span>
                   </li>
                 ))}
@@ -221,7 +221,7 @@ const ServiceDetailPage: React.FC = () => {
           <div className="mt-8 grid border-l border-t border-gray-200 bg-white md:grid-cols-2">
             {service.features.map((feature) => (
               <div key={feature} className="flex min-h-20 items-start gap-3 border-b border-r border-gray-200 p-5">
-                <Check className="mt-0.5 h-5 w-5 flex-none text-gold-700" aria-hidden="true" />
+                <Check className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
                 <span className="leading-6 text-gray-700">{feature}</span>
               </div>
             ))}

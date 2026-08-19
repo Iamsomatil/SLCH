@@ -34,7 +34,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, bio, fullBio, image }) 
           />
         ) : (
           <div
-            className="flex h-full w-full items-center justify-center bg-gold/10 text-5xl font-bold text-gold"
+            className="flex h-full w-full items-center justify-center bg-gold/10 text-5xl font-bold text-navy"
             aria-label={name}
           >
             {initials}
@@ -44,14 +44,14 @@ const TeamCard: React.FC<TeamCardProps> = ({ name, role, bio, fullBio, image }) 
       
       <div className="p-6">
         <h3 className="text-xl font-bold text-navy mb-1">{name}</h3>
-        <p className="text-gold font-semibold mb-3">{role}</p>
+        <p className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 mb-3">{role}</p>
         {bio && <p className="text-gray-600 text-sm mb-4">{bio}</p>}
         
         {fullBio && (
           <>
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center text-gold font-semibold hover:text-gold/80 transition-colors text-sm"
+              className="flex items-center font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 transition-colors hover:text-navy/80 text-sm"
             >
               {isExpanded ? 'Read Less' : 'Read More'}
               {isExpanded ? (
