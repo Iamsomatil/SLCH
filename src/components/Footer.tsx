@@ -49,13 +49,22 @@ const Footer: React.FC = () => {
               Contact
             </h2>
             <div className="mt-4 space-y-3 text-sm text-gray-300">
-              <a
-                href="tel:+17544322302"
-                className="flex items-center gap-3 transition-colors duration-200 hover:text-white"
-              >
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <Phone className="h-4 w-4 flex-none" aria-hidden="true" />
-                (754) 432-2302
-              </a>
+                <a
+                  href="tel:+17544322302"
+                  className="transition-colors duration-200 hover:text-white"
+                >
+                  (754) 432-2302
+                </a>
+                <span className="text-gray-500" aria-hidden="true">|</span>
+                <a
+                  href="tel:+17542070982"
+                  className="transition-colors duration-200 hover:text-white"
+                >
+                  (754) 207-0982
+                </a>
+              </div>
               <a
                 href="mailto:admin@sunlifehousingcorp.com"
                 className="flex items-start gap-3 break-all transition-colors duration-200 hover:text-white"
