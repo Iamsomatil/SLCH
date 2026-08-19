@@ -30,13 +30,21 @@ const ContactPage: React.FC = () => {
             <p className="eyebrow">Direct contact</p>
             <h2 className="text-2xl font-bold text-navy">SunLife Facility Solutions</h2>
             <div className="mt-7 border-t border-gray-300">
-              <a
-                href="tel:+17544322302"
-                className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
-              >
+              <div className="flex gap-4 border-b border-gray-300 py-5 text-gray-700">
                 <Phone className="mt-0.5 h-5 w-5 flex-none text-gold" aria-hidden="true" />
-                <span><strong className="accent-small block text-sm">Phone</strong>(754) 432-2302</span>
-              </a>
+                <div>
+                  <strong className="accent-small block text-sm">Phone</strong>
+                  <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <a href="tel:+17544322302" className="hover:text-navy">
+                      (754) 432-2302
+                    </a>
+                    <span className="text-gray-400" aria-hidden="true">|</span>
+                    <a href="tel:+17542070982" className="hover:text-navy">
+                      (754) 207-0982
+                    </a>
+                  </div>
+                </div>
+              </div>
               <a
                 href="mailto:admin@sunlifehousingcorp.com"
                 className="flex gap-4 border-b border-gray-300 py-5 text-gray-700 hover:text-navy"
