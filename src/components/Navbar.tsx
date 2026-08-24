@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <nav className="site-container" aria-label="Primary navigation">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between sm:h-24">
           <Link
             to="/"
             className="flex items-center rounded-sm"
@@ -42,11 +42,11 @@ const Navbar: React.FC = () => {
             <img
               src="/Sunlife-Logo.jpg"
               alt="SunLife Facility Solutions"
-              className="h-16 w-auto"
+              className="h-[4.25rem] w-auto sm:h-[4.5rem] lg:h-20"
             />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-1.5 lg:flex">
             {navItems.map((item) => {
               const active = isActive(item.path);
               return (
@@ -54,14 +54,14 @@ const Navbar: React.FC = () => {
                   key={item.path}
                   to={item.path}
                   aria-current={active ? "page" : undefined}
-                  className={`relative px-3 py-3 text-sm font-medium transition-colors duration-200 xl:px-4 ${
+                  className={`relative px-3 py-4 text-base font-semibold leading-none transition-colors duration-200 xl:px-4 ${
                     active ? "text-navy" : "text-gray-600 hover:text-navy"
                   }`}
                 >
                   {item.name}
                   <span
                     aria-hidden="true"
-                    className={`absolute inset-x-3 bottom-1 h-0.5 bg-gold transition-transform duration-200 xl:inset-x-4 ${
+                    className={`absolute inset-x-3 bottom-1.5 h-[3px] bg-gold transition-transform duration-200 xl:inset-x-4 ${
                       active ? "scale-x-100" : "scale-x-0"
                     }`}
                   />
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
                     key={item.path}
                     to={item.path}
                     aria-current={active ? "page" : undefined}
-                    className={`flex min-h-11 items-center border-l-2 px-4 text-base font-medium transition-colors duration-200 ${
+                    className={`flex min-h-12 items-center border-l-2 px-4 text-[1.0625rem] font-medium transition-colors duration-200 ${
                       active
                         ? "border-gold bg-gray-50 text-navy"
                         : "border-transparent text-gray-700 hover:border-gray-300 hover:bg-gray-50 hover:text-navy"

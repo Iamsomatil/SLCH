@@ -13,6 +13,9 @@ const teamMembers = [
   { name: "Marteena Kyla", title: "Business Development Representative" },
   { name: "Noelle Sevidal", title: "Business Development Representative" },
   { name: "Leslie Tajale", title: "Procurement Specialist" },
+  { name: "Leah Mae", title: "Business Development Representative" },
+  { name: "Aeriel Ricardo", title: "Contracts Coordinator" },
+  { name: "Racquel Garalde", title: "Contracts Coordinator" },
 ];
 
 const values = [

@@ -90,7 +90,7 @@
   }
 
   .page-shell {
-    @apply min-h-[60vh] bg-white pb-16 pt-20 md:pb-20;
+    @apply min-h-[60vh] bg-white pb-16 pt-20 sm:pt-24 md:pb-20;
   }
 
   .page-header {

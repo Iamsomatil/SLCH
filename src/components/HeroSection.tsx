@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden border-b border-gray-200 bg-white pt-20">
+    <section className="relative overflow-hidden border-b border-gray-200 bg-white pt-20 sm:pt-24">
       <div className="site-container grid min-h-[620px] items-stretch lg:grid-cols-[1.02fr_0.98fr]">
         <div className="flex flex-col justify-center py-16 pr-0 md:py-20 lg:pr-14">
           <p className="eyebrow">Government facility services</p>
