@@ -1,0 +1,150 @@
+- generic [ref=e3]:
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e5]:
+    - navigation "Primary navigation" [ref=e6]:
+      - generic [ref=e7]:
+        - link "SunLife Facility Solutions home" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "SunLife Facility Solutions" [ref=e9]
+        - generic [ref=e10]:
+          - link "Home" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "Services" [ref=e12] [cursor=pointer]:
+            - /url: /services
+          - link "Past Performance" [ref=e13] [cursor=pointer]:
+            - /url: /past-performance
+          - link "Partnerships" [ref=e14] [cursor=pointer]:
+            - /url: /partnerships
+          - link "About" [ref=e16] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e17] [cursor=pointer]:
+            - /url: /contact
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: Working with SunLife
+        - heading "Partnerships" [level=1] [ref=e24]
+        - paragraph [ref=e25]: SunLife works with subcontractors, service providers, and business partners to support project requirements across its approved capabilities.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - paragraph [ref=e29]: Collaboration
+          - heading "A practical approach to working together" [level=2] [ref=e30]
+          - paragraph [ref=e31]: SunLife values clear communication, defined project requirements, and coordinated service delivery. Partnership discussions are reviewed against the needs of each opportunity.
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: "01"
+            - paragraph [ref=e35]: Facility maintenance and specialty service delivery
+          - generic [ref=e36]:
+            - generic [ref=e37]: "02"
+            - paragraph [ref=e38]: Remediation, pavement, elevator, and roofing work
+          - generic [ref=e39]:
+            - generic [ref=e40]: "03"
+            - paragraph [ref=e41]: Protective services and operational support
+          - generic [ref=e42]:
+            - generic [ref=e43]: "04"
+            - paragraph [ref=e44]: Government and commercial project coordination
+      - region "Partner companies" [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - paragraph [ref=e50]: Current relationships
+            - heading "Partner network" [level=2] [ref=e51]
+          - generic [ref=e52]:
+            - img "AAI logo" [ref=e55]
+            - img "A.C.T. Asphalt Specialties logo" [ref=e58]
+            - img "Asbestos logo" [ref=e61]
+            - img "asphalt logo" [ref=e64]
+            - img "ATIS logo" [ref=e67]
+            - img "Atlas logo" [ref=e70]
+            - img "Cleanco logo" [ref=e73]
+            - img "Action Business Furniture Inc. logo" [ref=e76]
+            - img "EA logo" [ref=e79]
+            - img "East logo" [ref=e82]
+            - img "Elite logo" [ref=e85]
+            - img "A+ Gutters logo" [ref=e88]
+            - img "Hogan logo" [ref=e91]
+            - img "IEA logo" [ref=e94]
+            - img "Les logo" [ref=e97]
+            - img "Matrix logo" [ref=e100]
+            - img "Mountain logo" [ref=e103]
+            - img "Otis logo" [ref=e106]
+            - img "Rhem logo" [ref=e109]
+            - img "Rhino logo" [ref=e112]
+            - img "Sdp logo" [ref=e115]
+            - img "Shelly logo" [ref=e118]
+            - img "Shetler Construction LLC logo" [ref=e121]
+            - img "Spirco Manufacturing logo" [ref=e124]
+            - img "Summit Contracting logo" [ref=e127]
+            - img "Turner Asphalt, Concrete & Seal Coating logo" [ref=e130]
+            - img "Premium Power Services, LLC logo" [ref=e133]
+            - img "Lee & Associates logo" [ref=e136]
+            - img "Western Site Service logo" [ref=e139]
+            - img "Roofing Construction LLC logo" [ref=e142]
+            - img "White Construction Co logo" [ref=e145]
+            - img "Doctor Asphalt logo" [ref=e148]
+            - img "Southeast Awnings logo" [ref=e151]
+            - img "special-forces logo" [ref=e154]
+            - img "Screenshot 2025-10-14 105 logo" [ref=e157]
+            - img "Screenshot 2025-10-14 105918 logo" [ref=e160]
+            - img "Screenshot 2025-10-14 110242 logo" [ref=e163]
+            - img "Screenshot 2025-10-14 110333 logo" [ref=e166]
+            - img "Screenshot 2025-10-14 110424 logo" [ref=e169]
+            - img "Screenshot 2025-10-14 110946 logo" [ref=e172]
+            - img "Screenshot 2025-10-14 111059 logo" [ref=e175]
+            - img "Screenshot 2025-10-14 111133 logo" [ref=e178]
+            - img "Screenshot 2025-10-14 111252 logo" [ref=e181]
+            - img "Screenshot 2025-10-14 111344 logo" [ref=e184]
+            - img "Screenshot 2025-10-14 111425 logo" [ref=e187]
+            - img "Screenshot 2025-10-14 111442 logo" [ref=e190]
+            - img "Screenshot 2025-10-14 111546 logo" [ref=e193]
+            - img "Screenshot 2025-10-14 111629 logo" [ref=e196]
+      - generic [ref=e198]:
+        - generic [ref=e199]:
+          - heading "Discuss a partnership" [level=2] [ref=e200]
+          - paragraph [ref=e201]: Contact SunLife to discuss a teaming, subcontracting, or service collaboration opportunity.
+        - link "Contact SunLife" [ref=e202] [cursor=pointer]:
+          - /url: /contact
+  - contentinfo [ref=e205]:
+    - generic [ref=e206]:
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - heading "SunLife Facility Solutions" [level=2] [ref=e209]
+          - paragraph [ref=e210]: Facility maintenance, remediation, pavement, elevator, roofing, protective, and specialty services.
+          - paragraph [ref=e211]: "Legal company name: SunLife Corporate Housing LLC"
+        - navigation "Footer navigation" [ref=e212]:
+          - heading "Company" [level=2] [ref=e213]
+          - list [ref=e214]:
+            - listitem [ref=e215]:
+              - link "Services" [ref=e216] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e217]:
+              - link "Past Performance" [ref=e218] [cursor=pointer]:
+                - /url: /past-performance
+            - listitem [ref=e219]:
+              - link "Partnerships" [ref=e220] [cursor=pointer]:
+                - /url: /partnerships
+            - listitem [ref=e221]:
+              - link "About" [ref=e222] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e223]:
+              - link "Contact" [ref=e224] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e225]:
+          - heading "Contact" [level=2] [ref=e226]
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - link "(754) 432-2302" [ref=e231] [cursor=pointer]:
+                - /url: tel:+17544322302
+              - generic [aria-hidden] [ref=e232]: "|"
+              - link "(754) 207-0982" [ref=e233] [cursor=pointer]:
+                - /url: tel:+17542070982
+            - link "admin@sunlifehousingcorp.com" [ref=e234] [cursor=pointer]:
+              - /url: mailto:admin@sunlifehousingcorp.com
+            - paragraph [ref=e238]: Tampa, Florida
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: © 2026 SunLife Corporate Housing LLC. All rights reserved.
+        - generic [ref=e244]:
+          - link "Privacy" [ref=e245] [cursor=pointer]:
+            - /url: /privacy
+          - link "Accessibility" [ref=e246] [cursor=pointer]:
+            - /url: /accessibility
