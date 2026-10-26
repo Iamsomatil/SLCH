@@ -10,14 +10,17 @@ type PartnerLogo = {
 const generatePartnerData = (): PartnerLogo[] => {
   const partnerFiles = [
     "AAI.jpg",
+    "Act.jpg",
     "Asbestos.jpg",
     "asphalt.jpeg",
+    "Atis.jpg",
     "Atlas.jpg",
     "Cleanco.jpg",
     "action-business-furniture.png",
     "Ea.jpg",
     "East.jpg",
     "Elite.jpg",
+    "Gutters.jpg",
     "Hogan.jpg",
     "Iea.jpg",
     "Les.jpg",
@@ -30,6 +33,9 @@ const generatePartnerData = (): PartnerLogo[] => {
     "Shelly.jpg",
     "shetler-construction.png",
     "spirco-manufacturing.png",
+    "Summit contracting.jpg",
+    "Turner.jpg",
+    "premium-power.jpg",
     "lee-and-associates.png",
     "western-site-service.jpeg",
     "roofing-construction-llc.jpeg",
@@ -49,6 +55,12 @@ const generatePartnerData = (): PartnerLogo[] => {
     "lee-and-associates.png": "Lee & Associates",
     "shetler-construction.png": "Shetler Construction LLC",
     "spirco-manufacturing.png": "Spirco Manufacturing",
+    "Act.jpg": "A.C.T. Asphalt Specialties",
+    "Atis.jpg": "ATIS",
+    "Gutters.jpg": "A+ Gutters",
+    "Summit contracting.jpg": "Summit Contracting",
+    "Turner.jpg": "Turner Asphalt, Concrete & Seal Coating",
+    "premium-power.jpg": "Premium Power Services, LLC",
   };
 
   // Additional partner logos added from public/partner starting with "Screenshot"

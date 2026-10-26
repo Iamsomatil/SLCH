@@ -174,4 +174,16 @@ export const selectedContractAwards: ContractAward[] = [
     project: "Chemical Analysis / Laboratory Services",
     location: "Walla Walla, Washington",
   },
+  {
+    id: "nist-roadway-asphalt-repairs-fort-collins",
+    agency: "National Institute of Standards and Technology",
+    project: "Fort Collins Roadway & Asphalt Repairs",
+    location: "Fort Collins, Colorado",
+  },
+  {
+    id: "us-army-elevator-maintenance-fort-buchanan",
+    agency: "U.S. Army",
+    project: "Elevator Preventive Maintenance & Safety Inspection Services",
+    location: "Fort Buchanan, Puerto Rico",
+  },
 ];
