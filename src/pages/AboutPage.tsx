@@ -6,13 +6,11 @@ import Seo from "../components/Seo";
 const teamMembers = [
   { name: "Hosea Barnwell", title: "Chief Executive Officer" },
   { name: "Troy Austria", title: "Chief Operating Officer" },
-  { name: "Samson Akinsanya", title: "Chief Technology Officer" },
   { name: "Florita Lara", title: "Operations Coordinator" },
   { name: "Maria Turqueza", title: "Administrator" },
   { name: "Christy Mayol", title: "Support Services" },
   { name: "Marteena Kyla", title: "Business Development Representative" },
   { name: "Noelle Sevidal", title: "Business Development Representative" },
-  { name: "Leslie Tajale", title: "Procurement Specialist" },
   { name: "Leah Mae", title: "Business Development Representative" },
   { name: "Aeriel Ricardo", title: "Contracts Coordinator" },
   { name: "Racquel Garalde", title: "Contracts Coordinator" },
